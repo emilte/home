@@ -1,0 +1,19 @@
+# Ignore everything unless explicitly added.
+*
+
+
+### bash ###
+!.bashrc
+!.profile
+!.bash_profile
+!.bash_scripts/
+
+
+### git ###
+!.gitconfig
+!.gitignore
+
+
+### zshell ###
+!.zprofile
+!.zshrc

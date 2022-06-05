@@ -1,0 +1,17 @@
+[user]
+	name = Emil Telstad
+	email = emil.telstad@gmail.com
+[pull]
+	rebase = false
+[core]
+	editor = nano
+[alias]
+	co = checkout
+	s = status
+	pm = !sh ~/.bash_scripts/pm.sh
+	fpush = !sh ~/.bash_scripts/fpush.sh
+	fix = commit --fixup
+	olog = log --oneline
+	pr = !git pull && git pm && git rebase
+	squash = rebase -i --autosquash
+	amend = commit --amend
