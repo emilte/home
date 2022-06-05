@@ -1,23 +1,32 @@
 # Fig pre block. Keep at the top of this file.
 . "$HOME/.fig/shell/bash_profile.pre.bash"
 
-echo "Sourcing ~/.bash_profile"
+# Name of this filepath.
+self="~/.bash_profile"
+echo
+echo "=== $self ==="
 
-# Source ~/.bashrc if exists.
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
 
-# Source bash_completion if exists.
-if [ -f /usr/local/etc/bash_completion ]; then
-	. /usr/local/etc/bash_completion
-fi
+### functions ###
+function vsource {
+	# Verbose source of path if it exists.
+	# Usage: vsource <PATH> <FROM>
+	# Example: vsource ~/.bashrc "here"
+	arg_path=$1
+	arg_from=$2 ; arg_from=${arg_from:=`pwd`} # Set default parameter if missing.
+	[ -f $arg_path ] && echo "Sourcing $arg_path" && . $arg_path
+}
+### End: functions ###
+
+
+### bash ###
+vsource ~/.bashrc $self
+vsource /usr/local/etc/bash_completion $self
+### End: bash ###
+
 
 ### git ###
-# Source git-completion.bash if exists.
-if [ -f ~/.git-completion.bash ]; then
-	. ~/.git-completion.bash
-fi
+vsource ~/.git-completion.bash $self
 ### End: git ###
 
 

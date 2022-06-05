@@ -1,7 +1,11 @@
 # Fig pre block. Keep at the top of this file.
 . "$HOME/.fig/shell/bashrc.pre.bash"
 
-echo "Sourcing ~/.bashrc"
+
+# Name of this filepath.
+self="~/.bashrc"
+echo
+echo "=== $self ==="
 
 # [hh:mm:ss] username:pwd git-branch $
 PS1='\[\e[0m\][\[\e[0m\]\t\[\e[0m\]] \[\e[0;92m\]\u\[\e[0m\]:\[\e[0;94m\]\w \[\e[0;96m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2) \[\e[0m\]$ \[\e[0m\]'
