@@ -19,3 +19,7 @@
 ### zshell ###
 !.zprofile
 !.zshrc
+
+
+### other ###
+!README.md

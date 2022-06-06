@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Change default terminal to bash.
-chsh -s /bin/bash
-
 ### functions ###
 function is_yes {
     [ "$1" = "y" ] || [ "$1" = "Y" ]
@@ -43,9 +40,17 @@ function do_action {
 }
 
 
-# Get user input to initialise global 'interactive'
+# Change default terminal to bash.
+chsh -s /bin/bash
+
+# Initialise global 'interactive'.
+interactive="$1"
+
+# Get user input if missing 'interactive'.
+echo
+echo
 while ! is_valid_answer $interactive ; do
-    read -p "interactive [y/n]: " interactive
+    read -p "Install with interactive mode? [y/n]: " interactive
 done
 # Make lowercase.
 interactive=`echo $interactive | tr "[:upper:]" "[:lower:]"`
