@@ -6,7 +6,9 @@
 !.bashrc
 !.profile
 !.bash_profile
+!.configure_bash.sh
 !.bash_scripts/
+!.docker_testing/
 
 
 ### git ###

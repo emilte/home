@@ -1,7 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 . "$HOME/.fig/shell/bashrc.pre.bash"
 
-
 # Name of this filepath.
 self="~/.bashrc"
 echo
