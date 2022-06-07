@@ -15,7 +15,9 @@ I have provided a simple Dockerfile [/.docker_testing/DockerFile](/.docker_testi
 
 <br>
 
-Command (can safely be repeated):
+Command to open a new container (can safely be repeated):
+
+> NOTE: This does not run the installation, continue in the section [for other users](#for-non-emil-users).
 
 ```sh
 cd ~ && rm -rf /tmp/docker-home-testing && mkdir /tmp/docker-home-testing && cd /tmp/docker-home-testing && curl -LJO https://raw.githubusercontent.com/emilte/home/master/.docker_testing/Dockerfile && docker build --force-rm --rm -t home-test . ; docker run -it home-test
