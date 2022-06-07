@@ -62,13 +62,15 @@ echo `pwd`
 ### brew ###
 # Install brew if it doesn't exist.
 if [ ! `which brew` ]; then
+    # Non-interactive install.
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # Update PATH and current shell.
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.bash_profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 # Update brew.
-brew update && brew upgrade && brew upgrade --cask
-brew install gcc
+brew update -q && brew upgrade -q && brew upgrade -q --cask
+brew install gcc -q # Recommended by brew.
 
 
 ### bitwarden ###
@@ -90,7 +92,7 @@ do_action "Install fig?" "brew install --cask fig -q"
 ### alt-tab ###
 # Enables tabbing similar to Windows.
 # https://alt-tab-macos.netlify.app/
-do_action "Install alt-tab?" "brew install alt-tab -q"
+do_action "Install alt-tab?" "brew install --cask alt-tab -q"
 
 
 ### docker ###
@@ -114,8 +116,8 @@ do_action "Install ncdu?" "brew install ncdu -q"
 do_action "Install jq?" "brew install jq -q"
 
 
-### vscode ###
-do_action "Install vscode?" "brew install vscode -q"
+### visual-studio-code ###
+do_action "Install visual-studio-code?" "brew install visual-studio-code -q"
 
 
 ### bash-completion ###
