@@ -53,7 +53,7 @@ while ! is_valid_answer $interactive ; do
     read -p "Install with interactive mode? [y/n]: " interactive
 done
 # Make lowercase.
-interactive=`echo $interactive | tr "[:upper:]" "[:lower:]"`
+interactive=`echo $interactive | tr "[:upper:]" "[:lower:]"` # https://stackoverflow.com/a/2264451/12616507
 
 # Go to home directory.
 cd ~

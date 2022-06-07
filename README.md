@@ -95,3 +95,25 @@ cd ~ && git init && git config --global user.email "you@example.com" && git conf
 >    Force new setup in home directory.
 > 10. `bash .docker_testing/.configure_bash.sh y` <br>
 >     Run configuration for bash in interactive mode.
+
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+## Sources:
+
+1. https://stackoverflow.com/a/45514197/12616507
+2. https://stackoverflow.com/questions/50361138/destination-path-already-exists-and-is-not-an-empty-directory
+3. https://curl.se/docs/manpage.html
+4. https://codefather.tech/blog/bash-unary-operator-expected/
+5. https://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php
+6. https://stackoverflow.com/a/2642592/12616507
+7. https://hub.docker.com/_/ubuntu
+8. https://ggkbase-help.berkeley.edu/how-to/install-pyenv/
+9. https://unix.stackexchange.com/a/594845
+10. https://stackoverflow.com/a/6212408/12616507
+11. https://github.com/emilyst/home
+12. https://github.com/emilte/terminal
+13. https://linuxize.com/post/bash-functions/
