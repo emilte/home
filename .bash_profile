@@ -30,6 +30,11 @@ vsource ~/.git-completion.bash $self
 ### End: git ###
 
 
+### glab ###
+eval "$(glab completion -s bash)"
+### End: glab ###
+
+
 ### ALIAS ###
 # ls (but everything).
 alias la='ls -la'
