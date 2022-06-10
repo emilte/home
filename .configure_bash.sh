@@ -145,6 +145,9 @@ do_action "Install glab?" "brew install glab -q"
 do_action "Install iterm2?" "brew install iterm2 -q"
 
 
+### spotify ###
+do_action "Install spotify?" "brew install spotify -q"
+
 
 # Restart terminal
 exec "$SHELL"
