@@ -9,7 +9,7 @@ I've finally published my local setup, [check it out](https://youtu.be/pqky5B179
 
 If you want a preview of this setup, you should try this!
 <br>
-I have provided a simple Dockerfile [/.docker_testing/DockerFile](/.docker_testing/DockerFile) for sandbox testing.
+I have provided a simple Dockerfile [/DockerFile](/DockerFile) for sandbox testing.
 
 > WARNING: Never blindly trust commands you didn't write yourself. I advice you to inspect commands before running them.
 
@@ -20,7 +20,7 @@ Command to open a new container (can safely be repeated):
 > NOTE: This does not run the installation, continue in the section [for other users](#for-non-emil-users).
 
 ```sh
-cd ~ && rm -rf /tmp/docker-home-testing && mkdir /tmp/docker-home-testing && cd /tmp/docker-home-testing && curl -LJO https://raw.githubusercontent.com/emilte/home/master/.docker_testing/Dockerfile && docker build --force-rm --rm -t home-test . ; docker run -it home-test
+cd ~ && rm -rf /tmp/docker-home-testing && mkdir /tmp/docker-home-testing && cd /tmp/docker-home-testing && curl -LJO https://raw.githubusercontent.com/emilte/home/master/Dockerfile && docker build --force-rm --rm -t home-test . ; docker run -it home-test
 ```
 
 > This command will:
@@ -52,7 +52,7 @@ Dedicated to myself, you should probably see the section [for other users](#for-
 > WARNING: This command will ensure that the home directory reflects this repo. The old setup will be backed up in a branch named `home-old`.
 
 ```sh
-cd ~ && git init && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && git remote add origin https://github.com/emilte/home.git && git fetch --all && git checkout -b "home-old" && git add . && git commit -m "Old home directory" && git checkout master -f ; bash .docker_testing/.configure_bash.sh n
+cd ~ && git init && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && git remote add origin https://github.com/emilte/home.git && git fetch --all && git checkout -b "home-old" && git add . && git commit -m "Old home directory" && git checkout master -f ; bash .configure_bash.sh n
 ```
 
 <br>
@@ -71,7 +71,7 @@ Run this command for interactive installation:
 > WARNING: Never blindly trust commands you didn't write yourself. I advice you to inspect commands before running them.
 
 ```sh
-cd ~ && git init && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && git remote add origin https://github.com/emilte/home.git && git fetch --all && git checkout -b "home-old" && git add . && git commit -m "Old home directory" && git checkout master -f ; bash .docker_testing/.configure_bash.sh y
+cd ~ && git init && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && git remote add origin https://github.com/emilte/home.git && git fetch --all && git checkout -b "home-old" && git add . && git commit -m "Old home directory" && git checkout master -f ; bash .configure_bash.sh y
 ```
 
 > This command will:
@@ -95,7 +95,7 @@ cd ~ && git init && git config --global user.email "you@example.com" && git conf
 >    Commit current setup to branch `home-old`.
 > 9. `git checkout master -f` <br>
 >    Force new setup in home directory.
-> 10. `bash .docker_testing/.configure_bash.sh y` <br>
+> 10. `bash .configure_bash.sh y` <br>
 >     Run configuration for bash in interactive mode.
 
 <br>

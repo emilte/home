@@ -1,6 +1,0 @@
-# Ignore everything unless explicitly added.
-*
-
-!.configure_bash.sh
-!Dockerfile
-!.gitignore

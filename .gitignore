@@ -8,7 +8,6 @@
 !.bash_profile
 !.configure_bash.sh
 !.bash_scripts/
-!.docker_testing/
 
 
 ### git ###
@@ -20,6 +19,13 @@
 !.zprofile
 !.zshrc
 
+### iterm2 ###
+# General preferences:
+!com.googlecode.iterm2.plist
+# Profile:
+!iterm2_profile_emil.json
+
 
 ### other ###
 !README.md
+!Dockerfile
