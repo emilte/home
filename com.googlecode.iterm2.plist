@@ -451,6 +451,7 @@
 				<string>ssh</string>
 				<string>slogin</string>
 				<string>telnet</string>
+				<string>bash</string>
 			</array>
 			<key>Keyboard Map</key>
 			<dict>
