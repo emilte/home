@@ -16,6 +16,10 @@ function is_valid_answer {
     return $?
 }
 
+# https://apple.stackexchange.com/questions/34810/create-a-command-to-focus-a-specific-window-from-anywhere-in-os
+# function notify
+# https://apple.stackexchange.com/a/115373
+
 function do_action {
     # $1: description
     # $2: string of chained commands
@@ -69,84 +73,102 @@ if [ ! `which brew` ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 # Update brew.
-brew update -q && brew upgrade -q && brew upgrade -q --cask
-brew install gcc -q # Recommended by brew.
+brew update && brew upgrade && brew upgrade --cask
+brew install gcc # Recommended by brew.
 
 
 ### bitwarden ###
-do_action "Install bitwarden-cli?" "brew install bitwarden-cli -q"
+do_action "Install bitwarden-cli?" "brew install bitwarden-cli"
 
 
 ### wifi-password ###
-do_action "Install wifi-password (requires MacOS)?" "brew install wifi-password -q"
-
-
-### fig ###
-# Autocompletion with GUI.
-# https://fig.io/
-# https://formulae.brew.sh/cask/fig
-# https://github.com/withfig/fig
-do_action "Install fig?" "brew install --cask fig -q"
-
-
-### alt-tab ###
-# Enables tabbing similar to Windows.
-# https://alt-tab-macos.netlify.app/
-do_action "Install alt-tab?" "brew install --cask alt-tab -q"
+do_action "Install wifi-password (requires MacOS)?" "brew install wifi-password"
 
 
 ### docker ###
-do_action "Install docker?" "brew install docker -q"
+do_action "Install docker?" "brew install docker"
 
 
 ### colima ###
 # Replacement for docker-desktop.
 # https://github.com/abiosoft/colima
-do_action "Install colima?" "brew install colima -q && colima start"
+do_action "Install colima?" "brew install colima && colima start"
 
 
 ### ncdu ###
 # Directory explorer.
-do_action "Install ncdu?" "brew install ncdu -q"
+do_action "Install ncdu?" "brew install ncdu"
 
 
 ### jq ###
 # JSON processor for CLI.
 # https://stedolan.github.io/jq/
-do_action "Install jq?" "brew install jq -q"
-
-
-### visual-studio-code ###
-do_action "Install visual-studio-code?" "brew install visual-studio-code -q"
+do_action "Install jq?" "brew install jq"
 
 
 ### bash-completion ###
-do_action "Install bash-completion?" "brew install bash-completion -q"
+do_action "Install bash-completion?" "brew install bash-completion"
 
 
 ### git ###
-do_action "Install git?" "brew install git -q"
+do_action "Install git?" "brew install git"
 
 
 ### pyenv ###
 # Config already added to .bash_profile.
-do_action "Install pyenv?" "git clone https://github.com/pyenv/pyenv.git ~/.pyenv"
+# do_action "Install pyenv?" "git clone https://github.com/pyenv/pyenv.git ~/.pyenv"
+do_action "Install pyenv?" "brew install pyenv"
 
-
-### google-chrome ###
-do_action "Install google-chrome?" "brew install --cask google-chrome -q"
-
-
-### glab ###
-do_action "Install glab?" "brew install glab -q"
-
-
-### iterm2 ###
-do_action "Install iterm2?" "brew install iterm2 -q"
+### gitlab-cli ###
+do_action "Install gitlab-cli (glab)?" "brew install glab"
 
 
 ### spotify ###
-do_action "Install spotify?" "brew install spotify -q"
+do_action "Install spotify?" "brew install spotify"
+
+
+### github-cli ###
+do_action "Install github-cli (gh)?" "brew install gh"
+
+
+### macOS ###
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # Cask packages are macOS only.
+
+    ### google-chrome ###
+    do_action "Install google-chrome?" "brew install --cask google-chrome"
+
+
+    ### alt-tab ###
+    # Enables tabbing similar to Windows.
+    # https://alt-tab-macos.netlify.app/
+    do_action "Install alt-tab?" "brew install --cask alt-tab"
+
+
+    ### iterm2 ###
+    do_action "Install iterm2?" "brew install --cask iterm2"
+
+    
+    ### visual-studio-code ###
+    do_action "Install visual-studio-code?" "brew install --cask visual-studio-code"
+
+
+    ### fig ###
+    # Autocompletion with GUI.
+    # https://fig.io/
+    # https://formulae.brew.sh/cask/fig
+    # https://github.com/withfig/fig
+    do_action "Install fig?" "brew install --cask fig"
+
+
+    ### bitwarden ###
+    do_action "Install bitwarden?" "brew install --cask bitwarden"
+
+
+    ### 1password ###
+    do_action "Install 1password?" "brew install --cask 1password"
+    do_action "Install 1password-cli?" "brew install --cask 1password-cli"
+fi
 
 
 # Restart terminal
