@@ -1,6 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/bash_profile.pre.bash"
-
+[[ -f "$HOME/.fig/shell/bash_profile.pre.bash" ]] && . "$HOME/.fig/shell/bash_profile.pre.bash"
 # Name of this filepath.
 self="~/.bash_profile"
 echo
@@ -65,4 +64,4 @@ fi
 export PATH="/usr/local/sbin:$PATH"
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/bash_profile.post.bash"
+[[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && . "$HOME/.fig/shell/bash_profile.post.bash"
