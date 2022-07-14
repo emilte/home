@@ -30,7 +30,7 @@ vsource ~/.git-completion.bash $self
 
 
 ### glab ###
-eval "$(glab completion -s bash)"
+[ `which glab` ] && eval "$(glab completion -s bash)"
 ### End: glab ###
 
 
@@ -52,6 +52,11 @@ export CPPFLAGS="-I/usr/local/opt/openssl/include"
 ### End: pipenv ###
 
 
+### colima ###
+[ `which colima` ] && source <(colima completion bash)
+### End: colima ###
+
+
 ### pyenv ###
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -62,6 +67,8 @@ fi
 ### End: pyenv ###
 
 export PATH="/usr/local/sbin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && . "$HOME/.fig/shell/bash_profile.post.bash"
