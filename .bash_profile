@@ -1,5 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/bash_profile.pre.bash" ]] && . "$HOME/.fig/shell/bash_profile.pre.bash"
+
 # Name of this filepath.
 self="~/.bash_profile"
 echo
@@ -19,7 +20,11 @@ function vsource {
 
 
 ### bash ###
-vsource ~/.bashrc $self
+# Prevent infinite source loop.
+BASH_PROFILE_SOURCED=1
+[ "$BASHRC_SOURCED" != 1 ] && vsource ~/.bashrc $self
+unset BASH_PROFILE_SOURCED
+
 vsource /usr/local/etc/bash_completion $self
 ### End: bash ###
 
@@ -66,8 +71,8 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 ### End: pyenv ###
 
+# iterm2 shell integration.
 export PATH="/usr/local/sbin:$PATH"
-
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # Fig post block. Keep at the bottom of this file.
