@@ -27,7 +27,7 @@ unset BASHRC_SOURCED
 ### End: bash ###
 
 # [hh:mm:ss] username:pwd git-branch $
-PS1='\[\e[0m\][\[\e[0m\]\t\[\e[0m\]] \[\e[0;92m\]\u\[\e[0m\]:\[\e[0;94m\]\w \[\e[0;96m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2) \[\e[0m\]$ \[\e[0m\]'
+PS1='\[\e[0m\][\[\e[0m\]\t\[\e[0m\]] \[\e[0;92m\]\u\[\e[0m\]:\[\e[0;94m\]\w \[\e[0;96m\]$([ $(git config --get remote.origin.url) != git@github.com:emilte/home.git ] && git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2) \[\e[0m\]$ \[\e[0m\]'
 export PS1
 
 ### LS_COLORS ###
