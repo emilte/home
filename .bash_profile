@@ -71,6 +71,12 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 ### End: pyenv ###
 
+### ruby ###
+if command -v pyenv 1>/dev/null 2>&1; then
+	eval "$(rbenv init - bash)"
+fi
+### End: ruby ###
+
 # iterm2 shell integration.
 export PATH="/usr/local/sbin:$PATH"
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
