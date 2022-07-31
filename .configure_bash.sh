@@ -29,7 +29,7 @@ function do_action {
     # $2: string of chained commands.
     # $3: interactive mode "y" or "n".
     # Utilises global 'X_INTERACTIVE' to prompt user. Defaults to "y" if missing.
-    interactive = $3
+    interactive=$3
     should_ask=${interactive:="y"}
 
     # Ask to do action if interactive mode.

@@ -52,7 +52,7 @@ Dedicated to myself, you should probably see the section [for other users](#for-
 > WARNING: This command will ensure that the home directory reflects this repo. The old setup will be backed up in a branch named `home-old`.
 
 ```sh
-cd ~ && git init && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && git remote add origin https://github.com/emilte/home.git && git fetch --all && git checkout -b "home-old" && git add . && git commit -m "Old home directory" && git checkout master -f ; bash .configure_bash.sh n
+cd ~ && git init && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && git remote add origin git@github.com:emilte/home.git && git fetch --all && git checkout -b "home-old" && git add . && git commit -m "Old home directory" && git checkout master -f ; bash .configure_bash.sh n
 ```
 
 <br>
