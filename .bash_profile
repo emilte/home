@@ -24,7 +24,7 @@ function vsource {
 BASH_PROFILE_SOURCED=1
 [ "$BASHRC_SOURCED" != 1 ] && vsource ~/.bashrc $self
 unset BASH_PROFILE_SOURCED
-
+[ "$BASHRC_SOURCED" != 1 ] && vsource ~/.bash_secret $self # Excluded from version control.
 vsource /usr/local/etc/bash_completion $self
 ### End: bash ###
 
@@ -45,9 +45,6 @@ alias la='ls -la'
 # Add colors to grep.
 alias grep="grep --color=auto"
 alias projects="cd ~/my-projects"
-alias samf="cd ~/my-projects/Samfundet"
-alias rekenett="cd ~/my-projects/rekenett"
-alias feide="cd ~/my-projects/feide-kp"
 ### End: ALIAS ###
 
 
