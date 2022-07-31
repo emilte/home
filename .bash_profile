@@ -42,9 +42,12 @@ vsource ~/.git-completion.bash $self
 ### ALIAS ###
 # ls (but everything).
 alias la='ls -la'
-
 # Add colors to grep.
-alias grep="/usr/bin/grep --color=auto"
+alias grep="grep --color=auto"
+alias projects="cd ~/my-projects"
+alias samf="cd ~/my-projects/Samfundet"
+alias rekenett="cd ~/my-projects/rekenett"
+alias feide="cd ~/my-projects/feide-kp"
 ### End: ALIAS ###
 
 
