@@ -15,3 +15,5 @@
 	pr = !git pull && git pm && git rebase
 	squash = rebase -i --autosquash
 	amend = commit --amend
+[init]
+	defaultBranch = master
