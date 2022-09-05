@@ -24,7 +24,7 @@ function vsource {
 BASH_PROFILE_SOURCED=1
 [ "$BASHRC_SOURCED" != 1 ] && vsource ~/.bashrc $self
 unset BASH_PROFILE_SOURCED
-[ "$BASHRC_SOURCED" != 1 ] && vsource ~/.bash_secret $self # Excluded from version control.
+vsource ~/.bash_secret $self # Excluded from version control.
 vsource /usr/local/etc/bash_completion $self
 ### End: bash ###
 

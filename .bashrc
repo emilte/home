@@ -34,7 +34,7 @@ export PS1
 ### LS_COLORS ###
 # See https://github.com/emilte/terminal for more.
 EMIL_LS_COLORS=":di=94:"
-CURRENT_LS_COLORS=$EMIL_LS_COLORS
+CURRENT_LS_COLORS="$EMIL_LS_COLORS"
 LS_COLORS="${CURRENT_LS_COLORS}:" ; export LS_COLORS
 
 # Prevent duplicate entries when browsing history in terminal.
