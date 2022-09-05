@@ -15,5 +15,7 @@
 	pr = !git pull && git pm && git rebase
 	squash = rebase -i --autosquash
 	amend = commit --amend
+	back = reset --hard --keep HEAD~1
+	forward = reset --hard --keep HEAD@{1}
 [init]
 	defaultBranch = master
