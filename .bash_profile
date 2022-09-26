@@ -25,6 +25,11 @@ BASH_PROFILE_SOURCED=1
 unset BASH_PROFILE_SOURCED
 vsource ~/.bash_secret $self # Excluded from version control.
 vsource /usr/local/etc/bash_completion $self
+
+# Recommended by brew.
+export LDFLAGS="-L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
+export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 ### End: bash ###
 
 
@@ -52,9 +57,6 @@ alias projects="cd ~/my-projects"
 ### pipenv ###
 export PIPENV_VENV_IN_PROJECT=1
 export LANG="en_US.UTF-8"
-# resolves bug with psycopg2
-export LDFLAGS="-L/usr/local/opt/openssl/lib" 
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
 ### End: pipenv ###
 
 
