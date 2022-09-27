@@ -27,7 +27,7 @@ unset BASHRC_SOURCED
 
 # https://robotmoon.com/bash-prompt-generator/
 # [hh:mm:ss] username:pwd git-branch $
-PS1='\[\e[0m\][\[\e[0m\]\t\[\e[0m\]] \[$(tput setaf 10)\]\u\[$(tput setaf 250)\]@\[$(tput setaf 201)\]\h\[\e[0m\]:\[\e[0;94m\]\w \[\e[0;96m\]$([ $(git config --get remote.origin.url) != git@github.com:emilte/home.git ] && git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\n\[$(tput setaf 9)\] \$ \[\e[0m\]'
+PS1='\[\e[0m\][\[\e[0m\]\t\[\e[0m\]] \[$(tput setaf 10)\]\u\[$(tput setaf 250)\]@\[$(tput setaf 201)\]\h\[\e[0m\]:\[\e[0;94m\]\w \[\e[0;96m\]$([ "$(git config --get remote.origin.url)" != "git@github.com:emilte/home.git" ] && git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\n\[$(tput setaf 9)\] \$ \[\e[0m\]'
 export PS1
 
 ### LS_COLORS ###
