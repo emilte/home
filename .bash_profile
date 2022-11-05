@@ -1,10 +1,12 @@
+#!/usr/bin/env bash
+
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/bash_profile.pre.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.pre.bash"
 # Name of this filepath.
+# shellcheck disable=SC2088
 self="~/.bash_profile"
 echo
 echo "=== $self ==="
-
 
 ### functions ###
 function vsource {
@@ -12,15 +14,16 @@ function vsource {
 	# Usage: vsource <PATH> <FROM>
 	# Example: vsource ~/.bashrc "here"
 	arg_path=$1
-	arg_from=$2 ; arg_from=${arg_from:=`pwd`} # Set default parameter if missing.
-	[ -f $arg_path ] && echo "Sourcing $arg_path" && . $arg_path
+	arg_from=$2 ; arg_from=${arg_from:=$("pwd")} # Set default parameter if missing.
+	# shellcheck disable=SC1090
+	[ -f "$arg_path" ] && echo "Sourcing $arg_path" && source "$arg_path"
 }
 ### End: functions ###
 
 
 ### bash ###
 # Prevent infinite source loop.
-BASH_PROFILE_SOURCED=1
+export BASH_PROFILE_SOURCED=1
 [ "$BASHRC_SOURCED" != 1 ] && vsource ~/.bashrc $self
 unset BASH_PROFILE_SOURCED
 vsource ~/.bash_secret $self # Excluded from version control.
@@ -37,8 +40,8 @@ export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 vsource ~/.git-completion.bash $self
 ### End: git ###
 
-
 ### glab ###
+# shellcheck disable=SC2046,SC1090,SC2006
 [ `which glab` ] && eval "$(glab completion -s bash)"
 ### End: glab ###
 
@@ -61,7 +64,8 @@ export LANG="en_US.UTF-8"
 
 
 ### colima ###
-[ `which colima` ] && source <(colima completion bash)
+# shellcheck disable=SC2046,SC1090
+[ $(which colima) ] && source <(colima completion bash)
 ### End: colima ###
 
 
@@ -82,7 +86,14 @@ fi
 
 # iterm2 shell integration.
 export PATH="/usr/local/sbin:$PATH"
+# shellcheck disable=SC1091
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# MacOS
+# https://macos-defaults.com/finder/_fxsortfoldersfirst.html#set-to-true
+#  $ defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
+#  $ defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
+#   $ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.post.bash"
