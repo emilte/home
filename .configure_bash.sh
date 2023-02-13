@@ -16,7 +16,7 @@ function is_no {
 }
 
 function is_valid_answer {
-    is_yes $1 || is_no $1
+    is_yes "$1" || is_no "$1"
     return $?
 }
 
@@ -35,17 +35,17 @@ function do_action {
     # Ask to do action if interactive mode.
     if [ "$should_ask" = "y" ]; then
         echo
-        while ! is_valid_answer $do_action_ans ; do
-            read -p "$1 [y/n]: " do_action_ans
+        while ! is_valid_answer "$do_action_ans" ; do
+            read -r -p "$1 [y/n]: " do_action_ans
         done
         # Make lowercase.
-        do_action_ans=`echo $do_action_ans | tr "[:upper:]" "[:lower:]"`
+        do_action_ans=$(echo "$do_action_ans" | tr "[:upper:]" "[:lower:]")
     else 
         do_action_ans="y"
     fi
     # Install if accepted.
     if [ "$do_action_ans" = "y" ]; then
-        eval $2
+        eval "$2"
     fi
 }
 
@@ -58,11 +58,11 @@ function do_action {
 # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
 echo ; echo ; echo ; echo "==============================================================="
 if [ $IS_UBUNTU == 0 ]; then
-    [ ! `which sudo` ] && apt install -y sudo
-    do_action "Attempt to install requirements (build-essential, procps, curl, file, git, ssh)" "sudo apt update -y ; sudo apt upgrade -y ; sudo apt install -y build-essential procps curl file git ssh" $X_INTERACTIVE
+    [ ! "$(which sudo)" ] && apt install -y sudo
+    do_action "Attempt to install requirements (build-essential, procps, curl, file, git, ssh)" "sudo apt update -y ; sudo apt upgrade -y ; sudo apt install -y build-essential procps curl file git ssh" "$X_INTERACTIVE"
 elif [ $IS_MAC == 0 ]; then
-    do_action "Attempt to install requirements (curl, git)" "brew install git curl" $X_INTERACTIVE
-    do_action "Install xcode-select" "xcode-select --install" $X_INTERACTIVE
+    do_action "Attempt to install requirements (curl, git)" "brew install git curl" "$X_INTERACTIVE"
+    do_action "Install xcode-select" "xcode-select --install" "$X_INTERACTIVE"
 fi
 
 
@@ -77,19 +77,19 @@ echo
 # Get user input if missing 'interactive'.
 echo
 echo
-while ! is_valid_answer $X_INTERACTIVE ; do
+while ! is_valid_answer "$X_INTERACTIVE" ; do
     read -p "Install with interactive mode? [y/n]: " X_INTERACTIVE
 done
 # Make lowercase.
-X_INTERACTIVE=`echo $X_INTERACTIVE | tr "[:upper:]" "[:lower:]"` # https://stackoverflow.com/a/2264451/12616507
+X_INTERACTIVE=$(echo "$X_INTERACTIVE" | tr "[:upper:]" "[:lower:]") # https://stackoverflow.com/a/2264451/12616507
 
 # Go to home directory.
-cd ~
-echo `pwd`
+cd ~ || exit
+pwd
 
 ### brew ###
 # Install brew if it doesn't exist.
-if [ ! `which brew` ]; then
+if [ ! "$(which brew)" ]; then
     # Non-interactive install.
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     # Update PATH and current shell.
