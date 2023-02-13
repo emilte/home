@@ -21,14 +21,16 @@
 	<key>DimBackgroundWindows</key>
 	<false/>
 	<key>DimInactiveSplitPanes</key>
-	<false/>
+	<true/>
 	<key>DimOnlyText</key>
-	<false/>
+	<true/>
 	<key>EnableAPIServer</key>
 	<true/>
 	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>FlashTabBarInFullscreen</key>
+	<false/>
+	<key>FocusFollowsMouse</key>
 	<false/>
 	<key>GlobalKeyMap</key>
 	<dict>
@@ -2446,6 +2448,8 @@
 			<string>/Users/emil</string>
 		</dict>
 	</array>
+	<key>OpenTmuxWindowsIn</key>
+	<integer>0</integer>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PasteSpecialRegex</key>
@@ -2506,13 +2510,17 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.19781856203542172</real>
+	<real>0.19500602648096155</real>
 	<key>StretchTabsToFillBar</key>
 	<false/>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>4</integer>
 	<key>TabsHaveCloseButton</key>
 	<true/>
+	<key>TerminalMargin</key>
+	<integer>2</integer>
+	<key>TerminalVMargin</key>
+	<integer>0</integer>
 	<key>TimeBetweenTips</key>
 	<real>86400</real>
 	<key>ToolbeltTools</key>
