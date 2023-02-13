@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/bash_profile.pre.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.pre.bash"
 # Name of this filepath.
 # shellcheck disable=SC2088
 self="~/.bash_profile"
@@ -54,6 +52,7 @@ alias ...="cd ../.."
 # Add colors to grep.
 alias grep="grep --color=auto"
 alias projects="cd ~/my-projects"
+alias dc="docker compose"
 ### End: ALIAS ###
 
 
@@ -94,6 +93,3 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 #  $ defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
 #  $ defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
 #   $ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.post.bash"
