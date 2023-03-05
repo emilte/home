@@ -30,3 +30,5 @@
 ### other ###
 !README.md
 !Dockerfile
+!.config/glab-cli/aliases.yml
+!.config/gh/config.yml
