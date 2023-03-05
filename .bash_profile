@@ -25,7 +25,7 @@ export BASH_PROFILE_SOURCED=1
 [ "$BASHRC_SOURCED" != 1 ] && vsource ~/.bashrc $self
 unset BASH_PROFILE_SOURCED
 vsource ~/.bash_secret $self # Excluded from version control.
-vsource /usr/local/etc/bash_completion $self
+vsource /usr/local/etc/bash_completion $self # Loads all other completions.
 
 # Recommended by brew.
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
@@ -35,26 +35,33 @@ export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 
 
 ### git ###
-vsource ~/.git-completion.bash $self
+# vsource ~/.git-completion.bash $self
 ### End: git ###
 
 ### glab ###
 # shellcheck disable=SC2046,SC1090,SC2006
-[ `which glab` ] && eval "$(glab completion -s bash)"
+# [ `which glab` ] && eval "$(glab completion -s bash)"
 ### End: glab ###
 
 
 ### ALIAS ###
-# ls (but everything).
-alias la='ls -la'
+alias la="ls -la" # ls (but everything).
 alias ..="cd .."
 alias ...="cd ../.."
-# Add colors to grep.
-alias grep="grep --color=auto"
+alias grep="grep --color=auto" # Add colors to grep.
 alias projects="cd ~/my-projects"
 alias dc="docker compose"
+alias staging="open https://feide-kp-staging.paas2.uninett.no/"
+alias prod="open https://kunde.feide.no/"
+alias sentry="open https://sentry.feide.no/organizations/feide/issues/?environment=production&project=2&query=is%3Aunresolved&referrer=issue-list&statsPeriod=14d"
+alias samf="cd ~/my-projects/Samfundet"
+alias rekenett="cd ~/my-projects/rekenett"
+alias feide="cd ~/my-projects/feide-kp"
+alias samf4="cd ~/my-projects/Samfundet4"
+alias django="python -m pipenv run python manage.py"
+alias makemigrations="python -m pipenv run python manage.py makemigrations"
+alias migrate="python -m pipenv run python manage.py migrate"
 ### End: ALIAS ###
-
 
 ### pipenv ###
 export PIPENV_VENV_IN_PROJECT=1
@@ -64,7 +71,7 @@ export LANG="en_US.UTF-8"
 
 ### colima ###
 # shellcheck disable=SC2046,SC1090
-[ $(which colima) ] && source <(colima completion bash)
+# [ $(which colima) ] && source <(colima completion bash)
 ### End: colima ###
 
 
@@ -92,4 +99,4 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 # https://macos-defaults.com/finder/_fxsortfoldersfirst.html#set-to-true
 #  $ defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
 #  $ defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
-#   $ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
+#  $ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder

@@ -78,7 +78,7 @@ echo
 echo
 echo
 while ! is_valid_answer "$X_INTERACTIVE" ; do
-    read -p "Install with interactive mode? [y/n]: " X_INTERACTIVE
+    read -r -p "Install with interactive mode? [y/n]: " X_INTERACTIVE
 done
 # Make lowercase.
 X_INTERACTIVE=$(echo "$X_INTERACTIVE" | tr "[:upper:]" "[:lower:]") # https://stackoverflow.com/a/2264451/12616507
