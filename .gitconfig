@@ -9,12 +9,15 @@
 	co = switch
 	s = status
 	pm = !sh ~/.bash_scripts/pm.sh
-	fpush = !sh ~/.bash_scripts/fpush.sh
+	default = !git remote show origin | awk '/HEAD branch/ {print $NF}'
+	fpush = !git push --force-with-lease origin $(git current)
 	fix = commit --fixup
 	olog = log --oneline
 	pr = !git pull && git pm && git rebase
 	squash = rebase -i --autosquash
 	amend = commit --amend
+	current = rev-parse --abbrev-ref HEAD # Get name of current branch.
+	freset = !git reset --hard origin/$(git current) # Reset current branch.
 	back = reset --hard --keep HEAD~1
 	forward = reset --hard --keep HEAD@{1}
 [init]
