@@ -42,3 +42,5 @@ LS_COLORS="${CURRENT_LS_COLORS}:" ; export LS_COLORS
 
 # Prevent duplicate entries when browsing history in terminal.
 export HISTCONTROL=ignoredups
+
+source /Users/emil/.config/broot/launcher/bash/br

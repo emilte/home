@@ -100,3 +100,5 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 #  $ defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
 #  $ defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
 #  $ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
+
+source /Users/emil/.config/broot/launcher/bash/br
