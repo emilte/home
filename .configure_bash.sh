@@ -6,7 +6,8 @@
 
 ### functions ###
 function is_yes {
-    [ "$1" = "y" ] || [ "$1" = "Y" ]
+	ans=$(echo "$1" | tr "[:upper:]" "[:lower:]") # To lowercase.
+    [ "$ans" = "y" ] || [ "$ans" = "yes" ]
     return $?
 }
 

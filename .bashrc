@@ -17,6 +17,13 @@ function vsource {
 	# shellcheck disable=SC1090
 	[ -f "$arg_path" ] && echo "Sourcing $arg_path" && . "$arg_path"
 }
+
+function is_yes {
+	ans=$(echo "$1" | tr "[:upper:]" "[:lower:]") # To lowercase.
+    [ "$ans" = "y" ] || [ "$ans" = "yes" ]
+    return $?
+}
+
 ### End: functions ###
 
 
@@ -26,6 +33,12 @@ export BASHRC_SOURCED=1
 [ "$BASH_PROFILE_SOURCED" != 1 ] && vsource ~/.bash_profile $self
 unset BASHRC_SOURCED
 ### End: bash ###
+
+### upgrade ###
+echo;
+read -r -p "Run brew update and brew upgrade? [y/N]: " ans
+is_yes "$ans"
+# is_yes "$ans" && brew update; brew upgrade;
 
 # https://robotmoon.com/bash-prompt-generator/
 # [hh:mm:ss] username:pwd git-branch $
