@@ -37,8 +37,7 @@ unset BASHRC_SOURCED
 ### upgrade ###
 echo;
 read -r -p "Run brew update and brew upgrade? [y/N]: " ans
-is_yes "$ans"
-# is_yes "$ans" && brew update; brew upgrade;
+is_yes "$ans" && brew update && brew upgrade;
 
 # https://robotmoon.com/bash-prompt-generator/
 # [hh:mm:ss] username:pwd git-branch $
