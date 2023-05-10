@@ -39,6 +39,13 @@ echo;
 read -r -p "Run brew update and brew upgrade? [y/N]: " ans
 is_yes "$ans" && brew update && brew upgrade;
 
+
+# Reclaim ownership of files from brew.
+# https://github.com/orgs/Homebrew/discussions/633
+# find /opt/homebrew/Cellar -user root | xargs sudo chown -R $USER
+# sudo chown -R "$USER" "$(brew --prefix)/Cellar"
+
+
 # https://robotmoon.com/bash-prompt-generator/
 # [hh:mm:ss] username:pwd git-branch $
 # shellcheck disable=2089
