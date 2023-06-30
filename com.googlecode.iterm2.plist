@@ -15,7 +15,7 @@
 	<key>Command</key>
 	<string></string>
 	<key>ConvertDosNewlines</key>
-	<true/>
+	<false/>
 	<key>Default Bookmark Guid</key>
 	<string>4B85B862-2AF7-4DD9-AC94-8256CFE75280</string>
 	<key>DimBackgroundWindows</key>
@@ -23,7 +23,7 @@
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>DimOnlyText</key>
-	<true/>
+	<false/>
 	<key>EnableAPIServer</key>
 	<true/>
 	<key>EscapeShellCharsWithBackslash</key>
@@ -943,7 +943,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>2000</integer>
+			<integer>100000</integer>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -2510,7 +2510,7 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.20302628304194456</real>
+	<real>0.099999999999999575</real>
 	<key>StretchTabsToFillBar</key>
 	<false/>
 	<key>TabStyleWithAutomaticOption</key>
