@@ -19,7 +19,8 @@
 	squash = rebase -i --autosquash # <branch>
 	amend = commit --amend --verbose
 	freset = !git reset --hard origin/$(git current) # Hard reset current branch.
-	undo = reset --soft --keep HEAD~1 # Move HEAD back one commit, keep changes in staged.
-	redo = reset --soft HEAD@{1} # Move HEAD forward one commit.
+	# https://stackoverflow.com/a/3528483/12616507
+	undo = reset --soft HEAD~1 # Move HEAD back one commit, keep changes in staged.
+	# redo = reset --mixed --keep HEAD@{1} # Move HEAD forward one commit.
 [init]
 	defaultBranch = master
