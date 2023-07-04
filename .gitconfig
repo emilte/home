@@ -25,6 +25,7 @@
 	squash = rebase -i --autosquash # <branch>
 	amend = commit --amend --verbose
 	freset = !git reset --hard origin/$(git current) # Hard reset current branch.
+	mr = !glab mr view --web
 
 	# https://stackoverflow.com/a/3528483/12616507
 	undo = reset --soft --keep HEAD~1 # Move HEAD back one commit, keep changes in staged.
