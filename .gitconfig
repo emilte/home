@@ -11,7 +11,7 @@
 	co = switch
 	s = status
 
-	# Updates default branch with latest changes and goes back to starting point.
+	# Updates local default branch with latest changes from remote, no checkout needed.
 	# https://stackoverflow.com/a/53667801/12616507
 	pm = !git fetch origin $(git default):$(git default)
 	# pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
