@@ -13,8 +13,8 @@
 
 	# Updates default branch with latest changes and goes back to starting point.
 	# https://stackoverflow.com/a/53667801/12616507
-	# pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
 	pm = !git fetch origin $(git default):$(git default)
+	# pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
 
 	current = rev-parse --abbrev-ref HEAD # Get name of current branch.
 	default = !git remote show origin | awk '/HEAD branch/ {print $NF}' # Get name of default branch.
