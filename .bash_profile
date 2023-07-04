@@ -61,6 +61,8 @@ alias samf4="cd ~/my-projects/Samfundet4"
 alias django="python -m pipenv run python manage.py"
 alias makemigrations="python -m pipenv run python manage.py makemigrations"
 alias migrate="python -m pipenv run python manage.py migrate"
+alias mr="glab mr view --web"
+alias reload="source ~/.bash_profile"
 ### End: ALIAS ###
 
 ### pipenv ###
