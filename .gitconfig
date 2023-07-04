@@ -5,11 +5,17 @@
 	rebase = false
 [core]
 	editor = nano
+[init]
+	defaultBranch = master
 [alias]
 	co = switch
 	s = status
+
 	# Updates default branch with latest changes and goes back to starting point.
-	pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
+	# https://stackoverflow.com/a/53667801/12616507
+	# pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
+	pm = !git fetch origin $(git default):$(git default)
+
 	current = rev-parse --abbrev-ref HEAD # Get name of current branch.
 	default = !git remote show origin | awk '/HEAD branch/ {print $NF}' # Get name of default branch.
 	fpush = !git push --force-with-lease origin $(git current)
@@ -19,8 +25,7 @@
 	squash = rebase -i --autosquash # <branch>
 	amend = commit --amend --verbose
 	freset = !git reset --hard origin/$(git current) # Hard reset current branch.
+
 	# https://stackoverflow.com/a/3528483/12616507
 	undo = reset --soft --keep HEAD~1 # Move HEAD back one commit, keep changes in staged.
 	# redo = reset --mixed --keep HEAD@{1} # Move HEAD forward one commit.
-[init]
-	defaultBranch = master
