@@ -9,6 +9,7 @@
 !.bash_utils
 !.configure_bash.sh
 !.bash_scripts/
+!.bash_aliases
 
 
 ### git ###
