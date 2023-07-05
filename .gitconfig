@@ -13,9 +13,8 @@
 
 	# Updates local default branch with latest changes from remote, no checkout needed.
 	# https://stackoverflow.com/a/53667801/12616507
-	pm = !git fetch origin $(git default):$(git default)
+	pm = !BRANCH=$(git default) && echo "Pulling origin/$BRANCH into $BRANCH ..." && git fetch origin $BRANCH:$BRANCH && echo "Branch $BRANCH is now up to date."
 	# pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
-
 	current = rev-parse --abbrev-ref HEAD # Get name of current branch.
 	default = !git remote show origin | awk '/HEAD branch/ {print $NF}' # Get name of default branch.
 	fpush = !git push --force-with-lease origin $(git current)
