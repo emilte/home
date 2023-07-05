@@ -8,7 +8,7 @@
 [init]
 	defaultBranch = master
 [alias]
-	co = switch
+	co = !git pm && git switch
 	s = status
 
 	# Updates local default branch with latest changes from remote, no checkout needed.
