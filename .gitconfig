@@ -8,24 +8,29 @@
 [init]
 	defaultBranch = master
 [alias]
-	co = !git pm && git switch
+	co = switch
 	s = status
-
-	# Updates local default branch with latest changes from remote, no checkout needed.
-	# https://stackoverflow.com/a/53667801/12616507
-	pm = !BRANCH=$(git default) && echo "Pulling origin/$BRANCH into $BRANCH ..." && git fetch origin $BRANCH:$BRANCH && echo "Branch $BRANCH is now up to date."
-	# pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
 	current = rev-parse --abbrev-ref HEAD # Get name of current branch.
 	default = !git remote show origin | awk '/HEAD branch/ {print $NF}' # Get name of default branch.
-	fpush = !git push --force-with-lease origin $(git current)
-	fix = commit --fixup
-	olog = log --oneline
+	is-default = ![ "$(git current)" = "$(git default)" ] # Determine if current branch is the default branch.
+
+	# Updates local default branch with latest changes from remote, no checkout needed.
+	# If default branch, run git pull, otherwise run custom pull. (Custom pull didn't work on the default branch.)
+	# TEST && ( THEN_EXPRESSIONS ) || (ELSE_EXPRESSIONS ) # https://www.baeldung.com/linux/one-line-if-else-condition
+	# https://stackoverflow.com/a/53667801/12616507
+	pm = !git is-default && ( git pull ) || ( BRANCH=$(git default) && echo "Pulling origin/$BRANCH into $BRANCH ..." && git fetch origin $BRANCH:$BRANCH && echo "Branch $BRANCH is now up to date." )
+	# (old alias) pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
+	
+	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
+	fix = commit --fixup # <commit> # Add fixup commit to another commit.
+	olog = log --oneline # Less verbose log.
 	# pr = !git pull && git pm && git rebase
-	squash = rebase -i --autosquash # <branch>
-	amend = commit --amend --verbose
+	squash = rebase -i --autosquash # <branch> # Autosquashes fixup commits.
+	amend = commit --amend --verbose # Amend staged changes to last commit.
 	freset = !git reset --hard origin/$(git current) # Hard reset current branch.
-	mr = !glab mr view --web
+	mr = !glab mr view --web # Open current merge request on gitlab in browser.
 
 	# https://stackoverflow.com/a/3528483/12616507
-	undo = reset --soft --keep HEAD~1 # Move HEAD back one commit, keep changes in staged.
+	undo = reset --soft --keep HEAD^ # Move HEAD back one commit, keep changes in staged.
+	# undo = reset --soft --keep HEAD~1 # Move HEAD back one commit, keep changes in staged.
 	# redo = reset --mixed --keep HEAD@{1} # Move HEAD forward one commit.
