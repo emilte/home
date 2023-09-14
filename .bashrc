@@ -34,12 +34,6 @@ export BASHRC_SOURCED=1
 unset BASHRC_SOURCED
 ### End: bash ###
 
-### upgrade ###
-echo;
-read -r -p "Run brew update and brew upgrade? [y/N]: " ans
-is_yes "$ans" && brew update && brew upgrade;
-
-
 # Reclaim ownership of files from brew.
 # https://github.com/orgs/Homebrew/discussions/633
 # find /opt/homebrew/Cellar -user root | xargs sudo chown -R $USER
@@ -61,5 +55,12 @@ LS_COLORS="${CURRENT_LS_COLORS}:" ; export LS_COLORS
 
 # Prevent duplicate entries when browsing history in terminal.
 export HISTCONTROL=ignoredups
+
+### upgrade ###
+# Should be last thing to happen to avoid cmd+C.
+echo;
+read -r -p "Run brew update and brew upgrade? [y/N]: " ans
+is_yes "$ans" && brew update && brew upgrade;
+
 
 source /Users/emil/.config/broot/launcher/bash/br
