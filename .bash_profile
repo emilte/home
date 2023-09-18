@@ -16,6 +16,12 @@ function vsource {
 	# shellcheck disable=SC1090
 	[ -f "$arg_path" ] && echo "Sourcing $arg_path" && source "$arg_path"
 }
+
+function prepend_path {
+	# Prepends some path to PATH, but prevents duplicates.
+	arg_path=$1 # some path
+	[ "${PATH#*"$arg_path":}" == "$PATH" ] && export PATH="$arg_path:$PATH"
+}
 ### End: functions ###
 
 
@@ -62,21 +68,21 @@ export LANG="en_US.UTF-8"
 
 ### pyenv ###
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$PYENV_ROOT/shims:$PATH"
+prepend_path "$PYENV_ROOT/bin"
+prepend_path "$PYENV_ROOT/shims"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 ### End: pyenv ###
 
 ### ruby ###
-if command -v rbenv 1>/dev/null 2>&1; then
-	eval "$(rbenv init - bash)"
-fi
+# if command -v rbenv 1>/dev/null 2>&1; then
+# 	eval "$(rbenv init - bash)"
+# fi
 ### End: ruby ###
 
 # iterm2 shell integration.
-export PATH="/usr/local/sbin:$PATH"
+prepend_path "/usr/local/sbin"
 # shellcheck disable=SC1091
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
