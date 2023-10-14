@@ -27,9 +27,19 @@
 # Profile:
 !iterm2_profile_emil.json
 
+### sleepwatcher ###
+!.sleep
+!.wake
 
 ### other ###
 !README.md
 !Dockerfile
 !.config/glab-cli/aliases.yml
 !.config/gh/config.yml
+
+### iterm2 ###
+# https://stackoverflow.com/questions/65776556/exclamation-mark-in-gitignore-doesnt-work
+!Library/
+!Library/Application Support/
+!Library/Application Support/iTerm2/
+!Library/Application Support/iTerm2/Scripts/
