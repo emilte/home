@@ -1,1 +1,9 @@
-.history/
+# Ignore everything unless explicitly added.
+*
+
+### git ###
+!.gitignore
+
+!feide.py
+!samf4.py
+!utils.py
