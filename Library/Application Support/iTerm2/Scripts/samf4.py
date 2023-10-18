@@ -26,19 +26,19 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd='\n colima start; cd backend && dc up backend \n',
+        cmd='\n colima start; samf4 && cd backend && dc up backend \n',
     )
 
     # Bottom Left
     await new_pane(
         session=top_left_pane,
-        cmd='y \n cd frontend \n',
+        cmd='y \n samf4 && cd frontend \n',
     )
 
     # Bottom Right
     await new_pane(
         session=top_right_pane,
-        cmd='\n code . && cd backend \n',
+        cmd='\n samf4 && code . && cd backend \n',
     )
 
 
