@@ -5,6 +5,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto" # Add colors to grep.
 alias projects="cd ~/my-projects"
+alias repos="cd ~/my-projects"
 alias dc="docker compose"
 alias feide="cd ~/my-projects/feide-kp"
 alias staging="open https://feide-kp-staging.paas2.uninett.no/"
