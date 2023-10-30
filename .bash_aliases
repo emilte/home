@@ -28,3 +28,15 @@ alias sleepnow="pmset sleepnow"
 alias sn="sleepnow"
 alias dspa="docker system prune -af --volumes"
 alias iterm-scripts="code ~/Library/Application\ Support/iTerm2/Scripts"
+
+# To restart php after an upgrade:
+#   brew services restart php
+
+# Or, if you don't want/need a background service you can just run:
+#   /usr/local/opt/php/sbin/php-fpm --nodaemonize
+
+
+# To restart postgresql@14 after an upgrade:
+#   brew services restart postgresql@14
+# Or, if you don't want/need a background service you can just run:
+#   /usr/local/opt/postgresql@14/bin/postgres -D /usr/local/var/postgresql@14
