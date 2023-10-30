@@ -18,7 +18,7 @@ async def main(connection):
     # Top Left
     top_left_pane = await new_tab(
         window=window,
-        cmd='\n feide && cd frontend && npm start \n',
+        cmd='\n feide && cd frontend && pnpm start \n',
         hexa=feide_blue,
     )
 
