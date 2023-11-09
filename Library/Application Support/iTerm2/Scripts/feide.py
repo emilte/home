@@ -18,7 +18,7 @@ async def main(connection):
     # Top Left
     top_left_pane = await new_tab(
         window=window,
-        cmd='\n feide && cd frontend && pnpm start \n',
+        cmd='\n feide && cd frontend && pnpm install && pnpm start \n',
         hexa=feide_blue,
     )
 
@@ -38,7 +38,7 @@ async def main(connection):
     # Bottom Right
     await new_pane(
         session=top_right_pane,
-        cmd='\n feide && code . \n',
+        cmd='\n feide && code . && pipenv run pipenv:sync \n',
     )
 
 
