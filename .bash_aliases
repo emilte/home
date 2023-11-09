@@ -28,6 +28,12 @@ alias sleepnow="pmset sleepnow"
 alias sn="sleepnow"
 alias dspa="docker system prune -af --volumes"
 alias iterm-scripts="code ~/Library/Application\ Support/iTerm2/Scripts"
+alias is-kp="[[ \$(git remote-url) == \"git@gitlab.sikt.no:feide/feide-kp.git\" ]]"
+alias is-home="[[ \$(git remote-url) == \"git@github.com:emilte/home.git\" ]]"
+alias is-samf4="[[ \$(git remote-url) == \"git@github.com:Samfundet/Samfundet4.git\" ]]"
+
+
+# kubectl get -n feide-feide-kp pods
 
 # To restart php after an upgrade:
 #   brew services restart php
