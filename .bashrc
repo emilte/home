@@ -59,7 +59,7 @@ export HISTCONTROL=ignoredups
 ### upgrade ###
 # Should be last thing to happen to avoid cmd+C.
 echo;
-read -r -p "Run brew update and brew upgrade? [y/N]: " ans
+read -t 2 -r -p "Run brew update and brew upgrade? [y/N]: " ans
 is_yes "$ans" && brew update && brew upgrade;
 
 
