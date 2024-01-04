@@ -39,8 +39,6 @@ alias xacceptlicense="sudo xcodebuild -license accept"
 alias lid="ioreg -r -k AppleClamshellState -d 4 | grep AppleClamshellState | head -1" # Show lid state.
 alias sleepnow="pmset sleepnow"
 alias sn="sleepnow"
-alias rm="rm -i" # Prompt before deleting file.
-alias rrm="'rm'" # "Raw rm". Prefixing \ or wrapping command with '' bypasses any overridden alias.
 alias dspa="docker system prune -af --volumes"
 alias iterm-scripts="code ~/Library/Application\ Support/iTerm2/Scripts"
 alias is-home="[[ \$(git remote-url) == \"git@github.com:emilte/home.git\" ]]"
