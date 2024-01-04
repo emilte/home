@@ -24,7 +24,7 @@
 	
 	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
 	fix = commit --fixup # <commit> # Add fixup commit to another commit.
-	olog = log --oneline # Less verbose log.
+	olog = log --oneline -g # Less verbose log.
 	# pr = !git pull && git pm && git rebase
 	squash = rebase -i --autosquash # <branch> # Autosquashes fixup commits.
 	amend = commit --amend --verbose # Amend staged changes to last commit.
