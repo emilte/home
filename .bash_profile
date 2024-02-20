@@ -68,8 +68,8 @@ export LANG="en_US.UTF-8"
 
 ### pyenv ###
 export PYENV_ROOT="$HOME/.pyenv"
-prepend_path "$PYENV_ROOT/bin"
-prepend_path "$PYENV_ROOT/shims"
+# prepend_path "$PYENV_ROOT/bin"
+# prepend_path "$PYENV_ROOT/shims"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -93,3 +93,4 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 #  $ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
 
 source /Users/emil/.config/broot/launcher/bash/br
+. "$HOME/.cargo/env"

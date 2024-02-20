@@ -64,3 +64,4 @@ is_yes "$ans" && brew update && brew upgrade;
 
 
 source /Users/emil/.config/broot/launcher/bash/br
+. "$HOME/.cargo/env"
