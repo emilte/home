@@ -36,6 +36,7 @@
 !Dockerfile
 !.config/glab-cli/aliases.yml
 !.config/gh/config.yml
+!burp-suite-emil.json
 
 ### iterm2 ###
 # https://stackoverflow.com/questions/65776556/exclamation-mark-in-gitignore-doesnt-work
