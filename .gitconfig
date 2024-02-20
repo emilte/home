@@ -22,6 +22,8 @@
 	pm = !git fetch --all && git is-default && ( git pull ) || ( BRANCH=$(git default) && echo "Pulling origin/$BRANCH into $BRANCH ..." && git fetch origin $BRANCH:$BRANCH && echo "Branch $BRANCH is now up to date." )
 	# (old alias) pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
 	
+	prm = !git pm && git rebase $(git default)
+	pmm = !git pm && git merge $(git default)
 	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
 	fix = commit --fixup # <commit> # Add fixup commit to another commit.
 	olog = log --oneline -g # Less verbose log.
@@ -35,3 +37,11 @@
 	undo = reset --soft --keep HEAD^ # Move HEAD back one commit, keep changes in staged.
 	# undo = reset --soft --keep HEAD~1 # Move HEAD back one commit, keep changes in staged.
 	# redo = reset --mixed --keep HEAD@{1} # Move HEAD forward one commit.
+
+
+# https://www.youtube.com/watch?v=aolI_Rz0ZqY&ab_channel=GitButler
+[maintenance]
+	auto = false
+	strategy = incremental
+[rerere]
+	enabled = true # Remember merge conflict and fix for me. Even rebase.
