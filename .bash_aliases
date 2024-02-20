@@ -4,12 +4,13 @@ alias la="ls -la" # ls (but everything).
 alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto" # Add colors to grep.
-alias projects="cd ~/my-projects"
-alias repos="cd ~/my-projects"
+alias projects="cd ~/Projects"
+alias repos="cd ~/Projects"
 alias dc="docker compose"
+alias d="docker"
 
 # Kundeportalen:
-alias feide="cd ~/my-projects/feide-kp"
+alias feide="cd ~/Projects/feide-kp"
 alias paas="open https://console.paas2.uninett.no/kubeconfig/"
 alias kp-deployments="kubectl -n feide-feide-kp get deployments --sort-by=.metadata.creationTimestamp"
 alias dptest="open https://dashboard.dataporten-test.uninett.no/#!/fc:org:sikt.no"
@@ -26,9 +27,9 @@ alias myboard="open https://gitlab.sikt.no/feide/feide-kp/-/boards/78?assignee_u
 alias is-kp="[[ \$(git remote-url) == \"git@gitlab.sikt.no:feide/feide-kp.git\" ]]"
 alias kp-passed-master-pipelines="open https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success"
 
-alias samf="cd ~/my-projects/Samfundet"
-alias samf4="cd ~/my-projects/Samfundet4"
-alias rekenett="cd ~/my-projects/rekenett"
+alias samf="cd ~/Projects/Samfundet"
+alias samf4="cd ~/Projects/Samfundet4"
+alias rekenett="cd ~/Projects/rekenett"
 alias django="python -m pipenv run python manage.py"
 alias makemigrations="python -m pipenv run python manage.py makemigrations"
 alias migrate="python -m pipenv run python manage.py migrate"
@@ -43,6 +44,7 @@ alias dspa="docker system prune -af --volumes"
 alias iterm-scripts="code ~/Library/Application\ Support/iTerm2/Scripts"
 alias is-home="[[ \$(git remote-url) == \"git@github.com:emilte/home.git\" ]]"
 alias is-samf4="[[ \$(git remote-url) == \"git@github.com:Samfundet/Samfundet4.git\" ]]"
+alias dw="cd /Users/emil/Projects/spotify && pipenv run python discover_weekly.py && cd -" # Generate playlists for discover weekly in Spotify.
 
 # https://ss64.com/osx/pmset.html
 alias pmset-config="code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"
@@ -65,3 +67,7 @@ alias cpu-temperature="sudo powermetrics --samplers smc |grep -i \"CPU die tempe
 #   brew services restart postgresql@14
 # Or, if you don't want/need a background service you can just run:
 #   /usr/local/opt/postgresql@14/bin/postgres -D /usr/local/var/postgresql@14
+
+
+# rust
+# uninstall rust: rustup self uninstall
