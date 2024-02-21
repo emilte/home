@@ -37,8 +37,19 @@ vsource /usr/local/etc/bash_completion $self # Loads all other completions.
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
 export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+# export HOMEBREW_CACHE="$HOME/Projects/Caches/Homebrew" # Moved from "$HOME/Library/Caches/Homebrew".
 ### End: bash ###
 
+### Generic ###
+export XDG_DATA_HOME="$HOME/Projects/XDG_DATA_HOME" # https://stackoverflow.com/a/71733442/12616507 # https://pnpm.io/npmrc#store-dir
+export XDG_STATE_HOME="$HOME/Projects/XDG_STATE_HOME" # https://pnpm.io/npmrc#state-dir
+export XDG_CACHE_HOME="$HOME/Projects/XDG_CACHE_HOME" # https://github.com/abiosoft/colima/pull/736
+export XDG_CONFIG_HOME="$HOME/Projects/XDG_CONFIG_HOME" # https://github.com/abiosoft/colima/pull/736
+### End: Generic ###
+
+### Dart ###
+export PUB_CACHE="$HOME/Projects/.pub-cache" # Default: "~/.pub-cache" https://dart.dev/tools/pub/environment-variables
+### End: Dart ###
 
 ### git ###
 # vsource ~/.git-completion.bash $self
@@ -57,17 +68,20 @@ vsource ~/.bash_aliases $self
 ### pipenv ###
 export PIPENV_VENV_IN_PROJECT=1
 export LANG="en_US.UTF-8"
+export PIPENV_CACHE_DIR="$HOME/Projects/.lima" # Moved from "~/Library/Caches/pipenv" https://github.com/pypa/pipenv/blob/main/docs/configuration.md#changing-cache-location
 ### End: pipenv ###
 
 
 ### colima ###
 # shellcheck disable=SC2046,SC1090
 # [ $(which colima) ] && source <(colima completion bash)
+
+export LIMA_HOME="$HOME/Projects/.lima" # Moved from "~/.lima" https://lima-vm.io/docs/dev/internals/#lima-home-directory-lima_home
 ### End: colima ###
 
 
 ### pyenv ###
-export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_ROOT="$HOME/Projects/.pyenv"
 # prepend_path "$PYENV_ROOT/bin"
 # prepend_path "$PYENV_ROOT/shims"
 if command -v pyenv 1>/dev/null 2>&1; then

@@ -60,7 +60,7 @@ export HISTCONTROL=ignoredups
 # Should be last thing to happen to avoid cmd+C.
 echo;
 read -t 2 -r -p "Run brew update and brew upgrade? [y/N]: " ans
-is_yes "$ans" && brew update && brew upgrade;
+is_yes "$ans" && brew update && brew upgrade && brew cleanup;
 
 
 source /Users/emil/.config/broot/launcher/bash/br
