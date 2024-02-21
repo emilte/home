@@ -45,6 +45,7 @@ alias iterm-scripts="code ~/Library/Application\ Support/iTerm2/Scripts"
 alias is-home="[[ \$(git remote-url) == \"git@github.com:emilte/home.git\" ]]"
 alias is-samf4="[[ \$(git remote-url) == \"git@github.com:Samfundet/Samfundet4.git\" ]]"
 alias dw="cd /Users/emil/Projects/spotify && pipenv run python discover_weekly.py && cd -" # Generate playlists for discover weekly in Spotify.
+alias ncdu-home="ncdu ~ --exclude Projects --exclude Library --exclude .vscode" # Scan home dir.
 
 # https://ss64.com/osx/pmset.html
 alias pmset-config="code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"
@@ -52,6 +53,15 @@ alias pmset-list="code /Library/Preferences/SystemConfiguration/com.apple.AutoWa
 
 alias cpu-temperature="sudo powermetrics --samplers smc |grep -i \"CPU die temperature\"" # Monitor CPU temperature.
 
+### Cleanup machine ###
+# Use ncdu to locate large folders.
+# See home directory
+# See ~/Library/Caches
+### End: Cleanup machine ###
+
+# cache config
+# npm config set cache "$HOME/Projects/.npm"
+# yarn config set cacheFolder "$HOME/Projects/.yarn/cache"
 
 
 # kubectl get -n feide-feide-kp pods
