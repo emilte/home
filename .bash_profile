@@ -41,14 +41,15 @@ export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 ### End: bash ###
 
 ### Generic ###
-export XDG_DATA_HOME="$HOME/Projects/XDG_DATA_HOME" # https://stackoverflow.com/a/71733442/12616507 # https://pnpm.io/npmrc#store-dir
-export XDG_STATE_HOME="$HOME/Projects/XDG_STATE_HOME" # https://pnpm.io/npmrc#state-dir
-export XDG_CACHE_HOME="$HOME/Projects/XDG_CACHE_HOME" # https://github.com/abiosoft/colima/pull/736
-export XDG_CONFIG_HOME="$HOME/Projects/XDG_CONFIG_HOME" # https://github.com/abiosoft/colima/pull/736
+export PROJECTS_HOME="$HOME/Projects" # Excluded by BDLDaemon.
+export XDG_DATA_HOME="$PROJECTS_HOME/.XDG_DATA_HOME" # https://stackoverflow.com/a/71733442/12616507 # https://pnpm.io/npmrc#store-dir
+export XDG_STATE_HOME="$PROJECTS_HOME/.XDG_STATE_HOME" # https://pnpm.io/npmrc#state-dir
+export XDG_CACHE_HOME="$PROJECTS_HOME/.XDG_CACHE_HOME" # https://github.com/abiosoft/colima/pull/736
+export XDG_CONFIG_HOME="$PROJECTS_HOME/.XDG_CONFIG_HOME" # https://github.com/abiosoft/colima/pull/736
 ### End: Generic ###
 
 ### Dart ###
-export PUB_CACHE="$HOME/Projects/.pub-cache" # Default: "~/.pub-cache" https://dart.dev/tools/pub/environment-variables
+export PUB_CACHE="$XDG_CACHE_HOME/.pub-cache" # Default: "~/.pub-cache" https://dart.dev/tools/pub/environment-variables
 ### End: Dart ###
 
 ### git ###
@@ -68,7 +69,7 @@ vsource ~/.bash_aliases $self
 ### pipenv ###
 export PIPENV_VENV_IN_PROJECT=1
 export LANG="en_US.UTF-8"
-export PIPENV_CACHE_DIR="$HOME/Projects/.lima" # Moved from "~/Library/Caches/pipenv" https://github.com/pypa/pipenv/blob/main/docs/configuration.md#changing-cache-location
+export PIPENV_CACHE_DIR="$XDG_CACHE_HOME/pipenv" # Moved from "~/Library/Caches/pipenv" https://github.com/pypa/pipenv/blob/main/docs/configuration.md#changing-cache-location
 ### End: pipenv ###
 
 
@@ -76,12 +77,12 @@ export PIPENV_CACHE_DIR="$HOME/Projects/.lima" # Moved from "~/Library/Caches/pi
 # shellcheck disable=SC2046,SC1090
 # [ $(which colima) ] && source <(colima completion bash)
 
-export LIMA_HOME="$HOME/Projects/.lima" # Moved from "~/.lima" https://lima-vm.io/docs/dev/internals/#lima-home-directory-lima_home
+export LIMA_HOME="$PROJECTS_HOME/.lima" # Moved from "~/.lima" https://lima-vm.io/docs/dev/internals/#lima-home-directory-lima_home
 ### End: colima ###
 
 
 ### pyenv ###
-export PYENV_ROOT="$HOME/Projects/.pyenv"
+export PYENV_ROOT="$PROJECTS_HOME/.pyenv"
 # prepend_path "$PYENV_ROOT/bin"
 # prepend_path "$PYENV_ROOT/shims"
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -106,5 +107,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 #  $ defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
 #  $ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
 
+# shellcheck disable=SC1091
 source /Users/emil/.config/broot/launcher/bash/br
-. "$HOME/.cargo/env"
+# shellcheck disable=SC1091
+. "$HOME/.cargo/env" 
