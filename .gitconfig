@@ -10,6 +10,7 @@
 [alias]
 	co = switch
 	s = status
+	is-repo = !git rev-parse --is-inside-work-tree >/dev/null 2>&1
 	current = rev-parse --abbrev-ref HEAD # Get name of current branch.
 	default = !git remote show origin | awk '/HEAD branch/ {print $NF}' # Get name of default branch.
 	is-default = ![ "$(git current)" = "$(git default)" ] # Determine if current branch is the default branch.
