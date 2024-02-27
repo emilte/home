@@ -8,6 +8,8 @@
 	<false/>
 	<key>AlternateMouseScroll</key>
 	<true/>
+	<key>AutoCommandHistory</key>
+	<false/>
 	<key>BadgeRightMargin</key>
 	<integer>10</integer>
 	<key>BracketedPasteMode</key>
@@ -2521,7 +2523,7 @@
 	<key>SeparateWindowTitlePerTab</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>ShowPaneTitles</key>
