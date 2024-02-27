@@ -42,11 +42,17 @@ export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 
 ### Generic ###
 export PROJECTS_HOME="$HOME/Projects" # Excluded by BDLDaemon.
+export REPOS="$PROJECTS_HOME/repos"
+export APPLICATION_SUPPORT="$HOME/Library/Application\ Support"
 export XDG_DATA_HOME="$PROJECTS_HOME/.XDG_DATA_HOME" # https://stackoverflow.com/a/71733442/12616507 # https://pnpm.io/npmrc#store-dir
 export XDG_STATE_HOME="$PROJECTS_HOME/.XDG_STATE_HOME" # https://pnpm.io/npmrc#state-dir
 export XDG_CACHE_HOME="$PROJECTS_HOME/.XDG_CACHE_HOME" # https://github.com/abiosoft/colima/pull/736
 export XDG_CONFIG_HOME="$PROJECTS_HOME/.XDG_CONFIG_HOME" # https://github.com/abiosoft/colima/pull/736
 ### End: Generic ###
+
+export CYPRESS_CACHE_FOLDER="$XDG_CACHE_HOME/Cypress" # Moved from "~/Library/Caches/Cypress" https://docs.cypress.io/guides/references/advanced-installation#Binary-cache
+export RUSTUP_HOME="$PROJECTS_HOME/.rustup" # Moved from "~/.rustup" https://rust-lang.github.io/rustup/environment-variables.html
+
 
 ### Dart ###
 export PUB_CACHE="$XDG_CACHE_HOME/.pub-cache" # Default: "~/.pub-cache" https://dart.dev/tools/pub/environment-variables
@@ -73,7 +79,7 @@ export PIPENV_CACHE_DIR="$XDG_CACHE_HOME/pipenv" # Moved from "~/Library/Caches/
 ### End: pipenv ###
 
 
-### colima ###
+### lima/colima ###
 # shellcheck disable=SC2046,SC1090
 # [ $(which colima) ] && source <(colima completion bash)
 
