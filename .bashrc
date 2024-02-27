@@ -43,15 +43,24 @@ unset BASHRC_SOURCED
 # https://robotmoon.com/bash-prompt-generator/
 # [hh:mm:ss] username:pwd git-branch $
 # shellcheck disable=2089
-PS1='\[\e[0;90m\]($(python -V)) \[\e[0;91m\]$( is-kp && echo "(pnpm $(pnpm -v))") \[\e[0;91m\]$( is-samf4 && echo "(yarn $(yarn -v))") \n\[\e[0m\][\[\e[0m\]\t\[\e[0m\]] \[$(tput setaf 10)\]\u\[$(tput setaf 250)\]@\[$(tput setaf 201)\]\h\[\e[0m\]:\[\e[0;94m\]\w \[\e[0;96m\]$( is-home || git current) \n\[$(tput setaf 9)\] \$ \[\e[0m\]'
+PS1='\[\e[0;90m\]($(python -V)) \[\e[0;91m\]$( is-kp && echo "(pnpm $(pnpm -v))") \[\e[0;91m\]$( is-samf4 && echo "(yarn $(yarn -v))") \n\[\e[0m\][\[\e[0m\]\t\[\e[0m\]] \[$(tput setaf 10)\]\u\[$(tput setaf 250)\]@\[$(tput setaf 201)\]\h\[\e[0m\]:\[\e[0;94m\]\w \[\e[0;96m\]$( git is-repo && (is-home || git current)) \n\[$(tput setaf 9)\] \$ \[\e[0m\]'
 # shellcheck disable=2090
 export PS1
 
+### LSCOLORS ###
+# This seems to be config for MacOS.
+export CLICOLOR=1 # Enable colorized output (MacOS)
+export LSCOLORS=fagxcxdxbxegedabagacad # https://geoff.greer.fm/lscolors/
+### End: LSCOLORS ###
+
 ### LS_COLORS ###
 # See https://github.com/emilte/terminal for more.
-EMIL_LS_COLORS=":di=94:"
-CURRENT_LS_COLORS="$EMIL_LS_COLORS"
-LS_COLORS="${CURRENT_LS_COLORS}:" ; export LS_COLORS
+EMIL_LS_COLORS="di=35;40:ln=36:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+# export LS_COLORS='di=0;35:' ls -la
+# export LS_COLORS=$LS_COLORS:'di=0;35:'; ls -la
+# export LS_COLORS=$CURRENT_LS_COLORS
+export LS_COLORS=$EMIL_LS_COLORS
+### End: LS_COLORS ###
 
 # Prevent duplicate entries when browsing history in terminal.
 export HISTCONTROL=ignoredups
