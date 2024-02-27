@@ -4,13 +4,13 @@ alias la="ls -la" # ls (but everything).
 alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto" # Add colors to grep.
-alias projects="cd ~/Projects"
-alias repos="cd ~/Projects"
+alias projects='cd $PROJECTS_HOME'
+alias repos='cd $REPOS'
 alias dc="docker compose"
 alias d="docker"
 
 # Kundeportalen:
-alias feide="cd ~/Projects/feide-kp"
+alias feide='cd $REPOS/feide-kp'
 alias paas="open https://console.paas2.uninett.no/kubeconfig/"
 alias kp-deployments="kubectl -n feide-feide-kp get deployments --sort-by=.metadata.creationTimestamp"
 alias dptest="open https://dashboard.dataporten-test.uninett.no/#!/fc:org:sikt.no"
@@ -27,9 +27,9 @@ alias myboard="open https://gitlab.sikt.no/feide/feide-kp/-/boards/78?assignee_u
 alias is-kp="[[ \$(git remote-url) == \"git@gitlab.sikt.no:feide/feide-kp.git\" ]]"
 alias kp-passed-master-pipelines="open https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success"
 
-alias samf="cd ~/Projects/Samfundet"
-alias samf4="cd ~/Projects/Samfundet4"
-alias rekenett="cd ~/Projects/rekenett"
+alias samf='cd $REPOS/Samfundet'
+alias samf4='cd $REPOS/Samfundet4'
+alias rekenett='cd $REPOS/rekenett'
 alias django="python -m pipenv run python manage.py"
 alias makemigrations="python -m pipenv run python manage.py makemigrations"
 alias migrate="python -m pipenv run python manage.py migrate"
@@ -44,8 +44,11 @@ alias dspa="docker system prune -af --volumes"
 alias iterm-scripts="code ~/Library/Application\ Support/iTerm2/Scripts"
 alias is-home="[[ \$(git remote-url) == \"git@github.com:emilte/home.git\" ]]"
 alias is-samf4="[[ \$(git remote-url) == \"git@github.com:Samfundet/Samfundet4.git\" ]]"
-alias dw="cd /Users/emil/Projects/spotify && pipenv run python discover_weekly.py && cd -" # Generate playlists for discover weekly in Spotify.
+alias dw='cd $REPOS/spotify && pipenv run python discover_weekly.py && cd -' # Generate playlists for discover weekly in Spotify.
 alias ncdu-home="ncdu ~ --exclude Projects --exclude Library --exclude .vscode" # Scan home dir.
+alias screenshots="code ~/Documents/screenshots"
+
+
 
 # https://ss64.com/osx/pmset.html
 alias pmset-config="code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"
@@ -81,3 +84,36 @@ alias cpu-temperature="sudo powermetrics --samplers smc |grep -i \"CPU die tempe
 
 # rust
 # uninstall rust: rustup self uninstall
+
+
+
+### Functions ###
+
+function clean-my-caches {
+    rm -r "${XDG_CACHE_HOME:?}"/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Slack/Cache/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Slack/Code\ Cache/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Slack/Service\ Worker/CacheStorage/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Slack/Service\ Worker/ScriptCache/*
+    
+
+    rm -r "${APPLICATION_SUPPORT:?}"/Code/Cache/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Code/Code\ Cache/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Code/CachedData/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Code/Service\ Worker/CacheStorage/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Code/Service\ Worker/ScriptCache/*
+
+    rm -r "${APPLICATION_SUPPORT:?}"/Microsoft/Teams/Cache/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Microsoft/Teams/Code\ Cache/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Microsoft/Teams/Service\ Worker/CacheStorage/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Microsoft/Teams/Service\ Worker/ScriptCache/*
+
+    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Default/Service\ Worker/CacheStorage/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Default/Service\ Worker/ScriptCache/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 2/Service\ Worker/CacheStorage/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 2/Service\ Worker/ScriptCache/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 3/Service\ Worker/CacheStorage/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 3/Service\ Worker/ScriptCache/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 4/Service\ Worker/CacheStorage/*
+    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 4/Service\ Worker/ScriptCache/*
+}
