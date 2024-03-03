@@ -47,6 +47,7 @@ alias is-samf4="[[ \$(git remote-url) == \"git@github.com:Samfundet/Samfundet4.g
 alias dw='cd $REPOS/spotify && pipenv run python discover_weekly.py && cd -' # Generate playlists for discover weekly in Spotify.
 alias ncdu-home="ncdu ~ --exclude Projects --exclude Library --exclude .vscode" # Scan home dir.
 alias screenshots="code ~/Documents/screenshots"
+alias br="br --dates --hidden --git-ignored"
 
 
 
