@@ -43,7 +43,7 @@ unset BASHRC_SOURCED
 # https://robotmoon.com/bash-prompt-generator/
 # [hh:mm:ss] username:pwd git-branch $
 # shellcheck disable=2089
-PS1='\[\e[0;90m\]($(python -V)) \[\e[0;91m\]$( is-kp && echo "(pnpm $(pnpm -v))") \[\e[0;91m\]$( is-samf4 && echo "(yarn $(yarn -v))") \n\[\e[0m\][\[\e[0m\]\t\[\e[0m\]] \[$(tput setaf 10)\]\u\[$(tput setaf 250)\]@\[$(tput setaf 201)\]\h\[\e[0m\]:\[\e[0;94m\]\w \[\e[0;96m\]$( git is-repo && (is-home || git current)) \n\[$(tput setaf 9)\] \$ \[\e[0m\]'
+PS1='\[\e[0;90m\]($(pyenv version-name)) \[\e[0;91m\]$( is-kp && echo "(pnpm $(pnpm -v))") \[\e[0;91m\]$( is-samf4 && echo "(yarn $(yarn -v))") \n\[\e[0m\][\[\e[0m\]\t\[\e[0m\]] \[$(tput setaf 10)\]\u\[$(tput setaf 250)\]@\[$(tput setaf 201)\]\h\[\e[0m\]:\[\e[0;94m\]\w \[\e[0;96m\]$( git is-repo && (is-home || git current)) \n\[$(tput setaf 9)\] \$ \[\e[0m\]'
 # shellcheck disable=2090
 export PS1
 
