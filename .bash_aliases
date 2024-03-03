@@ -90,6 +90,73 @@ alias cpu-temperature="sudo powermetrics --samplers smc |grep -i \"CPU die tempe
 
 ### Functions ###
 
+function branchify {
+    local cleaned_branch_name
+
+    cleaned_branch_name="$*" # Capture all positional args.
+    
+    # Replace all invalid chars to spaces.
+    cleaned_branch_name=${cleaned_branch_name//[^a-zA-Z0-9_]/ }
+
+    # Trim multiple spaces down to 1 space.
+    cleaned_branch_name=$( echo "$cleaned_branch_name" | tr -s ' ')
+
+    # Replace all but letters, numbers and underscores with dash.
+    cleaned_branch_name=${cleaned_branch_name//[^a-zA-Z0-9_]/-}
+
+    # Trim any leading or trailing underscores/dashes/whitespace.
+    cleaned_branch_name=$(echo "$cleaned_branch_name" | sed 's/^[-_[:space:]]*//;s/[-_[:space:]]*$//')
+
+    # Convert to lowercase.
+    cleaned_branch_name=$(echo "$cleaned_branch_name" | tr '[:upper:]' '[:lower:]')
+
+    echo "$cleaned_branch_name"
+}
+
+function nmr {
+    # New MR on gitlab.
+
+    # Abort if not gitlab repo.
+    [[ "$(git remote-url)" != "git@gitlab"* ]] && echo "nmr only works in gitlab repo" && return 1
+
+    # Set up a trap to handle errors.
+    trap 'echo "Error occurred"; trap - ERR; return 1' ERR
+
+    # Create an issue.
+    issue_title=${1:?"Missing issue title"}
+    issue_description=$2
+    glab issue create \
+        --title "$issue_title" \
+        --description "$issue_description" \
+        --assignee emilte \
+        --label team::kp,status::"in progress"
+    
+    # Get the issue number.
+    issue_number=$(glab issue list --per-page 1 --output-format ids)
+
+    # Create a branch.
+    branch_name=$(branchify "$issue_number"-"$issue_title")
+    target_branch=$(git default)
+    glab mr create \
+        --title "$issue_title" \
+        --source-branch "$branch_name" \
+        --target-branch "$target_branch" \
+        --related-issue "$issue_number" \
+        --copy-issue-labels \
+        --create-source-branch \
+        --remove-source-branch \
+        --assignee emilte \
+        --yes \
+    
+    git fetch --all
+    git switch "$branch_name"
+    
+    # Open the MR in the browser.
+    glab mr view --web
+    trap - ERR
+}
+
+
 function clean-my-caches {
     rm -r "${XDG_CACHE_HOME:?}"/*
     rm -r "${APPLICATION_SUPPORT:?}"/Slack/Cache/*
