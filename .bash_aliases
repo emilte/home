@@ -1,6 +1,6 @@
 #! /bin/bash
 
-alias la="ls -la" # ls (but everything).
+alias la="ls -lA" # ls (but everything).
 alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto" # Add colors to grep.
