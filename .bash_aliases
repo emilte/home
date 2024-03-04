@@ -162,6 +162,7 @@ function nmr {
     
     git fetch --all
     git switch "$branch_name"
+    glab mr update --ready # I don't care for 'draft'.
     
     # Open the MR in the browser.
     glab mr view --web
