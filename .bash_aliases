@@ -137,6 +137,7 @@ function nmr {
     # Create issue.
     glab issue create \
         --title "$issue_title" \
+        --description "" \
         --assignee emilte \
         --label team::kp,status::"in progress" \
         --yes
