@@ -8,6 +8,7 @@ alias projects='cd $PROJECTS_HOME'
 alias repos='cd $REPOS'
 alias dc="docker compose"
 alias d="docker"
+alias mkdir="mkdir -pv"
 
 # Kundeportalen:
 alias feide='cd $REPOS/feide-kp'
@@ -27,6 +28,8 @@ alias myboard="open https://gitlab.sikt.no/feide/feide-kp/-/boards/78?assignee_u
 alias is-kp="[[ \$(git remote-url) == \"git@gitlab.sikt.no:feide/feide-kp.git\" ]]"
 alias kp-passed-master-pipelines="open https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success"
 
+
+alias cls='clear'
 alias samf='cd $REPOS/Samfundet'
 alias samf4='cd $REPOS/Samfundet4'
 alias rekenett='cd $REPOS/rekenett'
@@ -47,7 +50,7 @@ alias is-samf4="[[ \$(git remote-url) == \"git@github.com:Samfundet/Samfundet4.g
 alias dw='cd $REPOS/spotify && pipenv run python discover_weekly.py && cd -' # Generate playlists for discover weekly in Spotify.
 alias ncdu-home="ncdu ~ --exclude Projects --exclude Library --exclude .vscode" # Scan home dir.
 alias screenshots="code ~/Documents/screenshots"
-alias br="br --dates --hidden --git-ignored"
+alias br="br --dates --hidden --git-ignored" # broot.
 
 
 
