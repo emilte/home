@@ -125,12 +125,18 @@ function nmr {
     # Set up a trap to handle errors.
     trap 'echo "Error occurred"; trap - ERR; return 1' ERR
 
-    # Create an issue.
-    issue_title=${1:?"Missing issue title"}
-    issue_description=$2
+    # Declare vars:
+    local issue_title
+    local issue_number
+    local branch_name
+    local target_branch
+
+    issue_title="$*" # Capture all args.
+    issue_title=${issue_title:?}
+
+    # Create issue.
     glab issue create \
         --title "$issue_title" \
-        --description "$issue_description" \
         --assignee emilte \
         --label team::kp,status::"in progress"
     
@@ -140,6 +146,7 @@ function nmr {
     # Create a branch.
     branch_name=$(branchify "$issue_number"-"$issue_title")
     target_branch=$(git default)
+    target_branch=${target_branch:?}
     glab mr create \
         --title "$issue_title" \
         --source-branch "$branch_name" \
