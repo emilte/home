@@ -138,7 +138,8 @@ function nmr {
     glab issue create \
         --title "$issue_title" \
         --assignee emilte \
-        --label team::kp,status::"in progress"
+        --label team::kp,status::"in progress" \
+        --yes
     
     # Get the issue number.
     issue_number=$(glab issue list --per-page 1 --output-format ids)
