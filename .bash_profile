@@ -117,3 +117,15 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 source /Users/emil/.config/broot/launcher/bash/br
 # shellcheck disable=SC1091
 . "$HOME/.cargo/env" 
+
+
+### Packages ###
+# ncdu
+# htop
+# broot
+# jq
+# pyenv
+# colima
+# glab
+
+# burp-suite
