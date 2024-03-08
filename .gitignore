@@ -37,6 +37,7 @@
 !.config/glab-cli/aliases.yml
 !.config/gh/config.yml
 !burp-suite-emil.json
+!speedtest.py
 
 ### iterm2 ###
 # https://stackoverflow.com/questions/65776556/exclamation-mark-in-gitignore-doesnt-work
