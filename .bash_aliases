@@ -9,11 +9,17 @@ alias repos='cd $REPOS'
 alias dc="docker compose"
 alias d="docker"
 alias mkdir="mkdir -pv"
+alias mv="mv -iv" # Confirmation of overwrite and create missing intermediate dirs.
+alias cp="cp -i" # Confirmation of overwrite.
+alias ln="ln -i" # Confirmation of overwrite.
 
 # Kundeportalen:
 alias feide='cd $REPOS/feide-kp'
 alias paas="open https://console.paas2.uninett.no/kubeconfig/"
 alias kp-deployments="kubectl -n feide-feide-kp get deployments --sort-by=.metadata.creationTimestamp"
+alias kp-kube="kubectl -n feide-feide-kp" # <name>
+alias kp-pods="kp-kube get pods --show-labels"
+alias kp-logs="kp-kube logs" # <name>
 alias dptest="open https://dashboard.dataporten-test.uninett.no/#!/fc:org:sikt.no"
 alias prod-terminal="open https://gitlab.sikt.no/feide/feide-kp/-/environments/189/terminal"
 alias kp-rollestyring="open https://feide-kp-review-2359-test-tav533.paas2.uninett.no/org/2217476/start/"
@@ -51,6 +57,7 @@ alias dw='cd $REPOS/spotify && pipenv run python discover_weekly.py && cd -' # G
 alias ncdu-home="ncdu ~ --exclude Projects --exclude Library --exclude .vscode" # Scan home dir.
 alias screenshots="code ~/Documents/screenshots"
 alias br="br --dates --hidden --git-ignored" # broot.
+alias speedtest="cat ~/speedtest.py | python -" # Old: alias speedtest="curl https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 
 
 
@@ -92,6 +99,9 @@ alias cpu-temperature="sudo powermetrics --samplers smc |grep -i \"CPU die tempe
 
 
 ### Functions ###
+function kp-kube-shell {
+    kubectl -n feide-feide-kp exec "$1" -it -- sh
+}
 
 function branchify {
     local cleaned_branch_name
