@@ -15,6 +15,7 @@
 	default = !git remote show origin | awk '/HEAD branch/ {print $NF}' # Get name of default branch.
 	is-default = ![ "$(git current)" = "$(git default)" ] # Determine if current branch is the default branch.
 	remote-url = config --get remote.origin.url # Get remote origin url.
+	is-glab = ![[ "$(git remote-url)" == "git@gitlab"* ]]
 
 	# Updates local default branch with latest changes from remote, no checkout needed.
 	# If default branch, run git pull, otherwise run custom pull. (Custom pull didn't work on the default branch.)
