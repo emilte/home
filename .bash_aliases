@@ -35,6 +35,7 @@ alias is-kp="[[ \$(git remote-url) == \"git@gitlab.sikt.no:feide/feide-kp.git\" 
 alias kp-passed-master-pipelines="open https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success"
 
 
+alias home='code ~'
 alias cls='clear'
 alias samf='cd $REPOS/Samfundet'
 alias samf4='cd $REPOS/Samfundet4'
