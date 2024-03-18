@@ -130,7 +130,7 @@ function nmr {
     # New MR on gitlab.
 
     # Abort if not gitlab repo.
-    [[ "$(git remote-url)" != "git@gitlab"* ]] && echo "nmr only works in gitlab repo" && return 1
+    git is-glab || (echo "nmr only works in gitlab repo" && return 1)
 
     # Set up a trap to handle errors.
     trap 'echo "Error occurred"; trap - ERR; return 1' ERR
@@ -153,7 +153,7 @@ function nmr {
         --yes
     
     # Get the issue number.
-    issue_number=$(glab issue list --per-page 1 --output-format ids)
+    issue_number=$(glab issue list --per-page 1 --output ids)
 
     # Create a branch.
     branch_name=$(branchify "$issue_number"-"$issue_title")
@@ -175,7 +175,7 @@ function nmr {
     glab mr update --ready # I don't care for 'draft'.
     
     # Open the MR in the browser.
-    glab mr view --web
+    mr
     trap - ERR
 }
 
