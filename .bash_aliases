@@ -15,9 +15,9 @@ alias ln="ln -i" # Confirmation of overwrite.
 
 # Kundeportalen:
 alias kpdjango="dc exec app python manage.py"
-alias kp-gen-routes="kpdjango generate_routes"
+alias kp-gen-routes="django generate_routes"
 alias kp-gen-perms="kpdjango generate_permissions"
-alias kpgen="kp-gen-routes & kp-gen-perms & ./maketypes.sh & ./makemessages.sh & wait"
+alias kpgen="kp-gen-routes & kp-gen-perms & ./maketypes.sh & wait"
 alias feide='cd $REPOS/feide-kp'
 alias paas="open 'https://console.paas2.uninett.no/kubeconfig/'"
 alias kp-deployments="kubectl -n feide-feide-kp get deployments --sort-by=.metadata.creationTimestamp"
