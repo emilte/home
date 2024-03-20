@@ -19,24 +19,25 @@ alias kp-gen-routes="kpdjango generate_routes"
 alias kp-gen-perms="kpdjango generate_permissions"
 alias kpgen="kp-gen-routes & kp-gen-perms & ./maketypes.sh & ./makemessages.sh & wait"
 alias feide='cd $REPOS/feide-kp'
-alias paas="open https://console.paas2.uninett.no/kubeconfig/"
+alias paas="open 'https://console.paas2.uninett.no/kubeconfig/'"
 alias kp-deployments="kubectl -n feide-feide-kp get deployments --sort-by=.metadata.creationTimestamp"
 alias kp-kube="kubectl -n feide-feide-kp" # <name>
 alias kp-pods="kp-kube get pods --show-labels"
 alias kp-logs="kp-kube logs" # <name>
-alias dptest="open https://dashboard.dataporten-test.uninett.no/#!/fc:org:sikt.no"
-alias prod-terminal="open https://gitlab.sikt.no/feide/feide-kp/-/environments/189/terminal"
-alias kp-rollestyring="open https://feide-kp-review-2359-test-tav533.paas2.uninett.no/org/2217476/start/"
-alias kp-emulated="open https://feide-kp-review-3299-emule-cj8bdj.paas2.uninett.no/org/2217476/start/"
-alias staging="open https://feide-kp-staging.paas2.uninett.no/"
-alias prod="open https://kunde.feide.no/"
-alias sentry="open https://sentry.feide.no/organizations/feide/issues/?environment=production&project=2&query=is%3Aunresolved&referrer=issue-list&statsPeriod=14d"
-alias chromatic="open https://www.chromatic.com/library?appId=6183ad02fa0207003a95f45f"
-alias board="open https://gitlab.sikt.no/feide/feide-kp/-/boards/78" # kp-team
-alias rboard="open https://gitlab.sikt.no/feide/feide-kp/-/boards/637" # Rollestyring
-alias myboard="open https://gitlab.sikt.no/feide/feide-kp/-/boards/78?assignee_username=emilte" # kp-team + emilte
+alias dptest="open 'https://dashboard.dataporten-test.uninett.no/#!/fc:org:sikt.no'"
+alias prod-terminal="open 'https://gitlab.sikt.no/feide/feide-kp/-/environments/189/terminal'"
+alias staging-terminal="open 'https://gitlab.sikt.no/feide/feide-kp/-/environments/188/terminal'"
+alias kp-rollestyring="open 'https://feide-kp-review-2359-test-tav533.paas2.uninett.no/org/2217476/start/'"
+alias kp-emulated="open 'https://feide-kp-review-3299-emule-cj8bdj.paas2.uninett.no/org/2217476/start/'"
+alias staging="open 'https://feide-kp-staging.paas2.uninett.no/'"
+alias prod="open 'https://kunde.feide.no/'"
+alias sentry="open 'https://sentry.feide.no/organizations/feide/issues/?environment=production&project=2&query=is%3Aunresolved&referrer=issue-list&statsPeriod=14d'"
+alias chromatic="open 'https://www.chromatic.com/library?appId=6183ad02fa0207003a95f45f'"
+alias board="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/78'" # kp-team
+alias rboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/637'" # Rollestyring
+alias myboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/78?assignee_username=emilte'" # kp-team + emilte
 alias is-kp="[[ \$(git remote-url) == \"git@gitlab.sikt.no:feide/feide-kp.git\" ]]"
-alias kp-passed-master-pipelines="open https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success"
+alias kp-passed-master-pipelines="open 'https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success'"
 
 
 alias home='code ~'
