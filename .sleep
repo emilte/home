@@ -1,4 +1,4 @@
 # Stuff to do when sleeping.
 # osascript -e 'tell application "Spotify" to quit'
 # osascript -e "set Volume 0"
-osascript -e 'set volume output muted true'
+mute

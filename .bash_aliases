@@ -63,8 +63,7 @@ alias ncdu-home="ncdu ~ --exclude Projects --exclude Library --exclude .vscode" 
 alias screenshots="code ~/Documents/screenshots"
 alias br="br --dates --hidden --git-ignored" # broot.
 alias speedtest="cat ~/speedtest.py | python -" # Old: alias speedtest="curl https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
-
-
+alias mute="osascript -e 'set volume output muted true'"
 
 # https://ss64.com/osx/pmset.html
 alias pmset-config="code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"
