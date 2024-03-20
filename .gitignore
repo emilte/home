@@ -29,7 +29,7 @@
 
 ### sleepwatcher ###
 !.sleep
-!.wake
+!.wakeup
 
 ### other ###
 !README.md
