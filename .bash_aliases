@@ -66,6 +66,7 @@ alias br="br --dates --hidden --git-ignored" # broot.
 alias speedtest="cat ~/speedtest.py | python -" # Old: alias speedtest="curl https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias sync-clock='sudo sntp -Ss time.apple.com'
 alias mute="osascript -e 'set volume output muted true'"
+alias nmr='. ~/.bash_scripts/nmr.sh'
 
 # https://ss64.com/osx/pmset.html
 alias pmset-config="code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"
@@ -142,85 +143,3 @@ function branchify {
     echo "$cleaned_branch_name"
 }
 
-function nmr {
-    # New MR on gitlab.
-
-    # Abort if not gitlab repo.
-    git is-glab || (echo "nmr only works in gitlab repo" && return 1)
-
-    # Set up a trap to handle errors.
-    trap 'echo "Error occurred"; trap - ERR; return 1' ERR
-
-    # Declare vars:
-    local issue_title
-    local issue_number
-    local branch_name
-    local target_branch
-
-    issue_title="$*" # Capture all args.
-    issue_title=${issue_title:?}
-
-    # Create issue.
-    glab issue create \
-        --title "$issue_title" \
-        --description "" \
-        --assignee emilte \
-        --label team::kp,status::"in progress" \
-        --yes
-    
-    # Get the issue number.
-    issue_number=$(glab issue list --per-page 1 --output ids)
-
-    # Create a branch.
-    branch_name=$(branchify "$issue_number"-"$issue_title")
-    target_branch=$(git default)
-    target_branch=${target_branch:?}
-    glab mr create \
-        --title "$issue_title" \
-        --source-branch "$branch_name" \
-        --target-branch "$target_branch" \
-        --related-issue "$issue_number" \
-        --copy-issue-labels \
-        --create-source-branch \
-        --remove-source-branch \
-        --assignee emilte \
-        --yes \
-    
-    git fetch --all
-    git switch "$branch_name"
-    glab mr update --ready # I don't care for 'draft'.
-    
-    # Open the MR in the browser.
-    mr
-    trap - ERR
-}
-
-
-function clean-my-caches {
-    rm -r "${XDG_CACHE_HOME:?}"/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Slack/Cache/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Slack/Code\ Cache/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Slack/Service\ Worker/CacheStorage/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Slack/Service\ Worker/ScriptCache/*
-    
-
-    rm -r "${APPLICATION_SUPPORT:?}"/Code/Cache/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Code/Code\ Cache/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Code/CachedData/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Code/Service\ Worker/CacheStorage/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Code/Service\ Worker/ScriptCache/*
-
-    rm -r "${APPLICATION_SUPPORT:?}"/Microsoft/Teams/Cache/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Microsoft/Teams/Code\ Cache/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Microsoft/Teams/Service\ Worker/CacheStorage/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Microsoft/Teams/Service\ Worker/ScriptCache/*
-
-    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Default/Service\ Worker/CacheStorage/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Default/Service\ Worker/ScriptCache/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 2/Service\ Worker/CacheStorage/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 2/Service\ Worker/ScriptCache/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 3/Service\ Worker/CacheStorage/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 3/Service\ Worker/ScriptCache/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 4/Service\ Worker/CacheStorage/*
-    rm -r "${APPLICATION_SUPPORT:?}"/Google/Chrome/Profile\ 4/Service\ Worker/ScriptCache/*
-}

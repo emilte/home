@@ -1,0 +1,8 @@
+# Ignore everything unless explicitly added.
+*
+
+!.gitignore
+!fpush.sh
+!pm.sh
+!nmr.sh
+!clean-my-caches.sh
