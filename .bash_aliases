@@ -69,6 +69,7 @@ alias br="br --dates --hidden --git-ignored" # broot.
 alias speedtest="cat ~/speedtest.py | python -" # Old: alias speedtest="curl https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias sync-clock='sudo sntp -Ss time.apple.com'
 alias mute="osascript -e 'set volume output muted true'"
+alias volume0="osascript -e 'set Volume 0'"
 alias nmr='. ~/.bash_scripts/nmr.sh'
 
 # https://ss64.com/osx/pmset.html
