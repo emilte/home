@@ -1,2 +1,4 @@
 # Stuff to do when waking up.
-sync-clock
+# Aliases no supported.
+
+# sleep 60 && pmset sleepnow # prank someone
