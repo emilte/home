@@ -27,6 +27,7 @@
 	prm = !git pm && git rebase $(git default)
 	pmm = !git pm && git merge $(git default)
 	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
+	af = !git amend && git fpush # Shortcut.
 	fix = commit --fixup # <commit> # Add fixup commit to another commit.
 	olog = log --oneline -g # Less verbose log.
 	# pr = !git pull && git pm && git rebase
