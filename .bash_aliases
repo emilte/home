@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/env bash
 
 alias la="ls -lA" # ls (but everything).
 alias ..="cd .."
