@@ -16,6 +16,8 @@
 !.gitconfig
 !.gitignore
 
+!brew_packages.md
+
 
 ### zshell ###
 !.zprofile
