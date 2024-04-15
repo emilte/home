@@ -71,6 +71,12 @@ alias sync-clock='sudo sntp -Ss time.apple.com'
 alias mute="osascript -e 'set volume output muted true'"
 alias volume0="osascript -e 'set Volume 0'"
 alias nmr='. ~/.bash_scripts/nmr.sh'
+alias meme='open "https://imgflip.com/memetemplates"'
+
+alias supercaffeinate="caffeinate -dimsu"
+alias binary-ninja='open -a "Binary Ninja"'
+alias idafree='open -a "ida64"'
+alias chrome='open -a "Google Chrome"'
 
 # https://ss64.com/osx/pmset.html
 alias pmset-config="code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"
