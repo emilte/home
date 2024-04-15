@@ -37,7 +37,7 @@ alias chromatic="open 'https://www.chromatic.com/library?appId=6183ad02fa0207003
 alias board="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/78'" # kp-team
 alias rboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/637'" # Rollestyring
 alias myboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/78?assignee_username=emilte'" # kp-team + emilte
-alias is-kp="[[ \$(git remote-url) == \"git@gitlab.sikt.no:feide/feide-kp.git\" ]]"
+alias is-kp='[[ "$(git remote-url)" == "git@gitlab.sikt.no:feide/feide-kp.git" ]]'
 alias kp-passed-master-pipelines="open 'https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success'"
 
 alias today='date +"%d.%m.%Y"'
@@ -60,9 +60,9 @@ alias sleepnow="pmset sleepnow"
 alias sn="sleepnow"
 alias dspa="docker system prune -af --volumes"
 alias iterm-scripts="code ~/Library/Application\ Support/iTerm2/Scripts"
-alias is-home="[[ \$(git remote-url) == \"git@github.com:emilte/home.git\" ]]"
-alias is-samf4="[[ \$(git remote-url) == \"git@github.com:Samfundet/Samfundet4.git\" ]]"
-alias dw='cd $REPOS/spotify && pipenv run python discover_weekly.py && cd -' # Generate playlists for discover weekly in Spotify.
+alias is-home='[[ "$(git remote-url)" == "git@github.com:emilte/home.git" ]]'
+alias is-samf4='[[ "$(git remote-url)" == "git@github.com:Samfundet/Samfundet4.git" ]]'
+alias dw='cd "$REPOS"/spotify && pipenv run python discover_weekly.py && cd -' # Generate playlists for discover weekly in Spotify.
 alias ncdu-home="ncdu ~ --exclude Projects --exclude Library --exclude .vscode" # Scan home dir.
 alias screenshots="code ~/Documents/screenshots"
 alias br="br --dates --hidden --git-ignored" # broot.
