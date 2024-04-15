@@ -28,6 +28,8 @@
 	<false/>
 	<key>EnableAPIServer</key>
 	<true/>
+	<key>EnableRendezvous</key>
+	<false/>
 	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>FlashTabBarInFullscreen</key>
@@ -399,7 +401,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>80</integer>
+			<integer>1250</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -960,7 +962,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>25</integer>
+			<integer>1250</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -992,11 +994,13 @@
 			<key>Show Status Bar</key>
 			<true/>
 			<key>Show Timestamps</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>Silence Bell</key>
 			<false/>
 			<key>Smart Cursor Color</key>
 			<true/>
+			<key>Space</key>
+			<integer>0</integer>
 			<key>Status Bar Layout</key>
 			<dict>
 				<key>advanced configuration</key>
@@ -1190,7 +1194,7 @@
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>15</integer>
+			<integer>0</integer>
 			<key>Working Directory</key>
 			<string>/Users/emil</string>
 		</dict>
