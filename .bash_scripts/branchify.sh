@@ -5,6 +5,9 @@ function branchify {
 
     cleaned_branch_name="$*" # Capture all positional args.
     
+    # Remove Norwegian characters.
+    cleaned_branch_name=$(echo "$cleaned_branch_name" | sed -e 's/æ/ae/g' -e 's/ø/o/g' -e 's/å/a/g')
+
     # Replace all invalid chars to spaces.
     cleaned_branch_name=${cleaned_branch_name//[^a-zA-Z0-9_]/ }
 
