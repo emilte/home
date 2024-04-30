@@ -20,7 +20,7 @@ glab issue create \
     --yes
 
 # Get the issue number.
-issue_number=$(glab issue list --per-page 1 --output ids)
+issue_number=$(glab issue list --per-page 1 --output-format ids)
 
 # Create a branch.
 branch_name=$(branchify "$issue_number"-"$issue_title")
