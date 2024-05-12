@@ -58,6 +58,7 @@ kubernetes-cli
 numpy
 readline
 django-completion
+uv
 
 # Casks
 
@@ -82,3 +83,7 @@ no-ip-duc
 nvidia-geforce-now
 pgadmin4
 zoom
+microsoft-teams
+microsoft-teams@classic
+slack
+slack-cli
