@@ -36,7 +36,7 @@ alias sentry="open 'https://sentry.feide.no/organizations/feide/issues/?environm
 alias chromatic="open 'https://www.chromatic.com/library?appId=6183ad02fa0207003a95f45f'"
 alias board="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/78'" # kp-team
 alias rboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/637'" # Rollestyring
-alias myboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/78?assignee_username=emilte'" # kp-team + emilte
+alias myboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/798'" # kp-team + emilte
 alias is-kp='[[ "$(git remote-url)" == "git@gitlab.sikt.no:feide/feide-kp.git" ]]'
 alias kp-passed-master-pipelines="open 'https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success'"
 
