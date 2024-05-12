@@ -40,7 +40,10 @@ alias myboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/78?assignee_
 alias is-kp='[[ "$(git remote-url)" == "git@gitlab.sikt.no:feide/feide-kp.git" ]]'
 alias kp-passed-master-pipelines="open 'https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success'"
 
+alias dcb="dc build"
 alias dcbu="dc build; dc up"
+alias dcua="dc up app"
+alias dcbua="dc build; dc up app"
 alias today='date +"%d.%m.%Y"'
 alias now='date +"%d.%m.%Y %H:%M:%S"'
 
