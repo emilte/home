@@ -87,3 +87,5 @@ microsoft-teams
 microsoft-teams@classic
 slack
 slack-cli
+figma
+figma-agent
