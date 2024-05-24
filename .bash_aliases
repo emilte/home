@@ -48,6 +48,7 @@ alias today='date +"%d.%m.%Y"'
 alias now='date +"%d.%m.%Y %H:%M:%S"'
 
 alias home='code ~'
+alias notes='code $REPOS/notes'
 alias cls='clear'
 alias samf='cd $REPOS/Samfundet'
 alias samf4='cd $REPOS/Samfundet4'
