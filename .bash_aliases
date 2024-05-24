@@ -78,6 +78,7 @@ alias volume0="osascript -e 'set Volume 0'"
 alias nmr='. ~/.bash_scripts/nmr.sh'
 alias meme='open "https://imgflip.com/memetemplates"'
 alias brew-search='open "https://brew.sh"'
+alias repo='git repo' # Open repository in browser.
 
 alias supercaffeinate="caffeinate -dimsu"
 alias binary-ninja='open -a "Binary Ninja"'
