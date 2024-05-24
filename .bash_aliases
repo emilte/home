@@ -90,6 +90,7 @@ alias pmset-config="code /Library/Preferences/SystemConfiguration/com.apple.Powe
 alias pmset-list="code /Library/Preferences/SystemConfiguration/com.apple.AutoWake.plist" # Show pmset wake list.
 
 alias cpu-temperature='sudo powermetrics --samplers smc || exit |grep -i "CPU die temperature"' # Monitor CPU temperature.
+alias chrome='open /Applications/Google\ Chrome.app' # --args --new-window --disable-dark-mode'
 
 ### Cleanup machine ###
 # Use ncdu to locate large folders.
