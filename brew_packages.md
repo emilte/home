@@ -89,3 +89,11 @@ slack
 slack-cli
 figma
 figma-agent
+warp
+binary-ninja
+duckduckgo
+idafree
+proton-drive
+proton-mail
+protonvpn
+temurin
