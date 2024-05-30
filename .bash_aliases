@@ -85,6 +85,9 @@ alias binary-ninja='open -a "Binary Ninja"'
 alias idafree='open -a "ida64"'
 alias chrome='open -a "Google Chrome"'
 
+alias outdated-casks='brew outdated --greedy'
+# alias brew-upgrade-casks="brew upgrade 1clipboard 1password 1password-cli alt-tab binary-ninja burp-suite dotnet-sdk duckduckgo epic-games fanny fig flutter idafree iterm2 linearmouse microsoft-auto-update microsoft-teams no-ip-duc notion nvidia-geforce-now openvpn-connect pgadmin4 proton-drive proton-mail protonvpn slack-cli spline temurin warp zoom" # slack
+
 # https://ss64.com/osx/pmset.html
 alias pmset-config="code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"
 alias pmset-list="code /Library/Preferences/SystemConfiguration/com.apple.AutoWake.plist" # Show pmset wake list.
@@ -140,3 +143,6 @@ function gub {
 
     git co "$branch_name" && git prm && git fpush && git co -
 }
+
+
+# "cliPluginsExtraDirs": ["/usr/local/lib/docker/cli-plugins"] 
