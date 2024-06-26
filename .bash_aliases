@@ -95,6 +95,17 @@ alias pmset-list="code /Library/Preferences/SystemConfiguration/com.apple.AutoWa
 alias cpu-temperature='sudo powermetrics --samplers smc || exit |grep -i "CPU die temperature"' # Monitor CPU temperature.
 alias chrome='open /Applications/Google\ Chrome.app' # --args --new-window --disable-dark-mode'
 
+
+alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v1.8); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java11='export JAVA_HOME=$(/usr/libexec/java_home -v11); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java17='export JAVA_HOME=$(/usr/libexec/java_home -v17); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java18='export JAVA_HOME=$(/usr/libexec/java_home -v18); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java19='export JAVA_HOME=$(/usr/libexec/java_home -v19); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java21='export JAVA_HOME=$(/usr/libexec/java_home -v21); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+
+alias sdkmanager='$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager'
+alias adb='$ANDROID_HOME/platform-tools/adb'
+
 ### Cleanup machine ###
 # Use ncdu to locate large folders.
 # See home directory
