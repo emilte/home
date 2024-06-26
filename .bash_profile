@@ -75,7 +75,8 @@ vsource ~/.bash_aliases $self
 
 ### pipenv ###
 export PIPENV_VENV_IN_PROJECT=1
-export LANG="en_US.UTF-8"
+# export LANG="en_US.UTF-8"
+export LANG="en_GB.UTF-8"
 export PIPENV_CACHE_DIR="$XDG_CACHE_HOME/pipenv" # Moved from "~/Library/Caches/pipenv" https://github.com/pypa/pipenv/blob/main/docs/configuration.md#changing-cache-location
 ### End: pipenv ###
 
