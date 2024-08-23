@@ -48,3 +48,11 @@
 !Library/Application Support/iTerm2/
 !Library/Application Support/iTerm2/Scripts/
 !Library/Application Support/iTerm2/Scripts/*
+
+### fish ###
+!Projects/
+!Projects/.XDG_CONFIG_HOME/
+!Projects/.XDG_CONFIG_HOME/fish/
+!Projects/.XDG_CONFIG_HOME/fish/functions/
+!Projects/.XDG_CONFIG_HOME/fish/functions/**
+!Projects/.XDG_CONFIG_HOME/fish/config.fish
