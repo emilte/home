@@ -30,9 +30,9 @@ async def main(connection):
     )
 
     # Bottom Left
-    await new_pane(
+    bottom_left_pane = await new_pane(
         session=top_left_pane,
-        cmd='y \n feide && cd frontend \n',
+        cmd='\n feide && cd frontend \n',
     )
 
     # Bottom Right
