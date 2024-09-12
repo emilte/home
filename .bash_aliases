@@ -35,7 +35,7 @@ alias speedtest="cat ~/speedtest.py | python -" # Old: alias speedtest="curl htt
 alias supercaffeinate="caffeinate -dimsu" # When you want the Mac screen to remain on.
 
 # Kundeportalen:
-alias kpdjango="dc exec app python manage.py"
+alias kpdjango="dc run app python manage.py"
 alias kpsync="pipenv run pipenv:sync; pnpm -w install"
 alias kpup="pipenv run pipenv:update; pnpm -w run update"
 alias kp-gen-routes="django generate_routes"
@@ -63,14 +63,18 @@ alias is-kp='[[ "$(git remote-url)" == "git@gitlab.sikt.no:feide/feide-kp.git" ]
 alias kp-passed-master-pipelines="open 'https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success'"
 
 # Docker:
-alias dcb="dc build"
-alias dcbu="dc build; dc up"
-alias dcua="dc up app"
-alias dcbua="dc build; dc up app"
-alias dcra="dc restart app"
-alias dspa="docker system prune -af --volumes" # Completely clean docker caches.
-alias dc="docker compose"
 alias d="docker"
+alias dc="docker compose"
+alias dcb="dc build"
+alias dcu="dc up --remove-orphans"
+alias dcbu="dcb; dcu"
+alias dcua="dcu app"
+alias dcbua="dcb; dcu app"
+alias dcra="dc restart app"
+alias dcbb="dcb backend"
+alias dcub="dcu backend"
+alias dcbub="dcbb; dcub"
+alias dspa="docker system prune -af --volumes" # Completely clean docker caches.
 
 # git:
 alias repo='git repo' # Open repository in browser.
