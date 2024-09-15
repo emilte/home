@@ -5,6 +5,8 @@ from utils import new_pane, new_tab
 
 samf_red = '#a03033'
 
+pre = '\n samf4 && source backend/aliases.sh \n'
+
 
 # This script was created with the "basic" environment
 # which does not support adding dependencies with pip.
@@ -18,7 +20,7 @@ async def main(connection):
     # Top Left
     top_left_pane = await new_tab(
         window=window,
-        cmd='\n samf4 && cd frontend && yarn start \n',
+        cmd=f'{pre} cd frontend && yarn ci && yarn start \n',
         hexa=samf_red,
     )
 
@@ -26,19 +28,19 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd='\n colima start; samf4 && cd backend && dc up backend \n',
+        cmd=f'{pre} colima start; cd backend && dcbub \n',
     )
 
     # Bottom Left
     await new_pane(
         session=top_left_pane,
-        cmd='y \n samf4 && cd frontend \n',
+        cmd=f'{pre} cd frontend \n',
     )
 
     # Bottom Right
     await new_pane(
         session=top_right_pane,
-        cmd='\n samf4 && code . && cd backend \n',
+        cmd=f'{pre} code . && cd backend && poetry-sync \n',
     )
 
 
