@@ -26,8 +26,14 @@
 	<true/>
 	<key>DimOnlyText</key>
 	<false/>
+	<key>DisableFullscreenTransparency</key>
+	<false/>
 	<key>EnableAPIServer</key>
 	<true/>
+	<key>EnableDivisionView</key>
+	<true/>
+	<key>EnableProxyIcon</key>
+	<false/>
 	<key>EnableRendezvous</key>
 	<false/>
 	<key>EscapeShellCharsWithBackslash</key>
@@ -162,10 +168,14 @@
 	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
+	<key>HideActivityIndicator</key>
+	<false/>
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
 	<false/>
+	<key>HideTabNumber</key>
+	<true/>
 	<key>Hotkey</key>
 	<false/>
 	<key>HotkeyChar</key>
@@ -959,6 +969,8 @@
 			<false/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
+			<key>Place Prompt at First Column</key>
+			<true/>
 			<key>Prompt Before Closing 2</key>
 			<integer>2</integer>
 			<key>Right Option Key Sends</key>
@@ -995,6 +1007,10 @@
 			<integer>2</integer>
 			<key>Shortcut</key>
 			<string></string>
+			<key>Show Mark Indicators</key>
+			<true/>
+			<key>Show Offscreen Command line</key>
+			<true/>
 			<key>Show Status Bar</key>
 			<true/>
 			<key>Show Timestamps</key>
@@ -2532,6 +2548,8 @@
 	<false/>
 	<key>SeparateWindowTitlePerTab</key>
 	<true/>
+	<key>ShowButtonsForSelectedCommand</key>
+	<true/>
 	<key>ShowFullScreenTabBar</key>
 	<true/>
 	<key>ShowNewOutputIndicator</key>
@@ -2568,6 +2586,8 @@
 	<dict/>
 	<key>UseBorder</key>
 	<true/>
+	<key>UseCustomScriptsFolder</key>
+	<false/>
 	<key>UseLionStyleFullscreen</key>
 	<true/>
 	<key>VisualIndicatorForEsc</key>
