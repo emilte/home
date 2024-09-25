@@ -14,3 +14,17 @@ function vsource {
 	# shellcheck disable=SC1090
 	[ -f "$arg_path" ] && echo "Sourcing $arg_path" && . "$arg_path"
 }
+
+function random_exit {
+	# Function that exits with status 0 nine times out of ten and status 1 one time out of ten.
+  
+	# Generate a random number between 1 and 10.
+	local random_number=$((RANDOM % 10 + 1))
+
+	# Check if the random number is 1.
+	if [ "$random_number" -eq 1 ]; then
+		return 1
+	else
+		return 0
+	fi
+}

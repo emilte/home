@@ -33,6 +33,16 @@ alias screenshots="code ~/Documents/screenshots"
 alias br="br --dates --hidden --git-ignored" # broot.
 alias speedtest="cat ~/speedtest.py | python -" # Old: alias speedtest="curl https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias supercaffeinate="caffeinate -dimsu" # When you want the Mac screen to remain on.
+alias safemail='cd "$REPOS"/chrome-extension-safemail && code .'
+function r() {
+    # Interactive repo picker.
+    cd "$(find "$REPOS" -type d -maxdepth 1 | fzf)" || exit
+}
+
+function c() {
+    # Interactive repo picker, opens VSCode.
+    code "$(find "$REPOS" -type d -maxdepth 1 | fzf)" || exit
+}
 
 # Kundeportalen:
 alias kpdjango="dc run app python manage.py"
@@ -61,6 +71,7 @@ alias rboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/637'" # Rolle
 alias myboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/798'" # kp-team + emilte
 alias is-kp='[[ "$(git remote-url)" == "git@gitlab.sikt.no:feide/feide-kp.git" ]]'
 alias kp-passed-master-pipelines="open 'https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success'"
+
 
 # Docker:
 alias d="docker"
@@ -91,7 +102,7 @@ alias is-samf4='[[ "$(git remote-url)" == "git@github.com:Samfundet/Samfundet4.g
 # Brew:
 alias binary-ninja='open -a "Binary Ninja"'
 alias idafree='open -a "ida64"'
-alias outdated-casks='brew outdated --greedy'
+alias brew-outdated-casks='brew outdated --greedy'
 alias brew-search='open "https://brew.sh"'
 # alias brew-upgrade-casks="brew upgrade 1clipboard 1password 1password-cli alt-tab binary-ninja burp-suite dotnet-sdk duckduckgo epic-games fanny fig flutter idafree iterm2 linearmouse microsoft-auto-update microsoft-teams no-ip-duc notion nvidia-geforce-now openvpn-connect pgadmin4 proton-drive proton-mail protonvpn slack-cli spline temurin warp zoom" # slack
 
@@ -109,7 +120,8 @@ alias lid="ioreg -r -k AppleClamshellState -d 4 | grep AppleClamshellState | hea
 alias sync-clock='sudo sntp -Ss time.apple.com'
 alias mute="osascript -e 'set volume output muted true'"
 alias volume0="osascript -e 'set Volume 0'" # Set volume to 0 on Mac.
-alias sn="pmset sleepnow" # Send machine to sleep.
+alias bluetooth-off='blueutil -p 0'
+alias sn="bluetooth-off; pmset sleepnow" # Send machine to sleep.
 
 # Java:
 alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v1.8); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
@@ -168,5 +180,36 @@ function gub {
     git co "$branch_name" && git prm && git fpush && git co -
 }
 
+function random-success {
+    # Successful 1 in n times.
+    n="$1"
+    local random_number=$((RANDOM % n + 1)) # Generate a random number between 1 and n.
+    
+    [ "$random_number" -eq 1 ] && return 0 # Check if the random number is 1.
+    return 1
+}
 
 # "cliPluginsExtraDirs": ["/usr/local/lib/docker/cli-plugins"] 
+
+################################
+#         Colored echo
+################################
+
+export COLOR_RESET="\033[0m"
+export COLOR_RED="\033[31m"
+export COLOR_GREEN="\033[32m"
+
+function echo-color() {
+	color="$1"
+    shift # Shift all args to the left.
+	msg="$*" # Capture all other args.
+	echo -e "$color""$msg""$COLOR_RESET"
+}
+
+function echo-red() {
+	echo-color "$COLOR_RED" "$@"
+}
+
+function echo-green() {
+	echo-color "$COLOR_GREEN" "$@"
+}

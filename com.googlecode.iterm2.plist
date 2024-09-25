@@ -10,6 +10,8 @@
 	<true/>
 	<key>AutoCommandHistory</key>
 	<false/>
+	<key>AutoComposer</key>
+	<false/>
 	<key>BadgeRightMargin</key>
 	<integer>10</integer>
 	<key>BracketedPasteMode</key>
@@ -27,6 +29,8 @@
 	<key>DimOnlyText</key>
 	<false/>
 	<key>DisableFullscreenTransparency</key>
+	<false/>
+	<key>DisableTransparencyForKeyWindow</key>
 	<false/>
 	<key>EnableAPIServer</key>
 	<true/>

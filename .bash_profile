@@ -42,7 +42,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 ### End: bash ###
 
 ### Generic ###
-export PROJECTS_HOME="$HOME/Projects" # Excluded by BDLDaemon.
+export PROJECTS_HOME="$HOME/Projects" # Excluded by BDLDaemon (BitDefender) and Microsoft Defender.
 export REPOS="$PROJECTS_HOME/repos"
 export APPLICATION_SUPPORT="$HOME/Library/Application\ Support"
 export XDG_DATA_HOME="$PROJECTS_HOME/.XDG_DATA_HOME" # https://stackoverflow.com/a/71733442/12616507 # https://pnpm.io/npmrc#store-dir
@@ -72,6 +72,23 @@ export PUB_CACHE="$XDG_CACHE_HOME/.pub-cache" # Default: "~/.pub-cache" https://
 ### ALIAS ###
 vsource ~/.bash_aliases $self
 ### End: ALIAS ###
+
+
+### upgrade ###
+# Should be last thing to happen to avoid ctrl+C.
+echo
+if [ "$(random-success 10)" ]; then
+	read -r -p "Run brew update and brew upgrade? [y/N]: " ans
+	# read -t 2 -r -p "Run brew update and brew upgrade? [y/N]: " ans # -t timeout 2 sec
+	is_yes "$ans" && brew update && brew upgrade && brew cleanup && brew outdated --greedy;
+
+	echo 
+	echo "brew upgrade <cask>"
+	echo "or"
+	echo "brew upgrade --greedy"
+fi
+### End: upgrade ###
+
 
 ### pipenv ###
 export PIPENV_VENV_IN_PROJECT=1

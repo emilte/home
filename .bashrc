@@ -65,18 +65,6 @@ export LS_COLORS=$EMIL_LS_COLORS
 # Prevent duplicate entries when browsing history in terminal.
 export HISTCONTROL=ignoredups
 
-### upgrade ###
-# Should be last thing to happen to avoid cmd+C.
-echo;
-read -t 2 -r -p "Run brew update and brew upgrade? [y/N]: " ans
-is_yes "$ans" && brew update && brew upgrade && brew cleanup && brew outdated --greedy;
-
-echo 
-echo "brew upgrade <cask>"
-echo "or"
-echo "brew upgrade --greedy"
-### End: upgrade ###
-
 # export ANDROID_HOME="/usr/local/share/android-commandlinetools"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 # export PATH=$PATH:/usr/local/share/android-commandlinetools/cmdline-tools/latest/bin/sdkmanager
