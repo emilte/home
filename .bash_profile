@@ -77,8 +77,9 @@ vsource ~/.bash_aliases $self
 ### upgrade ###
 # Should be last thing to happen to avoid ctrl+C.
 echo
-if [ "$(random-success 10)" ]; then
-	read -r -p "Run brew update and brew upgrade? [y/N]: " ans
+if random-success 10; then
+	echo-red "Run brew update and brew upgrade?"
+	read -r -p "[y/N]: " ans
 	# read -t 2 -r -p "Run brew update and brew upgrade? [y/N]: " ans # -t timeout 2 sec
 	is_yes "$ans" && brew update && brew upgrade && brew cleanup && brew outdated --greedy;
 
