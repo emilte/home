@@ -86,6 +86,7 @@ alias dcbb="dcb backend"
 alias dcub="dcu backend"
 alias dcbub="dcbb; dcub"
 alias dspa="docker system prune -af --volumes" # Completely clean docker caches.
+# "cliPluginsExtraDirs": ["/usr/local/lib/docker/cli-plugins"] 
 
 # git:
 alias repo='git repo' # Open repository in browser.
@@ -104,7 +105,6 @@ alias binary-ninja='open -a "Binary Ninja"'
 alias idafree='open -a "ida64"'
 alias brew-outdated-casks='brew outdated --greedy'
 alias brew-search='open "https://brew.sh"'
-# alias brew-upgrade-casks="brew upgrade 1clipboard 1password 1password-cli alt-tab binary-ninja burp-suite dotnet-sdk duckduckgo epic-games fanny fig flutter idafree iterm2 linearmouse microsoft-auto-update microsoft-teams no-ip-duc notion nvidia-geforce-now openvpn-connect pgadmin4 proton-drive proton-mail protonvpn slack-cli spline temurin warp zoom" # slack
 
 
 # alias chrome='open -a "Google Chrome"'
@@ -178,38 +178,4 @@ function gub {
     branch_name=${branch_name:?}
 
     git co "$branch_name" && git prm && git fpush && git co -
-}
-
-function random-success {
-    # Successful 1 in n times.
-    n="$1"
-    local random_number=$((RANDOM % n + 1)) # Generate a random number between 1 and n.
-    
-    [ "$random_number" -eq 1 ] && return 0 # Check if the random number is 1.
-    return 1
-}
-
-# "cliPluginsExtraDirs": ["/usr/local/lib/docker/cli-plugins"] 
-
-################################
-#         Colored echo
-################################
-
-export COLOR_RESET="\033[0m"
-export COLOR_RED="\033[31m"
-export COLOR_GREEN="\033[32m"
-
-function echo-color() {
-	color="$1"
-    shift # Shift all args to the left.
-	msg="$*" # Capture all other args.
-	echo -e "$color""$msg""$COLOR_RESET"
-}
-
-function echo-red() {
-	echo-color "$COLOR_RED" "$@"
-}
-
-function echo-green() {
-	echo-color "$COLOR_GREEN" "$@"
 }

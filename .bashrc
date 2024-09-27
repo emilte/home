@@ -6,25 +6,8 @@ self="~/.bashrc"
 echo
 echo "=== $self ==="
 
-
-### functions ###
-function vsource {
-	# Verbose source of path if it exists.
-	# Usage: vsource <PATH> <FROM>
-	# Example: vsource ~/.bashrc "here"
-	arg_path=$1
-	arg_from=$2 ; arg_from=${arg_from:=$(pwd)} # Set default parameter if missing.
-	# shellcheck disable=SC1090
-	[ -f "$arg_path" ] && echo "Sourcing $arg_path" && . "$arg_path"
-}
-
-function is_yes {
-	ans=$(echo "$1" | tr "[:upper:]" "[:lower:]") # To lowercase.
-    [ "$ans" = "y" ] || [ "$ans" = "yes" ]
-    return $?
-}
-
-### End: functions ###
+# shellcheck disable=SC1090
+source ~/.bash_utils
 
 
 ### bash ###
@@ -43,13 +26,15 @@ unset BASHRC_SOURCED
 # https://robotmoon.com/bash-prompt-generator/
 # [hh:mm:ss] username:pwd git-branch $
 # shellcheck disable=2089
-PS1='\[\e[0;90m\]($(pyenv version-name)) \[\e[0;91m\]$( is-kp && echo "(pnpm $(pnpm -v))") \[\e[0;91m\]$( is-samf4 && echo "(yarn $(yarn -v))") \n\[\e[0m\][\[\e[0m\]\t\[\e[0m\]] \[$(tput setaf 10)\]\u\[$(tput setaf 250)\]@\[$(tput setaf 201)\]\h\[\e[0m\]:\[\e[0;94m\]\w \[\e[0;96m\]$( git is-repo && (is-home || git current)) \n\[$(tput setaf 9)\] \$ \[\e[0m\]'
+PS1_COLOR_RESET='\[\e[0m\]'
+# PS1='\[\e[0;90m\]($(pyenv version-name)) \[\e[0;91m\]$( is-kp && echo "(pnpm $(pnpm -v))") \[\e[0;91m\]$( is-samf4 && echo "(yarn $(yarn -v))") \n\[\e[0m\][\[\e[0m\]\t\[\e[0m\]] \[$(tput setaf 10)\]\u\[$(tput setaf 250)\]@\[$(tput setaf 201)\]\h\[\e[0m\]:\[\e[0;94m\]\w \[\e[0;96m\]$( git is-repo && (is-home || git current)) \n\[$(tput setaf 9)\] \$ \[\e[0m\]' # advanced, and slow...
+PS1="[\t]\[$(tput setaf 10)\]\u\[$(tput setaf 250)\]@\[$(tput setaf 201)\]\h$PS1_COLOR_RESET:\[\e[0;94m\]\w \[\e[0;96m\]$( git is-repo && (is-home || git current)) \n \[$(tput setaf 9)\]\$ $PS1_COLOR_RESET" # simple
 # shellcheck disable=2090
 export PS1
 
 ### LSCOLORS ###
 # This seems to be config for MacOS.
-export CLICOLOR=1 # Enable colorized output (MacOS)
+export CLICOLOR=1 # Enable colorized output (MacOS).
 export LSCOLORS=fagxcxdxbxegedabagacad # https://geoff.greer.fm/lscolors/
 ### End: LSCOLORS ###
 

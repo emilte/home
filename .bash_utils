@@ -1,30 +1,71 @@
 #!/usr/bin/env bash
+# Utils sourced before anything else.
 
-# shellcheck disable=SC2088
-self="~/.bash_utils"
-echo
-echo "=== $self ==="
+# Prevent sourcing more than once.
+# New shell is required for changes to take effect.
+[ "$BASH_UTILS_SOURCED" = 1 ] && return 1
+self="$HOME/.bash_utils"
+echo Sourcing "$self"
+export BASH_UTILS_SOURCED=1
+
 
 function vsource {
 	# Verbose source of path if it exists.
 	# Usage: vsource <PATH> <FROM>
 	# Example: vsource ~/.bashrc "here"
 	arg_path=$1
-	arg_from=$2 ; arg_from=${arg_from:=$(pwd)} # Set default parameter if missing.
+	arg_from=$2 ; arg_from=${arg_from:=$("pwd")} # Set default parameter if missing.
 	# shellcheck disable=SC1090
-	[ -f "$arg_path" ] && echo "Sourcing $arg_path" && . "$arg_path"
+	[ -f "$arg_path" ] && echo "Sourcing $arg_path" && source "$arg_path"
 }
 
-function random_exit {
-	# Function that exits with status 0 nine times out of ten and status 1 one time out of ten.
-  
-	# Generate a random number between 1 and 10.
-	local random_number=$((RANDOM % 10 + 1))
+function prepend_path {
+	# Prepends some path to PATH, but prevents duplicates.
+	arg_path=$1 # some path
+	[ "${PATH#*"$arg_path":}" == "$PATH" ] && export PATH="$arg_path:$PATH"
+}
 
-	# Check if the random number is 1.
-	if [ "$random_number" -eq 1 ]; then
-		return 1
-	else
-		return 0
-	fi
+function random-success {
+    # Successful 1 in n times.
+    n="$1"
+    local random_number=$((RANDOM % n + 1)) # Generate a random number between 1 and n.
+    
+    [ "$random_number" -eq 1 ] && return 0 # Check if the random number is 1.
+    return 1
+}
+
+function is_yes {
+	ans=$(echo "$1" | tr "[:upper:]" "[:lower:]") # To lowercase.
+    [ "$ans" = "y" ] || [ "$ans" = "yes" ]
+    return $?
+}
+
+
+################################
+#         Colored echo
+################################
+
+export COLOR_RESET="\033[0m"
+export COLOR_RED="\033[31m"
+export COLOR_GREEN="\033[32m"
+export COLOR_CYAN="\033[36m"
+
+function echo-color() {
+	color="$1"
+    shift # Shift all args to the left.
+	msg="$*" # Capture all other args.
+	echo -e "$color""$msg""$COLOR_RESET"
+}
+
+function echo-red() {
+	echo-color "$COLOR_RED" "$@"
+}
+
+function echo-green() {
+	echo-color "$COLOR_GREEN" "$@"
+}
+
+
+function echo-cyan() {
+	echo-color "$COLOR_CYAN" "$@"
 }

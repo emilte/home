@@ -183,14 +183,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     do_action "Install visual-studio-code?" "brew install --cask visual-studio-code"
 
 
-    ### fig ###
-    # Autocompletion with GUI.
-    # https://fig.io/
-    # https://formulae.brew.sh/cask/fig
-    # https://github.com/withfig/fig
-    do_action "Install fig?" "brew install --cask fig"
-
-
     ### bitwarden ###
     do_action "Install bitwarden?" "brew install --cask bitwarden"
 

@@ -6,26 +6,13 @@ self="~/.bash_profile"
 echo
 echo "=== $self ==="
 
-### functions ###
-function vsource {
-	# Verbose source of path if it exists.
-	# Usage: vsource <PATH> <FROM>
-	# Example: vsource ~/.bashrc "here"
-	arg_path=$1
-	arg_from=$2 ; arg_from=${arg_from:=$("pwd")} # Set default parameter if missing.
-	# shellcheck disable=SC1090
-	[ -f "$arg_path" ] && echo "Sourcing $arg_path" && source "$arg_path"
-}
 
-function prepend_path {
-	# Prepends some path to PATH, but prevents duplicates.
-	arg_path=$1 # some path
-	[ "${PATH#*"$arg_path":}" == "$PATH" ] && export PATH="$arg_path:$PATH"
-}
-### End: functions ###
-
+# shellcheck disable=SC1090
 
 ### bash ###
+source ~/.bash_utils
+vsource ~/.bash_aliases $self
+vsource ~/.bash_command_prompt $self
 # Prevent infinite source loop.
 export BASH_PROFILE_SOURCED=1
 [ "$BASHRC_SOURCED" != 1 ] && vsource ~/.bashrc $self
@@ -69,11 +56,6 @@ export PUB_CACHE="$XDG_CACHE_HOME/.pub-cache" # Default: "~/.pub-cache" https://
 ### End: glab ###
 
 
-### ALIAS ###
-vsource ~/.bash_aliases $self
-### End: ALIAS ###
-
-
 ### upgrade ###
 # Should be last thing to happen to avoid ctrl+C.
 echo
@@ -81,12 +63,13 @@ if random-success 10; then
 	echo-red "Run brew update and brew upgrade?"
 	read -r -p "[y/N]: " ans
 	# read -t 2 -r -p "Run brew update and brew upgrade? [y/N]: " ans # -t timeout 2 sec
-	is_yes "$ans" && brew update && brew upgrade && brew cleanup && brew outdated --greedy;
-
-	echo 
-	echo "brew upgrade <cask>"
-	echo "or"
-	echo "brew upgrade --greedy"
+	if is_yes "$ans"; then
+		brew update && brew upgrade && brew cleanup && brew outdated --greedy;
+		echo 
+		echo "brew upgrade <cask>"
+		echo "or"
+		echo "brew upgrade --greedy"
+	fi
 fi
 ### End: upgrade ###
 
@@ -124,7 +107,6 @@ fi
 
 # iterm2 shell integration.
 prepend_path "/usr/local/sbin"
-# shellcheck disable=SC1091
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # MacOS
@@ -133,9 +115,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 #  $ defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
 #  $ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
 
-# shellcheck disable=SC1091
 source /Users/emil/.config/broot/launcher/bash/br
-# shellcheck disable=SC1091
 . "$HOME/.cargo/env" 
 
 

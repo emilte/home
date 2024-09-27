@@ -77,7 +77,6 @@ spline
 adoptopenjdk11
 burp-suite
 epic-games
-fig
 iterm2
 no-ip-duc
 nvidia-geforce-now

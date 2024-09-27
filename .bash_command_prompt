@@ -1,0 +1,43 @@
+#!/bin/env bash
+# PROMPT_COMMAND environment variable. 
+# This variable allows you to execute a command before the display of each prompt. 
+
+
+# Prevent sourcing more than once.
+# New shell is required for changes to take effect.
+[ "$BASH_COMMAND_PROMPT_SOURCED" = 1 ] && return 1
+self="$HOME/.bash_utils"
+echo Sourcing "$self"
+export BASH_COMMAND_PROMPT_SOURCED=1
+
+LAST_DIR=$(pwd)
+
+# Function to trigger action on directory change.
+function check_directory_change {
+    if [[ "$PWD" != "$LAST_DIR" ]]; then
+        on-directory-change "$PWD" # Directory has changed, trigger action.
+        LAST_DIR="$PWD" # Update the last directory.
+    fi
+}
+
+# Cache variables that might be slow to evaluate often where non-delay is expected (such as prompt).
+function update-cached-vars {
+    CACHED_PYTHON_VERSION=$(pyenv version-name); export CACHED_PYTHON_VERSION
+    CACHED_PNPM_VERSION=$(pnpm -v); export CACHED_PNPM_VERSION
+    CACHED_YARN_VERSION=$(yarn -v || echo); export CACHED_YARN_VERSION
+}
+
+# Actions to trigger when directory changes.
+function on-directory-change {
+    update-cached-vars # Will cause slight delay.
+}
+
+
+function prompt_command {
+    echo
+    # check_directory_change
+}
+
+# Add the check function to PROMPT_COMMAND.
+# Not idempotent!
+export PROMPT_COMMAND="prompt_command; $PROMPT_COMMAND"
