@@ -40,4 +40,5 @@ function prompt_command {
 
 # Add the check function to PROMPT_COMMAND.
 # Not idempotent!
-export PROMPT_COMMAND="prompt_command; $PROMPT_COMMAND"
+export PROMPT_COMMAND="$PROMPT_COMMAND"
+# export PROMPT_COMMAND="prompt_command; $PROMPT_COMMAND"

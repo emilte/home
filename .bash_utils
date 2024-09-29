@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 # Utils sourced before anything else.
 
-# Prevent sourcing more than once.
-# New shell is required for changes to take effect.
-[ "$BASH_UTILS_SOURCED" = 1 ] && return 1
 self="$HOME/.bash_utils"
 echo Sourcing "$self"
-export BASH_UTILS_SOURCED=1
-
 
 function vsource {
 	# Verbose source of path if it exists.

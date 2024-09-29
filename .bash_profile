@@ -12,9 +12,9 @@ echo "=== $self ==="
 ### bash ###
 source ~/.bash_utils
 vsource ~/.bash_aliases $self
-vsource ~/.bash_command_prompt $self
-# Prevent infinite source loop.
-export BASH_PROFILE_SOURCED=1
+# vsource ~/.bash_command_prompt $self
+
+export BASH_PROFILE_SOURCED=1 # Prevent infinite source loop. .bashrc sources this file.
 [ "$BASHRC_SOURCED" != 1 ] && vsource ~/.bashrc $self
 unset BASH_PROFILE_SOURCED
 
