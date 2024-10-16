@@ -12,14 +12,14 @@ echo "=== $self ==="
 ### bash ###
 source ~/.bash_utils
 vsource ~/.bash_aliases $self
+vsource ~/.bash_secret $self # Excluded from version control.
+# vsource /usr/local/etc/bash_completion $self # Loads all other completions.
 # vsource ~/.bash_command_prompt $self
 
 export BASH_PROFILE_SOURCED=1 # Prevent infinite source loop. .bashrc sources this file.
 [ "$BASHRC_SOURCED" != 1 ] && vsource ~/.bashrc $self
 unset BASH_PROFILE_SOURCED
 
-vsource ~/.bash_secret $self # Excluded from version control.
-vsource /usr/local/etc/bash_completion $self # Loads all other completions.
 
 # Recommended by brew.
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
