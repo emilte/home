@@ -6,7 +6,7 @@
 git is-glab || (echo "nmr only works in gitlab repo" && return 1)
 
 # Set up a trap to handle errors.
-trap 'echo "Error occurred"; trap - ERR; return 1' ERR
+# trap 'echo "Error occurred"; trap - ERR; return 1' ERR
 
 issue_title="$*" # Capture all args.
 issue_title=${issue_title:?}
@@ -16,7 +16,7 @@ glab issue create \
     --title "$issue_title" \
     --description "" \
     --assignee emilte \
-    --label team::datadeling,status::"in progress" \
+    --label team::datadeling,status::"in progress (emilte)" \
     --yes
 
 # Get the issue number.
@@ -43,4 +43,4 @@ glab mr update --ready # I don't care for 'draft'.
 
 # Open the MR in the browser.
 mr
-trap - ERR
+# trap - ERR

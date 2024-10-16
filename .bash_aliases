@@ -34,6 +34,7 @@ alias br="br --dates --hidden --git-ignored" # broot.
 alias speedtest="cat ~/speedtest.py | python -" # Old: alias speedtest="curl https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias supercaffeinate="caffeinate -dimsu" # When you want the Mac screen to remain on.
 alias safemail='cd "$REPOS"/chrome-extension-safemail && code .'
+alias reset-alttab="defaults delete com.lwouis.alt-tab-macos" # https://github.com/lwouis/alt-tab-macos/issues/3653
 function r() {
     # Interactive repo picker.
     cd "$(find "$REPOS" -type d -maxdepth 1 | fzf)" || exit
@@ -91,6 +92,8 @@ alias dspa="docker system prune -af --volumes" # Completely clean docker caches.
 # git:
 alias repo='git repo' # Open repository in browser.
 alias nmr='. ~/.bash_scripts/nmr.sh'
+alias gub='. ~/.bash_scripts/gub.sh'
+alias branchify='. ~/.bash_scripts/branchify.sh'
 alias is-home='[[ "$(git remote-url)" == "git@github.com:emilte/home.git" ]]'
 alias mr="glab mr view --web" # Open current MR in GitLab.
 
@@ -163,19 +166,7 @@ alias adb='$ANDROID_HOME/platform-tools/adb'
 
 
 ### Functions ###
-# shellcheck disable=SC1090
-source ~/.bash_scripts/branchify.sh
 
 function kp-kube-shell {
     kubectl -n feide-feide-kp exec "$1" -it -- sh
-}
-
-function gub {
-    # git-update-branch
-    # Rebase branch on master, push and return to previous branch.
-    local branch_name
-    branch_name="$1"
-    branch_name=${branch_name:?}
-
-    git co "$branch_name" && git prm && git fpush && git co -
 }
