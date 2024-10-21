@@ -74,6 +74,8 @@ alias is-kp='[[ "$(git remote-url)" == "git@gitlab.sikt.no:feide/feide-kp.git" ]
 alias kp-passed-master-pipelines="open 'https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success'"
 
 
+alias brew-up="brew update && brew upgrade && brew cleanup"
+
 # Docker:
 alias d="docker"
 alias dc="docker compose"
