@@ -18,7 +18,7 @@ alias now='date +"%d.%m.%Y %H:%M:%S"'
 # Other:
 alias code='open -b com.microsoft.VSCode' # Open VSCode.
 alias meme='open "https://imgflip.com/memetemplates"'
-alias gn='sleep 5000; sn' # Good night, sleep well.
+alias gn='sleep 5000 && sn' # Good night, sleep well.
 alias home='code ~'
 alias notes='code $REPOS/notes'
 alias django="python -m pipenv run python manage.py"
