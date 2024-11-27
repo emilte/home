@@ -13,7 +13,7 @@ echo "=== $self ==="
 source ~/.bash_utils
 vsource ~/.bash_aliases $self
 vsource ~/.bash_secret $self # Excluded from version control.
-# vsource /usr/local/etc/bash_completion $self # Loads all other completions.
+vsource /usr/local/etc/bash_completion $self # Loads all other completions.
 # vsource ~/.bash_command_prompt $self
 
 export BASH_PROFILE_SOURCED=1 # Prevent infinite source loop. .bashrc sources this file.
@@ -22,9 +22,9 @@ unset BASH_PROFILE_SOURCED
 
 
 # Recommended by brew.
-# export LDFLAGS="-L/usr/local/opt/zlib/lib"
-# export CPPFLAGS="-I/usr/local/opt/zlib/include"
-# export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+export LDFLAGS="-L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
+export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 # export HOMEBREW_CACHE="$HOME/Projects/Caches/Homebrew" # Moved from "$HOME/Library/Caches/Homebrew".
 ### End: bash ###
 
@@ -47,7 +47,7 @@ export PUB_CACHE="$XDG_CACHE_HOME/.pub-cache" # Default: "~/.pub-cache" https://
 ### End: Dart ###
 
 ### git ###
-# vsource ~/.git-completion.bash $self
+vsource ~/.git-completion.bash $self
 ### End: git ###
 
 ### glab ###
@@ -61,7 +61,7 @@ export PUB_CACHE="$XDG_CACHE_HOME/.pub-cache" # Default: "~/.pub-cache" https://
 echo
 if random-success 10; then
 	echo-red "Run brew update and brew upgrade?"
-	read -r -p "[y/N]: " ans
+	read -t 8 -r -p "[y/N]: " ans
 	# read -t 2 -r -p "Run brew update and brew upgrade? [y/N]: " ans # -t timeout 2 sec
 	if is_yes "$ans"; then
 		brew update && brew upgrade && brew cleanup && brew outdated --greedy;

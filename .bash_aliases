@@ -16,6 +16,7 @@ alias today='date +"%d.%m.%Y"'
 alias now='date +"%d.%m.%Y %H:%M:%S"'
 
 # Other:
+alias downloads='code $HOME/Downloads'
 alias code='open -b com.microsoft.VSCode' # Open VSCode.
 alias meme='open "https://imgflip.com/memetemplates"'
 alias gn='sleep 5000 && sn' # Good night, sleep well.
