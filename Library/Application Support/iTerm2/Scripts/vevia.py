@@ -3,7 +3,7 @@
 import iterm2
 from utils import new_pane, new_tab
 
-feide_blue = '#1f4698'
+header_color = '#571f98'
 
 
 # This script was created with the "basic" environment
@@ -18,27 +18,27 @@ async def main(connection):
     # Top Left
     top_left_pane = await new_tab(
         window=window,
-        cmd='\n feide && cd frontend && pnpm install && pnpm start \n',
-        hexa=feide_blue,
+        cmd='\n vevia && cd frontend && pnpm install && pnpm start \n',
+        hexa=header_color,
     )
 
     # Top Right
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd='\n colima start; feide && dc up app \n',
+        cmd='\n vevia && dc up app \n',
     )
 
     # Bottom Left
     bottom_left_pane = await new_pane(
         session=top_left_pane,
-        cmd='\n feide && cd frontend \n',
+        cmd='\n vevia && cd frontend \n',
     )
 
     # Bottom Right
     await new_pane(
         session=top_right_pane,
-        cmd='\n feide && code . && pipenv run pipenv:sync \n',
+        cmd='\n vevia && code . && dotnet run \n',
     )
 
 

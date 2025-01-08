@@ -76,6 +76,7 @@ alias kp-passed-master-pipelines="open 'https://gitlab.sikt.no/feide/feide-kp/-/
 
 
 alias brew-up="brew update && brew upgrade && brew cleanup"
+alias vevia='cd $REPOS/vevia'
 
 # Docker:
 alias d="docker"
@@ -95,6 +96,7 @@ alias dspa="docker system prune -af --volumes" # Completely clean docker caches.
 # git:
 alias repo='git repo' # Open repository in browser.
 alias nmr='. ~/.bash_scripts/nmr.sh'
+alias npr='. ~/.bash_scripts/npr.sh'
 alias gub='. ~/.bash_scripts/gub.sh'
 alias branchify='. ~/.bash_scripts/branchify.sh'
 alias is-home='[[ "$(git remote-url)" == "git@github.com:emilte/home.git" ]]'
