@@ -42,6 +42,8 @@ export CYPRESS_CACHE_FOLDER="$XDG_CACHE_HOME/Cypress" # Moved from "~/Library/Ca
 export RUSTUP_HOME="$PROJECTS_HOME/.rustup" # Moved from "~/.rustup" https://rust-lang.github.io/rustup/environment-variables.html
 
 
+# export COLIMA_HOME="$XDG_CONFIG_HOME/.colima" # Moved from "~/.colima"
+
 ### Dart ###
 export PUB_CACHE="$XDG_CACHE_HOME/.pub-cache" # Default: "~/.pub-cache" https://dart.dev/tools/pub/environment-variables
 ### End: Dart ###
@@ -86,12 +88,13 @@ export PIPENV_CACHE_DIR="$XDG_CACHE_HOME/pipenv" # Moved from "~/Library/Caches/
 # shellcheck disable=SC2046,SC1090
 # [ $(which colima) ] && source <(colima completion bash)
 
-export LIMA_HOME="$PROJECTS_HOME/.lima" # Moved from "~/.lima" https://lima-vm.io/docs/dev/internals/#lima-home-directory-lima_home
+export LIMA_HOME="$XDG_CONFIG_HOME/.lima" # Moved from "~/.lima" https://lima-vm.io/docs/dev/internals/#lima-home-directory-lima_home
 ### End: colima ###
 
 
 ### pyenv ###
 export PYENV_ROOT="$PROJECTS_HOME/.pyenv"
+# export PYENV_ROOT="$XDG_CONFIG_HOME/.pyenv"
 # prepend_path "$PYENV_ROOT/bin"
 # prepend_path "$PYENV_ROOT/shims"
 if command -v pyenv 1>/dev/null 2>&1; then
