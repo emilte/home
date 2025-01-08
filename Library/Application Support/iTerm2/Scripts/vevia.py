@@ -26,7 +26,7 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd='\n vevia && dotnet run \n',
+        cmd='\n vevia && cd backend && dotnet run \n',
     )
 
     # Bottom Left
