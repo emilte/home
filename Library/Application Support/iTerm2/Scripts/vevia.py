@@ -26,7 +26,7 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd='\n vevia && dc up app \n',
+        cmd='\n vevia && dotnet run \n',
     )
 
     # Bottom Left
@@ -38,7 +38,7 @@ async def main(connection):
     # Bottom Right
     await new_pane(
         session=top_right_pane,
-        cmd='\n vevia && code . && dotnet run \n',
+        cmd='\n vevia && code . \n',
     )
 
 
