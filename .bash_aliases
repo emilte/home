@@ -78,6 +78,7 @@ alias kp-passed-master-pipelines="open 'https://gitlab.sikt.no/feide/feide-kp/-/
 alias brew-up="brew update && brew upgrade && brew cleanup"
 alias vevia='cd $REPOS/vevia'
 alias aneo='cd $REPOS/aneo-common-web'
+alias aneo-design='cd $REPOS/aneo-designsystem'
 
 # Docker:
 alias d="docker"

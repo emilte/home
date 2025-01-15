@@ -3,7 +3,7 @@
 import iterm2
 from utils import new_pane, new_tab
 
-header_color = '#000'
+header_color = '#ffc328'
 
 
 # This script was created with the "basic" environment
@@ -18,7 +18,8 @@ async def main(connection):
     # Top Left
     top_left_pane = await new_tab(
         window=window,
-        cmd='\n aneo && cd frontend && pnpm install && pnpm start \n',
+        cmd='\n aneo && pnpm run ci && pnpm run dev \n',
+        # cmd='\n aneo \n',
         hexa=header_color,
     )
 
@@ -26,20 +27,21 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd='\n aneo && cd backend && dotnet run \n',
+        cmd='\n aneo \n',
+        # cmd='\n aneo && pnpm run ci && pnpm run dev \n',
     )
 
-    # Bottom Left
-    bottom_left_pane = await new_pane(
-        session=top_left_pane,
-        cmd='\n aneo && cd frontend \n',
-    )
+    # # Bottom Left
+    # bottom_left_pane = await new_pane(
+    #     session=top_left_pane,
+    #     cmd='\n aneo \n',
+    # )
 
-    # Bottom Right
-    await new_pane(
-        session=top_right_pane,
-        cmd='\n aneo && code . \n',
-    )
+    # # Bottom Right
+    # await new_pane(
+    #     session=top_right_pane,
+    #     cmd='\n aneo && code . \n',
+    # )
 
 
 iterm2.run_until_complete(main)
