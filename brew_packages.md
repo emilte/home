@@ -7,7 +7,6 @@ bash-completion
 binwalk
 biome
 bitwarden-cli
-broot
 bun
 ca-certificates
 capstone
@@ -21,7 +20,7 @@ django-completion
 docker
 docker-completion
 docker-compose
-fish
+blueutil
 fizz
 fmt
 fzf
@@ -32,7 +31,6 @@ git-quick-stats
 glab
 graphviz
 htop
-john
 jq
 kubernetes-cli
 libpq
@@ -41,14 +39,10 @@ localtunnel
 ncdu
 nmap
 node
-numpy
-openssl@1.1
-openssl@3
+openssl
 openvpn
 pipenv
 postgresql
-postgresql@13
-postgresql@14
 pyenv
 readline
 sleepwatcher
@@ -59,6 +53,12 @@ wifi-password
 xz
 
 Archive
+- broot
+- postgresql@13
+- postgresql@14
+- numpy
+- fish
+- john
 - jakehilborn/jakehilborn/displayplacer
 - maven
 - oven-sh/bun/bun
@@ -79,7 +79,6 @@ Archive
 1password
 1password-cli
 alt-tab
-blueutil
 epic-games
 fanny
 figma
