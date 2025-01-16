@@ -76,39 +76,39 @@ Archive
 
 # Casks
 
-1clipboard
 1password
 1password-cli
-adoptopenjdk11
 alt-tab
-binary-ninja
 blueutil
-burp-suite
-burp-suite
-dotnet-sdk
-duckduckgo
 epic-games
 fanny
 figma
 figma-agent
 flutter
-idafree
 iterm2
 linearmouse
 microsoft-teams
-microsoft-teams@classic
 no-ip-duc
 notion
 nvidia-geforce-now
 openvpn-connect
-pgadmin4
-proton-drive
-proton-mail
-protonvpn
 slack
-slack-cli
-spline
 temurin
-warp
 zoom
 
+Archive:
+- 1clipboard
+- adoptopenjdk11
+- binary-ninja
+- burp-suite
+- dotnet-sdk
+- duckduckgo
+- idafree
+- pgadmin4
+- proton-drive
+- proton-mail
+- protonvpn
+- slack-cli
+- spline
+- warp
+-microsoft-teams@classic

@@ -32,10 +32,10 @@ export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 export PROJECTS_HOME="$HOME/Projects" # Excluded by BDLDaemon (BitDefender) and Microsoft Defender.
 export REPOS="$PROJECTS_HOME/repos"
 export APPLICATION_SUPPORT="$HOME/Library/Application\ Support"
-export XDG_DATA_HOME="$PROJECTS_HOME/.XDG_DATA_HOME" # https://stackoverflow.com/a/71733442/12616507 # https://pnpm.io/npmrc#store-dir
-export XDG_STATE_HOME="$PROJECTS_HOME/.XDG_STATE_HOME" # https://pnpm.io/npmrc#state-dir
-export XDG_CACHE_HOME="$PROJECTS_HOME/.XDG_CACHE_HOME" # https://github.com/abiosoft/colima/pull/736
-export XDG_CONFIG_HOME="$PROJECTS_HOME/.XDG_CONFIG_HOME" # https://github.com/abiosoft/colima/pull/736
+export XDG_DATA_HOME="$HOME/.XDG_DATA_HOME" # https://stackoverflow.com/a/71733442/12616507 # https://pnpm.io/npmrc#store-dir
+export XDG_STATE_HOME="$HOME/.XDG_STATE_HOME" # https://pnpm.io/npmrc#state-dir
+export XDG_CACHE_HOME="$HOME/.XDG_CACHE_HOME" # https://github.com/abiosoft/colima/pull/736
+export XDG_CONFIG_HOME="$HOME/.XDG_CONFIG_HOME" # https://github.com/abiosoft/colima/pull/736
 ### End: Generic ###
 
 export CYPRESS_CACHE_FOLDER="$XDG_CACHE_HOME/Cypress" # Moved from "~/Library/Caches/Cypress" https://docs.cypress.io/guides/references/advanced-installation#Binary-cache
@@ -118,7 +118,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 #  $ defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
 #  $ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
 
-source /Users/emil/.config/broot/launcher/bash/br
+# source /Users/emil/.config/broot/launcher/bash/br
 . "$HOME/.cargo/env" 
 
 

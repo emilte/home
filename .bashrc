@@ -55,5 +55,5 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 # export PATH=$PATH:/usr/local/share/android-commandlinetools/cmdline-tools/latest/bin/sdkmanager
 
 
-source /Users/emil/.config/broot/launcher/bash/br
+# source /Users/emil/.config/broot/launcher/bash/br
 . "$HOME/.cargo/env"
