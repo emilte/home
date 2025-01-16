@@ -5,6 +5,7 @@
 bash
 bash-completion
 binwalk
+biome
 bitwarden-cli
 broot
 bun
@@ -13,23 +14,28 @@ capstone
 cask
 colima
 corepack
+ctop
+curl
 deno
 django-completion
 docker
 docker-completion
 docker-compose
+fish
 fizz
 fmt
 fzf
 gcc
 gh
 git
+git-quick-stats
 glab
 graphviz
 htop
 john
 jq
 kubernetes-cli
+libpq
 lima
 localtunnel
 ncdu
@@ -51,6 +57,22 @@ uv
 wget
 wifi-password
 xz
+
+Archive
+- jakehilborn/jakehilborn/displayplacer
+- maven
+- oven-sh/bun/bun
+- pngcheck
+- postgresql@13
+- postgresql@14
+- qemu
+- the_silver_searcher
+- usbutils
+- watchman
+- zackelia/formulae/bclm
+- zenity
+-mysql-client
+-nghttp2
 
 # Casks
 
