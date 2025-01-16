@@ -1995,7 +1995,7 @@
 	<key>StretchTabsToFillBar</key>
 	<false/>
 	<key>TabStyleWithAutomaticOption</key>
-	<integer>4</integer>
+	<integer>5</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>TabsHaveCloseButton</key>
