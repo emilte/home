@@ -7,6 +7,8 @@ echo
 echo "=== $self ==="
 
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # shellcheck disable=SC1090
 
 ### bash ###
@@ -107,6 +109,8 @@ fi
 # 	eval "$(rbenv init - bash)"
 # fi
 ### End: ruby ###
+
+
 
 # iterm2 shell integration.
 prepend_path "/usr/local/sbin"
