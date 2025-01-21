@@ -93,6 +93,8 @@ nvidia-geforce-now
 openvpn-connect
 slack
 temurin
+spotify
+discord
 zoom
 
 Archive:

@@ -51,7 +51,9 @@ export PUB_CACHE="$XDG_CACHE_HOME/.pub-cache" # Default: "~/.pub-cache" https://
 ### End: Dart ###
 
 ### git ###
-vsource ~/.git-completion.bash $self
+# vsource ~/.git-completion.bash $self
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
 ### End: git ###
 
 ### glab ###

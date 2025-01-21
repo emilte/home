@@ -97,6 +97,7 @@ if [ ! "$(which brew)" ]; then
 
     # TODO: Just manually add this to bash_profile
     # echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.bash_profile
+    # eval $(/opt/homebrew/bin/brew shellenv)
     
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi

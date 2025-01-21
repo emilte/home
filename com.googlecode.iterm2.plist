@@ -1972,6 +1972,8 @@
 	<false/>
 	<key>Print In Black And White</key>
 	<true/>
+	<key>QuitWhenAllWindowsClosed</key>
+	<true/>
 	<key>SeparateStatusBarsPerPane</key>
 	<false/>
 	<key>SeparateWindowTitlePerTab</key>

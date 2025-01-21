@@ -4,6 +4,7 @@
 !.gitignore
 !fpush.sh
 !pm.sh
+!config-battery.sh
 !nmr.sh
 !clean-my-caches.sh
 !branchify.sh

@@ -39,6 +39,7 @@
 !.shellcheckrc
 !README.md
 !Dockerfile
+!iterm.md
 !.config/glab-cli/aliases.yml
 !.config/gh/config.yml
 !burp-suite-emil.json
@@ -53,9 +54,9 @@
 !Library/Application Support/iTerm2/Scripts/*
 
 ### fish ###
-!Projects/
-!Projects/.XDG_CONFIG_HOME/
-!Projects/.XDG_CONFIG_HOME/fish/
-!Projects/.XDG_CONFIG_HOME/fish/functions/
-!Projects/.XDG_CONFIG_HOME/fish/functions/**
-!Projects/.XDG_CONFIG_HOME/fish/config.fish
+
+!.XDG_CONFIG_HOME/
+!.XDG_CONFIG_HOME/fish/
+!.XDG_CONFIG_HOME/fish/functions/
+!.XDG_CONFIG_HOME/fish/functions/**
+!.XDG_CONFIG_HOME/fish/config.fish

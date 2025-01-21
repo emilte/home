@@ -11,8 +11,6 @@ If you want a preview of this setup, you should try this!
 <br>
 I have provided a simple Dockerfile [/DockerFile](/DockerFile) for sandbox testing.
 
-> WARNING: Never blindly trust commands you didn't write yourself. I advice you to inspect commands before running them.
-
 <br>
 
 Command to open a new container (can safely be repeated):
@@ -53,6 +51,10 @@ Dedicated to myself, you should probably see the section [for other users](#for-
 
 ```sh
 cd ~ && git init && git config --global user.email "you@example.com" && git config --global user.name "Your Name" && git remote add origin git@github.com:emilte/home.git && git fetch --all && git checkout -b "home-old" && git add . && git commit -m "Old home directory" && git checkout master -f ; bash .configure_bash.sh n
+```
+
+```sh
+/bin/bash -c "shopt -s dotglob && cd ~ && git clone git@github.com:emilte/home.git && mv -iv home/{.,}* ~"
 ```
 
 <br>
