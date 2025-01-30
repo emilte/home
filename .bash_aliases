@@ -78,7 +78,8 @@ alias vevia='cd $REPOS/vevia'
 
 # Aneo:
 alias aneo='cd $REPOS/aneo-common-web'
-alias aneo-start='aneo && pnpm i && pnpm run dev'
+# alias aneo-start='aneo && pnpm i && pnpm run dev'
+alias aneo-start='aneo && cd apps/web && pnpm i && pnpm run dev'
 alias aneo-design='cd $REPOS/aneo-designsystem'
 alias aneo-design-start='aneo-design && pnpm i && pnpm run dev'
 alias prod="open 'https://aneo-common-web.vercel.app/nb-NO'"
