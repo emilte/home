@@ -30,13 +30,13 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd="\n aneo-design; code . \n",
+        cmd="\n aneo-design && code . \n",
     )
 
     # Bottom Right
     await new_pane(
         session=top_right_pane,
-        cmd="\n aneo && cd apps/docs \n",
+        cmd="\n aneo-design && cd apps/docs \n",
     )
 
     ###############
@@ -54,7 +54,7 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd="\n aneo; code . \n",
+        cmd="\n aneo && code . \n",
     )
 
     # # Bottom Left

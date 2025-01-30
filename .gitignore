@@ -1,6 +1,12 @@
 # Ignore everything unless explicitly added.
 *
 
+# To include files from directories, each folder must explicitly be added.
+# Example:
+# folder1/
+# folder1/folder2/
+# folder1/folder2/file.txt
+
 
 ### bash ###
 !.bashrc
@@ -44,6 +50,8 @@
 !.config/gh/config.yml
 !burp-suite-emil.json
 !speedtest.py
+!.vscode/
+!.vscode/settings.json
 
 ### iterm2 ###
 # https://stackoverflow.com/questions/65776556/exclamation-mark-in-gitignore-doesnt-work
