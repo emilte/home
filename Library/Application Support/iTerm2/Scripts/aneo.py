@@ -22,7 +22,7 @@ async def main(connection):
     # Top Left
     top_left_pane = await new_tab(
         window=window,
-        cmd="\n aneo-design && pnpm run ci \n",
+        cmd="\n aneo-design-start \n",
         hexa=header_color,
     )
 
@@ -30,8 +30,13 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd="\n aneo-design && code . \n",
-        # cmd='\n aneo-design && pnpm run ci && pnpm run dev \n',
+        cmd="\n aneo-design; code . \n",
+    )
+
+    # Bottom Right
+    await new_pane(
+        session=top_right_pane,
+        cmd="\n aneo && cd apps/docs \n",
     )
 
     ###############
@@ -41,8 +46,7 @@ async def main(connection):
     # Top Left
     top_left_pane = await new_tab(
         window=window,
-        cmd="\n aneo && pnpm run ci && pnpm run dev \n",
-        # cmd='\n aneo \n',
+        cmd="\n aneo-start \n",
         hexa=header_color,
     )
 
@@ -50,8 +54,7 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd="\n aneo && code . \n",
-        # cmd='\n aneo && pnpm run ci && pnpm run dev \n',
+        cmd="\n aneo; code . \n",
     )
 
     # # Bottom Left

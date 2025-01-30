@@ -96,6 +96,7 @@ temurin
 spotify
 discord
 zoom
+proton-drive
 
 Archive:
 - 1clipboard
@@ -106,7 +107,6 @@ Archive:
 - duckduckgo
 - idafree
 - pgadmin4
-- proton-drive
 - proton-mail
 - protonvpn
 - slack-cli
