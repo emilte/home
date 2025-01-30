@@ -30,12 +30,13 @@ alias restart="sudo shutdown -r now" # Reboot machine.
 alias iterm-scripts="code ~/Library/Application\ Support/iTerm2/Scripts"
 alias dw='cd "$REPOS"/spotify && pipenv run python discover_weekly.py && cd -' # Generate playlists for discover weekly in Spotify.
 alias ncdu-home="ncdu ~ --exclude Projects --exclude Library --exclude .vscode" # Scan home dir.
-alias screenshots="code ~/Documents/screenshots"
+alias screenshots="code ~/Pictures/screenshots" # Cmd + Shift + 5 -> Options
 alias br="br --dates --hidden --git-ignored" # broot.
 alias speedtest="cat ~/speedtest.py | python -" # Old: alias speedtest="curl https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias supercaffeinate="caffeinate -dimsu" # When you want the Mac screen to remain on.
 alias safemail='cd "$REPOS"/chrome-extension-safemail && code .'
 alias reset-alttab="defaults delete com.lwouis.alt-tab-macos" # https://github.com/lwouis/alt-tab-macos/issues/3653
+
 function r() {
     # Interactive repo picker.
     cd "$(find "$REPOS" -type d -maxdepth 1 | fzf)" || exit
@@ -47,38 +48,44 @@ function c() {
 }
 
 # Kundeportalen:
-alias kpdjango="dc run app python manage.py"
-alias kpsync="pipenv run pipenv:sync; pnpm -w install"
-alias kpup="pipenv run pipenv:update; pnpm -w run update"
-alias kp-gen-routes="django generate_routes"
-alias kp-gen-perms="kpdjango generate_permissions"
-alias kpgen="makemigrations; kp-gen-routes; kp-gen-perms; ./maketypes.sh;"
-alias feide='cd $REPOS/feide-kp'
-alias paas="open 'https://console.paas2.uninett.no/kubeconfig/'"
-alias kp-deployments="kubectl -n feide-feide-kp get deployments --sort-by=.metadata.creationTimestamp"
-alias kp-kube="kubectl -n feide-feide-kp" # <name>
-alias kp-pods="kp-kube get pods --show-labels"
-alias kp-logs="kp-kube logs" # <name>
-alias dptest="open 'https://dashboard.dataporten-test.uninett.no/#!/fc:org:sikt.no'"
-alias prod-terminal="open 'https://gitlab.sikt.no/feide/feide-kp/-/environments/189/terminal'"
+# alias kpdjango="dc run app python manage.py"
+# alias kpsync="pipenv run pipenv:sync; pnpm -w install"
+# alias kpup="pipenv run pipenv:update; pnpm -w run update"
+# alias kp-gen-routes="django generate_routes"
+# alias kp-gen-perms="kpdjango generate_permissions"
+# alias kpgen="makemigrations; kp-gen-routes; kp-gen-perms; ./maketypes.sh;"
+# alias feide='cd $REPOS/feide-kp'
+# alias paas="open 'https://console.paas2.uninett.no/kubeconfig/'"
+# alias kp-deployments="kubectl -n feide-feide-kp get deployments --sort-by=.metadata.creationTimestamp"
+# alias kp-kube="kubectl -n feide-feide-kp" # <name>
+# alias kp-pods="kp-kube get pods --show-labels"
+# alias kp-logs="kp-kube logs" # <name>
+# alias dptest="open 'https://dashboard.dataporten-test.uninett.no/#!/fc:org:sikt.no'"
+# alias prod-terminal="open 'https://gitlab.sikt.no/feide/feide-kp/-/environments/189/terminal'"
 alias staging-terminal="open 'https://gitlab.sikt.no/feide/feide-kp/-/environments/188/terminal'"
 alias kp-rollestyring="open 'https://feide-kp-review-2359-test-tav533.paas2.uninett.no/org/2217476/start/'"
 alias kp-emulated="open 'https://feide-kp-review-3299-emule-cj8bdj.paas2.uninett.no/org/2217476/start/'"
 alias staging="open 'https://feide-kp-staging.paas2.uninett.no/'"
-alias prod="open 'https://kunde.feide.no/'"
-alias sentry="open 'https://sentry.feide.no/organizations/feide/issues/?environment=production&project=2&query=is%3Aunresolved&referrer=issue-list&statsPeriod=14d'"
-alias chromatic="open 'https://www.chromatic.com/library?appId=6183ad02fa0207003a95f45f'"
-alias board="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/768'" # kp-team
-alias rboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/637'" # Rollestyring
-alias myboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/798'" # kp-team + emilte
+# alias sentry="open 'https://sentry.feide.no/organizations/feide/issues/?environment=production&project=2&query=is%3Aunresolved&referrer=issue-list&statsPeriod=14d'"
+# alias chromatic="open 'https://www.chromatic.com/library?appId=6183ad02fa0207003a95f45f'"
+# alias board="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/768'" # kp-team
+# alias rboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/637'" # Rollestyring
+# alias myboard="open 'https://gitlab.sikt.no/feide/feide-kp/-/boards/798'" # kp-team + emilte
 alias is-kp='[[ "$(git remote-url)" == "git@gitlab.sikt.no:feide/feide-kp.git" ]]'
-alias kp-passed-master-pipelines="open 'https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success'"
+# alias kp-passed-master-pipelines="open 'https://gitlab.sikt.no/feide/feide-kp/-/pipelines?page=1&scope=all&ref=master&status=success'"
 
-
-alias brew-up="brew update && brew upgrade && brew cleanup"
 alias vevia='cd $REPOS/vevia'
+
+# Aneo:
 alias aneo='cd $REPOS/aneo-common-web'
+alias aneo-start='aneo && pnpm i && pnpm run dev'
 alias aneo-design='cd $REPOS/aneo-designsystem'
+alias aneo-design-start='aneo-design && pnpm i && pnpm run dev'
+alias prod="open 'https://aneo-common-web.vercel.app/nb-NO'"
+alias board="open 'https://app.asana.com/0/1208540119714729/1208549035714041'"
+alias asana="board"
+# alias anup="pipenv run pipenv:update; pnpm -w run update"
+
 
 # Docker:
 alias d="docker"
@@ -111,10 +118,13 @@ alias rekenett='cd $REPOS/rekenett'
 alias is-samf4='[[ "$(git remote-url)" == "git@github.com:Samfundet/Samfundet4.git" ]]'
 
 # Brew:
+alias brew='sudo echo || open -a Privileges; brew'
 alias binary-ninja='open -a "Binary Ninja"'
 alias idafree='open -a "ida64"'
 alias brew-outdated-casks='brew outdated --greedy'
 alias brew-search='open "https://brew.sh"'
+alias brew-up="brew update && brew upgrade && brew cleanup"
+
 
 
 # alias chrome='open -a "Google Chrome"'

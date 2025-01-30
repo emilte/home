@@ -9,6 +9,7 @@
 [init]
 	defaultBranch = master
 [alias]
+	m = !git co "$(git default)" && git pull
 	co = switch
 	s = status
 	is-diff = diff --quiet
