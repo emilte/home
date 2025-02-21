@@ -90,7 +90,7 @@ alias asana="board"
 
 # Docker:
 alias d="docker"
-alias dc="docker compose"
+alias dc="docker-compose"
 alias dcb="dc build"
 alias dcu="dc up --remove-orphans"
 alias dcbu="dcb; dcu"
@@ -112,19 +112,22 @@ alias branchify='. ~/.bash_scripts/branchify.sh'
 alias is-home='[[ "$(git remote-url)" == "git@github.com:emilte/home.git" ]]'
 alias mr="glab mr view --web" # Open current MR in GitLab.
 
+
 # MG::Web
 alias samf='cd $REPOS/Samfundet'
 alias samf4='cd $REPOS/Samfundet4'
 alias rekenett='cd $REPOS/rekenett'
 alias is-samf4='[[ "$(git remote-url)" == "git@github.com:Samfundet/Samfundet4.git" ]]'
 
+# Bekk
+alias skjer="https://skjer.bekk.no/events?Oslo=0&trondheim=1&kommende=1&internt=1&filter=0&eksternt=1"
+
 # Brew:
-alias brew='sudo echo || open -a Privileges; brew'
 alias binary-ninja='open -a "Binary Ninja"'
 alias idafree='open -a "ida64"'
 alias brew-outdated-casks='brew outdated --greedy'
 alias brew-search='open "https://brew.sh"'
-alias brew-up="brew update && brew upgrade && brew cleanup"
+alias brew-up="sudo echo || open -a Privileges; brew update && brew upgrade && brew cleanup"
 
 
 
