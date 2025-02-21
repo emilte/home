@@ -20,6 +20,7 @@
 	remote-url = config --get remote.origin.url # Get remote origin url.
 	remote-url-http = ! url=$(git remote-url) && url=${url/://} && url=${url/*@/https://} && echo $url # Replaces colon from string
 	is-glab = ![[ "$(git remote-url)" == "git@gitlab"* ]]
+	is-gh = ![[ "$(git remote-url)" == "git@github"* ]]
 
 	# Updates local default branch with latest changes from remote, no checkout needed.
 	# If default branch, run git pull, otherwise run custom pull. (Custom pull didn't work on the default branch.)
@@ -34,7 +35,7 @@
 	af = !git amend && git fpush # Shortcut.
 	fix = commit --fixup # <commit> # Add fixup commit to another commit.
 	olog = log --oneline # Less verbose log.
-	oglog = olog -g # Include reflog.
+	ologg = olog -g # Include reflog.
 	# pr = !git pull && git pm && git rebase
 	squash = rebase -i --autosquash # <branch> # Autosquashes fixup commits.
 	amend = commit --amend --verbose # Amend staged changes to last commit.
@@ -53,5 +54,5 @@
 [maintenance]
 	auto = false
 	strategy = incremental
-[rerere]
-	enabled = true # Remember merge conflict and fix for me. Even rebase.
+# [rerere]
+	# enabled = true # Remember merge conflict and fix for me. Even rebase.
