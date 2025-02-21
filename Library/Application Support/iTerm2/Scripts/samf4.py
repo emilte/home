@@ -3,9 +3,9 @@
 import iterm2
 from utils import new_pane, new_tab
 
-samf_red = '#a03033'
+samf_red = "#a03033"
 
-pre = '\n samf4 && source backend/aliases.sh \n'
+pre = "\n samf4 && source backend/aliases.sh \n"
 
 
 # This script was created with the "basic" environment
@@ -20,7 +20,7 @@ async def main(connection):
     # Top Left
     top_left_pane = await new_tab(
         window=window,
-        cmd=f'{pre} cd frontend && yarn ci && yarn start \n',
+        cmd=f"{pre} cd frontend \n yarn ci && yarn start \n",
         hexa=samf_red,
     )
 
@@ -28,19 +28,19 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd=f'{pre} colima start; cd backend && dcbub \n',
+        cmd=f"{pre} colima start; cd backend && source aliases.sh \n dcbub \n",
     )
 
     # Bottom Left
     await new_pane(
         session=top_left_pane,
-        cmd=f'{pre} cd frontend \n',
+        cmd=f"{pre} cd frontend \n",
     )
 
     # Bottom Right
     await new_pane(
         session=top_right_pane,
-        cmd=f'{pre} code . && cd backend && poetry-sync \n',
+        cmd=f"{pre} code . ; cd backend && source aliases.sh && poetry-sync \n",
     )
 
 
