@@ -11,7 +11,8 @@ function vsource {
 	arg_path=$1
 	arg_from=$2 ; arg_from=${arg_from:=$("pwd")} # Set default parameter if missing.
 	# shellcheck disable=SC1090
-	[ -f "$arg_path" ] && echo "Sourcing $arg_path" && source "$arg_path"
+	echo "Sourcing $arg_path" && source "$arg_path"
+	# [ -f "$arg_path" ] && echo "Sourcing $arg_path" && source "$arg_path"
 }
 
 function prepend_path {

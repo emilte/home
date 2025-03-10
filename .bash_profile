@@ -6,8 +6,10 @@ self="~/.bash_profile"
 echo
 echo "=== $self ==="
 
-
+# Sets environment vars, e.g. HOMEBREW_PREFIX.
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export BASH_COMPLETIONS_FOLDER="$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 
 # shellcheck disable=SC1090
 
@@ -15,7 +17,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 source ~/.bash_utils
 vsource ~/.bash_aliases $self
 vsource ~/.bash_secret $self # Excluded from version control.
-vsource /usr/local/etc/bash_completion $self # Loads all other completions.
+vsource "$BASH_COMPLETIONS_FOLDER" $self # Loads all other completions.
 # vsource ~/.bash_command_prompt $self
 
 export BASH_PROFILE_SOURCED=1 # Prevent infinite source loop. .bashrc sources this file.
@@ -52,8 +54,7 @@ export PUB_CACHE="$XDG_CACHE_HOME/.pub-cache" # Default: "~/.pub-cache" https://
 
 ### git ###
 # vsource ~/.git-completion.bash $self
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
-
+# [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 ### End: git ###
 
 ### glab ###
@@ -70,7 +71,7 @@ if random-success 10; then
 	read -t 8 -r -p "[y/N]: " ans
 	# read -t 2 -r -p "Run brew update and brew upgrade? [y/N]: " ans # -t timeout 2 sec
 	if is_yes "$ans"; then
-		brew update && brew upgrade && brew cleanup && brew outdated --greedy;
+		brew-up && brew outdated --greedy;
 		echo 
 		echo "brew upgrade <cask>"
 		echo "or"
@@ -111,6 +112,22 @@ fi
 # 	eval "$(rbenv init - bash)"
 # fi
 ### End: ruby ###
+
+### nodenv ###
+if command -v nodenv 1>/dev/null 2>&1; then
+	eval "$(nodenv init - bash)"
+fi
+### End: nodenv ###
+
+
+
+### mise ###
+if command -v mise 1>/dev/null 2>&1; then
+	echo Activating mise
+	eval "$(mise activate bash)"
+fi
+### End: mise ###
+
 
 
 

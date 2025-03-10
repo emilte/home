@@ -87,6 +87,8 @@ alias board="open 'https://app.asana.com/0/1208540119714729/1208549035714041'"
 alias asana="board"
 # alias anup="pipenv run pipenv:update; pnpm -w run update"
 
+alias intellij='open -a "IntelliJ IDEA"'
+alias pr="gh pr view --web" # This overrides `print files` command.
 
 # Docker:
 alias d="docker"
@@ -120,16 +122,17 @@ alias rekenett='cd $REPOS/rekenett'
 alias is-samf4='[[ "$(git remote-url)" == "git@github.com:Samfundet/Samfundet4.git" ]]'
 
 # Bekk
-alias skjer="https://skjer.bekk.no/events?Oslo=0&trondheim=1&kommende=1&internt=1&filter=0&eksternt=1"
+alias skjer="open 'https://skjer.bekk.no/events?Oslo=0&trondheim=1&kommende=1&internt=1&filter=0&eksternt=1'"
 
 # Brew:
 alias binary-ninja='open -a "Binary Ninja"'
 alias idafree='open -a "ida64"'
 alias brew-outdated-casks='brew outdated --greedy'
 alias brew-search='open "https://brew.sh"'
-alias brew-up="sudo echo || open -a Privileges; brew update && brew upgrade && brew cleanup"
+alias brew-up="sudo echo || perm; brew update && brew upgrade && brew cleanup"
 
 
+alias h="home"
 
 # alias chrome='open -a "Google Chrome"'
 # alias chrome='open /Applications/Google\ Chrome.app' # --args --new-window --disable-dark-mode'
@@ -146,6 +149,8 @@ alias mute="osascript -e 'set volume output muted true'"
 alias volume0="osascript -e 'set Volume 0'" # Set volume to 0 on Mac.
 alias bluetooth-off='blueutil -p 0'
 alias sn="bluetooth-off; pmset sleepnow" # Send machine to sleep.
+
+alias perm="open -a Privileges"
 
 # Java:
 alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v1.8); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
