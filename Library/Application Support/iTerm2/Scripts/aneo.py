@@ -11,7 +11,7 @@ header_color = "#ffc328"
 async def main(connection):
     # Here's a bit of example code that adds a tab to the current window:
     app = await iterm2.async_get_app(connection)
-    window = app.current_terminal_window
+    window = app.current_window
     if window is None:
         return
 

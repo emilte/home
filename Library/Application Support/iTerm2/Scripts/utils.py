@@ -2,17 +2,20 @@ import iterm2
 
 
 def hex_to_rgb(*, hexa: str):
-    hx = hexa.lstrip('#')
-    return tuple(int(hx[i:i + 2], 16) for i in (0, 2, 4))
+    hx = hexa.lstrip("#")
+    return tuple(int(hx[i : i + 2], 16) for i in (0, 2, 4))
 
 
 async def new_tab(
     *,
     window,
-    cmd: str = '',
-    hexa: str = '',
+    cmd: str = "",
+    hexa: str = "",
+    title: str = "",
 ):
     tab = await window.async_create_tab()
+    if title:
+        await tab.async_set_title(title)
     session = tab.current_session
     if cmd:
         await session.async_send_text(cmd)
@@ -24,7 +27,7 @@ async def new_tab(
 async def new_pane(
     *,
     session,
-    cmd: str = '',
+    cmd: str = "",
     vertical: bool = False,
 ):
     new_session = await session.async_split_pane(vertical=vertical)

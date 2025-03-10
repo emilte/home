@@ -3,9 +3,7 @@
 import iterm2
 from utils import new_pane, new_tab
 
-samf_red = "#a03033"
-
-pre = "\n samf4 && source backend/aliases.sh \n"
+header_color = "#045c4c"
 
 
 # This script was created with the "basic" environment
@@ -17,30 +15,35 @@ async def main(connection):
     if window is None:
         return
 
+    ###############
+    # Aneo design #
+    ###############
+
     # Top Left
     top_left_pane = await new_tab(
         window=window,
-        cmd=f"{pre} cd frontend \n yarn ci && yarn start \n",
-        hexa=samf_red,
+        cmd="\n cd $REPOS/kartverket && code kartverket.code-workspace && cd backstage-plugin-risk-scorecard-frontend && yarn \n yarn run dev \n",
+        hexa=header_color,
+        title="Kartverket",
     )
 
     # Top Right
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd=f"{pre} colima start; cd backend && source aliases.sh \n dcbub \n",
+        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-scorecard-backend \n",
     )
 
     # Bottom Left
     await new_pane(
         session=top_left_pane,
-        cmd=f"{pre} cd frontend \n",
+        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-crypto-service \n",
     )
 
     # Bottom Right
     await new_pane(
         session=top_right_pane,
-        cmd=f"{pre} code . ; cd backend && source aliases.sh && poetry-sync \n",
+        cmd="\n cd $REPOS/kartverket/ \n",
     )
 
 
