@@ -68,4 +68,6 @@
 !.XDG_CONFIG_HOME/fish/
 !.XDG_CONFIG_HOME/fish/functions/
 !.XDG_CONFIG_HOME/fish/functions/**
+!.XDG_CONFIG_HOME/fish/conf.d/
+!.XDG_CONFIG_HOME/fish/conf.d/**
 !.XDG_CONFIG_HOME/fish/config.fish
