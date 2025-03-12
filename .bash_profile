@@ -129,8 +129,6 @@ fi
 ### End: mise ###
 
 
-
-
 # iterm2 shell integration.
 prepend_path "/usr/local/sbin"
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

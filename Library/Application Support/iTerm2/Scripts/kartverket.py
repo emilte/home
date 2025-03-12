@@ -31,13 +31,13 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-scorecard-backend \n",
+        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-scorecard-backend \n dcu appm4 \n",
     )
 
     # Bottom Left
     await new_pane(
         session=top_left_pane,
-        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-crypto-service \n",
+        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-crypto-service \n dcu \n",
     )
 
     # Bottom Right

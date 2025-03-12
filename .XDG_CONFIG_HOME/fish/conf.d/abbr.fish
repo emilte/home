@@ -1,117 +1,116 @@
 #!/bin/env bash
 
+# All entries should refrain from using dash.
+
 # Wrap all commands in single quotes ''.
 # It prevents variable expansion.
 
+# alias is just a wrapper for functions, and possibly slower.
+# Rewrite to lazy-loaded function files or abbr.
+
 # Classics:
-abbr la 'ls -lAh' # ls (but everything).
+alias la 'ls -lAh' # ls (but everything).
+alias grep 'grep --color=auto' # Add colors to grep.
+alias mkdir 'mkdir -pv'
+alias mv 'mv -iv' # Confirmation of overwrite and create missing intermediate dirs.
+alias cp 'cp -i' # Confirmation of overwrite.
+alias ln 'ln -i' # Confirmation of overwrite.
+alias today 'date +"%d.%m.%Y"'
+alias now 'date +"%d.%m.%Y %H:%M:%S"'
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
-abbr grep 'grep --color=auto' # Add colors to grep.
+abbr cls 'clear'
 abbr projects 'echo $PROJECTS_HOME'
 abbr repos 'cd $REPOS'
-abbr mkdir 'mkdir -pv'
-abbr mv 'mv -iv' # Confirmation of overwrite and create missing intermediate dirs.
-abbr cp 'cp -i' # Confirmation of overwrite.
-abbr ln 'ln -i' # Confirmation of overwrite.
-abbr cls 'clear'
-abbr today 'date +"%d.%m.%Y"'
-abbr now 'date +"%d.%m.%Y %H:%M:%S"'
-abbr h 'home'
 
 # Other:
+alias meme 'open "https://imgflip.com/memetemplates"'
+alias gn 'sleep 5000 && sn'  # Good night, sleep well.
+alias home 'code ~'
+alias notes 'code $REPOS/notes'
+alias django 'python -m pipenv run python manage.py'
+alias makemigrations 'python -m pipenv run python manage.py makemigrations'
+alias intellij 'open -a "IntelliJ IDEA"'
+alias migrate 'python -m pipenv run python manage.py migrate'
+alias reload 'fish' # reload; 			source $FISH_CONFIG_FILE' # Reload shell environment.
+alias restart 'sudo shutdown -r now' # Reboot machine.
+alias dw 'cd $REPOS/spotify && pipenv run python discover_weekly.py && cd -' # Generate playlists for discover weekly in Spotify.
+alias ncdu_home 'ncdu ~ --exclude Projects --exclude Library --exclude .vscode' # Scan home dir.
+alias screenshots 'code ~/Pictures/screenshots' # Cmd + Shift + 5 -> Options
+alias br 'br --dates --hidden --git-ignored' # broot.
+alias speedtest 'cat ~/speedtest.py | python -' # Old: alias speedtest 'curl https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+alias safemail 'cd $REPOS/chrome-extension-safemail && code .'
+alias reset_alttab 'defaults delete com.lwouis.alt-tab-macos' # https://github.com/lwouis/alt-tab-macos/issues/3653
 abbr downloads 'code $HOME/Downloads'
+abbr h 'home'
+abbr supercaffeinate 		'caffeinate -dimsu' # When you want the Mac screen to remain on.
+abbr iterm_scripts 'code ~/Library/Application\ Support/iTerm2/Scripts'
 # abbr code 'open -b com.microsoft.VSCode' # Open VSCode.
-abbr meme 'open "https://imgflip.com/memetemplates"'
-abbr gn 'sleep 5000 && sn' # Good night, sleep well.
-abbr home 'code ~'
-abbr notes 'code $REPOS/notes'
-abbr django 'python -m pipenv run python manage.py'
-abbr makemigrations 'python -m pipenv run python manage.py makemigrations'
-abbr intellij 'open -a "IntelliJ IDEA"'
-abbr migrate 'python -m pipenv run python manage.py migrate'
-abbr reload 'source $FISH_CONFIG_FILE' # Reload shell environment.
-abbr restart 'sudo shutdown -r now' # Reboot machine.
-abbr iterm-scripts 'code ~/Library/Application\ Support/iTerm2/Scripts'
-abbr dw 'cd $REPOS/spotify && pipenv run python discover_weekly.py && cd -' # Generate playlists for discover weekly in Spotify.
-abbr ncdu-home 'ncdu ~ --exclude Projects --exclude Library --exclude .vscode' # Scan home dir.
-abbr screenshots 'code ~/Pictures/screenshots' # Cmd + Shift + 5 -> Options
-abbr br 'br --dates --hidden --git-ignored' # broot.
-abbr speedtest 'cat ~/speedtest.py | python -' # Old: abbr speedtest="curl https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
-abbr supercaffeinate 'caffeinate -dimsu' # When you want the Mac screen to remain on.
-abbr safemail 'cd $REPOS/chrome-extension-safemail && code .'
-abbr reset-alttab 'defaults delete com.lwouis.alt-tab-macos' # https://github.com/lwouis/alt-tab-macos/issues/3653
-# abbr chrome='open -a "Google Chrome"'
-# abbr chrome='open /Applications/Google\ Chrome.app' # --args --new-window --disable-dark-mode'
+# alias chrome 'open -a "Google Chrome"'
+# alias chrome 'open /Applications/Google\ Chrome.app' # --args --new-window --disable-dark-mode'
 
 
 # Docker:
-abbr d 'docker'
-abbr dc 'docker-compose'
-abbr dcb 'dc build'
-abbr dcu 'dc up --remove-orphans'
-abbr dcbu 'dcb; dcu'
-abbr dcua 'dcu app'
-abbr dcbua 'dcb; dcu app'
-abbr dcra 'dc restart app'
-abbr dcbb 'dcb backend'
-abbr dcub 'dcu backend'
-abbr dcbub 'dcbb; dcub'
-abbr dspa 'docker system prune -af --volumes' # Completely clean docker caches.
+alias d 	'docker'
+alias dc 	'docker-compose'
+alias dcb 	'dc build'
+alias dcu 	'dc up --remove-orphans'
+alias dcbu 	'dcb; dcu'
+alias dcua 	'dcu app'
+alias dcbua 'dcb; dcu app'
+alias dcra 	'dc restart app'
+alias dcbb 	'dcb backend'
+alias dcub 	'dcu backend'
+alias dcbub 'dcbb; dcub'
+alias dspa 	'docker system prune -af --volumes' # Completely clean docker caches.
 
 # git:
-abbr pr 'gh pr view --web' # This overrides `print files` command.
-abbr repo 'git repo' # Open repository in browser.
-abbr nmr '. ~/.bash_scripts/nmr.sh'
-abbr npr '. ~/.bash_scripts/npr.sh'
-abbr gub '. ~/.bash_scripts/gub.sh'
-abbr branchify '. ~/.bash_scripts/branchify.sh'
-# abbr is-home '[ (git remote-url 2>/dev/null || echo "unknown") = git@github.com:emilte/home.git ]'
-abbr mr 'glab mr view --web' # Open current MR in GitLab.
-
+alias pr 'gh pr view --web' # This overrides `print files` command.
+alias repo 'git repo' # Open repository in browser.
+alias mr 'glab mr view --web' # Open current MR in GitLab.
 
 # MG::Web
-abbr samf 'cd $REPOS/Samfundet'
-abbr samf4 'cd $REPOS/Samfundet4'
-abbr rekenett 'cd $REPOS/rekenett'
-abbr is-samf4 '[ (git remote-url) = git@github.com:Samfundet/Samfundet4.git ]'
+alias samf 'cd $REPOS/Samfundet'
+alias samf4 'cd $REPOS/Samfundet4'
+alias rekenett 'cd $REPOS/rekenett'
+alias is_samf4 '[ (git remote-url) = git@github.com:Samfundet/Samfundet4.git ]'
 
 # Bekk
-abbr skjer 'open "https://skjer.bekk.no/events?Oslo=0&trondheim=1&kommende=1&internt=1&filter=0&eksternt=1"'
+alias skjer 'open "https://skjer.bekk.no/events?Oslo=0&trondheim=1&kommende=1&internt=1&filter=0&eksternt=1"'
 
 # Brew:
-abbr binary-ninja 'open -a "Binary Ninja"'
-abbr idafree 'open -a "ida64"'
-abbr brew-outdated-casks 'brew outdated --greedy'
-abbr brew-search 'open "https://brew.sh"'
-abbr brew-up 'sudo echo || perm; brew update && brew upgrade && brew cleanup'
+alias binary-ninja 'open -a "Binary Ninja"'
+alias idafree 'open -a "ida64"'
+alias brew_outdated_casks 'brew outdated --greedy'
+alias brew_search 'open "https://brew.sh"'
+alias brew '; sudo echo || perm; brew update && brew upgrade && brew cleanup'
 
 # Mac:
 # https://ss64.com/osx/pmset.html
-abbr xacceptlicense 'sudo xcodebuild -license accept'
-abbr cpu-temperature 'sudo powermetrics --samplers smc || exit |grep -i "CPU die temperature"' # Monitor CPU temperature.
-abbr pmset-config 'code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist'
-abbr pmset-list 'code /Library/Preferences/SystemConfiguration/com.apple.AutoWake.plist' # Show pmset wake list.
-abbr lid 'ioreg -r -k AppleClamshellState -d 4 | grep AppleClamshellState | head -1' # Show lid state.
-abbr sync-clock 'sudo sntp -Ss time.apple.com'
-abbr mute 'osascript -e "set volume output muted true"'
-abbr volume0 "osascript -e 'set Volume 0'" # Set volume to 0 on Mac.
-abbr bluetooth-off 'blueutil -p 0'
-abbr sn 'bluetooth-off; pmset sleepnow' # Send machine to sleep.
-abbr perm 'open -a Privileges'
+alias sn 'bluetooth-off; pmset sleepnow' # Send machine to sleep.
+alias xacceptlicense 'sudo xcodebuild -license accept'
+alias cpu-temperature 'sudo powermetrics --samplers smc || exit |grep -i "CPU die temperature"' # Monitor CPU temperature.
+alias pmset-config 'code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist'
+alias pmset-list 'code /Library/Preferences/SystemConfiguration/com.apple.AutoWake.plist' # Show pmset wake list.
+alias lid 'ioreg -r -k AppleClamshellState -d 4 | grep AppleClamshellState | head -1' # Show lid state.
+alias sync-clock 'sudo sntp -Ss time.apple.com'
+alias mute 'osascript -e "set volume output muted true"'
+alias volume0 "osascript -e 'set Volume 0'" # Set volume to 0 on Mac.
+alias bluetooth-off 'blueutil -p 0'
+alias perm 'open -a Privileges'
 
 
 # Java:
-abbr java8 'export JAVA_HOME=$(/usr/libexec/java_home -v1.8); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
-abbr java11 'export JAVA_HOME=$(/usr/libexec/java_home -v11); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
-abbr java17 'export JAVA_HOME=$(/usr/libexec/java_home -v17); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
-abbr java18 'export JAVA_HOME=$(/usr/libexec/java_home -v18); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
-abbr java19 'export JAVA_HOME=$(/usr/libexec/java_home -v19); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
-abbr java21 'export JAVA_HOME=$(/usr/libexec/java_home -v21); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java8 'export JAVA_HOME=$(/usr/libexec/java_home -v1.8); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java11 'export JAVA_HOME=$(/usr/libexec/java_home -v11); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java17 'export JAVA_HOME=$(/usr/libexec/java_home -v17); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java18 'export JAVA_HOME=$(/usr/libexec/java_home -v18); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java19 'export JAVA_HOME=$(/usr/libexec/java_home -v19); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java21 'export JAVA_HOME=$(/usr/libexec/java_home -v21); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
 
 # Android:
-abbr sdkmanager '$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager'
-abbr adb '$ANDROID_HOME/platform-tools/adb'
+alias sdkmanager '$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager'
+alias adb '$ANDROID_HOME/platform-tools/adb'
 
 
 

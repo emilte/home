@@ -1,34 +1,31 @@
 # Name of this filepath.
 set self "~/.config/fish/config.fish"
 
-if type -q pyenv
-    eval (pyenv init -)
-end
+### Tooling ###
+# if type -q pyenv
+#     Try mise instead.
+#     pyenv init - fish | source
+# end
 
 # nodenv
-if type -q nodenv
-    eval (nodenv init - bash)
-end
+# if type -q nodenv
+#     Try mise instead.
+#     nodenv init - fish | source
+# end
 
 # mise
-if type -q mise
-    echo "Activating mise"
-    eval (mise activate fish)
-end
+# if type -q mise
+#     Supposedly not needed, brew loads mise automatically # https://mise.jdx.dev/getting-started.html
+#     mise activate fish | source
+# end
+### End: Tooling ###
 
-# source /Users/emil/.config/broot/launcher/fish/br
-# source "$HOME/.cargo/env"
 
-set -x FISH_CONFIG_HOME "$XDG_CONFIG_HOME/fish"
-set -x FISH_CONFIG_FILE "$FISH_CONFIG_HOME/config.fish"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
     echo
     echo "=== $self ==="
-
-    
-
 
     # iterm2 shell integration.
     # https://iterm2.com/documentation-shell-integration.html
