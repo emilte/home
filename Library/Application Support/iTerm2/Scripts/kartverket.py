@@ -22,7 +22,7 @@ async def main(connection):
     # Top Left
     top_left_pane = await new_tab(
         window=window,
-        cmd="\n cd $REPOS/kartverket && code kartverket.code-workspace && cd backstage-plugin-risk-scorecard-frontend && yarn \n yarn run dev \n",
+        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-scorecard-frontend && yarn install \n yarn dev \n",
         hexa=header_color,
         title="Kartverket",
     )
@@ -31,19 +31,19 @@ async def main(connection):
     top_right_pane = await new_pane(
         session=top_left_pane,
         vertical=True,
-        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-scorecard-backend \n dcu appm4 \n",
+        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-scorecard-backend && colima start \n dcu appm4 \n",
     )
 
     # Bottom Left
     await new_pane(
         session=top_left_pane,
-        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-crypto-service \n dcu \n",
+        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-crypto-service && colima start \n dcu \n",
     )
 
     # Bottom Right
     await new_pane(
         session=top_right_pane,
-        cmd="\n cd $REPOS/kartverket/ \n",
+        cmd="\n cd $REPOS/kartverket/ \n code kartverket.code-workspace \n",
     )
 
 

@@ -43,7 +43,7 @@ alias safemail 'cd $REPOS/chrome-extension-safemail && code .'
 alias reset_alttab 'defaults delete com.lwouis.alt-tab-macos' # https://github.com/lwouis/alt-tab-macos/issues/3653
 abbr downloads 'code $HOME/Downloads'
 abbr h 'home'
-abbr supercaffeinate 		'caffeinate -dimsu' # When you want the Mac screen to remain on.
+abbr supercaffeinate 'caffeinate -dimsu' # When you want the Mac screen to remain on.
 abbr iterm_scripts 'code ~/Library/Application\ Support/iTerm2/Scripts'
 # abbr code 'open -b com.microsoft.VSCode' # Open VSCode.
 # alias chrome 'open -a "Google Chrome"'
@@ -55,23 +55,22 @@ alias d 	'docker'
 alias dc 	'docker-compose'
 alias dcb 	'dc build'
 alias dcu 	'dc up --remove-orphans'
-alias dcbu 	'dcb; dcu'
 alias dcua 	'dcu app'
-alias dcbua 'dcb; dcu app'
+alias dcbua 'dcbu app'
 alias dcra 	'dc restart app'
 alias dcbb 	'dcb backend'
 alias dcub 	'dcu backend'
-alias dcbub 'dcbb; dcub'
+alias dcbub 'dcbu backend'
 alias dspa 	'docker system prune -af --volumes' # Completely clean docker caches.
 
 # git:
-alias pr 'gh pr view --web' # This overrides `print files` command.
+alias pr   'gh pr view --web' # This overrides `print files` command.
+alias mr   'glab mr view --web' # Open current MR in GitLab.
 alias repo 'git repo' # Open repository in browser.
-alias mr 'glab mr view --web' # Open current MR in GitLab.
 
 # MG::Web
-alias samf 'cd $REPOS/Samfundet'
-alias samf4 'cd $REPOS/Samfundet4'
+alias samf     'cd $REPOS/Samfundet'
+alias samf4    'cd $REPOS/Samfundet4'
 alias rekenett 'cd $REPOS/rekenett'
 alias is_samf4 '[ (git remote-url) = git@github.com:Samfundet/Samfundet4.git ]'
 
@@ -98,10 +97,11 @@ alias mute 'osascript -e "set volume output muted true"'
 alias volume0 "osascript -e 'set Volume 0'" # Set volume to 0 on Mac.
 alias bluetooth-off 'blueutil -p 0'
 alias perm 'open -a Privileges'
+alias permcli '/Applications/Privileges.app/Contents/Resources/PrivilegesCLI'
 
 
 # Java:
-alias java8 'export JAVA_HOME=$(/usr/libexec/java_home -v1.8); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
+alias java8  'export JAVA_HOME=$(/usr/libexec/java_home -v1.8); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
 alias java11 'export JAVA_HOME=$(/usr/libexec/java_home -v11); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
 alias java17 'export JAVA_HOME=$(/usr/libexec/java_home -v17); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
 alias java18 'export JAVA_HOME=$(/usr/libexec/java_home -v18); echo JAVA_HOME=$JAVA_HOME; echo $(java -version)'
