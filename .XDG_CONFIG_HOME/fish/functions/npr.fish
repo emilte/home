@@ -1,6 +1,4 @@
-# New PR on GitHub.
-
-function npr --wraps=aliasCommand --description 'alias npr aliasCommand'
+function npr --description 'New PR on GitHub.'
 
     # Abort if not a github repo.
     if not git is-gh
@@ -9,7 +7,7 @@ function npr --wraps=aliasCommand --description 'alias npr aliasCommand'
     end
 
     # Capture all args.
-    set issue_title "$argv"
+    set -l issue_title "$argv"
     if test -z "$issue_title"
         echo "Issue title is required"
         return 1
@@ -18,20 +16,20 @@ function npr --wraps=aliasCommand --description 'alias npr aliasCommand'
     # Create issue.
     # Returns the URL of the created issue.
     # Example: https://github.com/emilte/cage-elo/issues/1
-    set issue_url (gh issue create --title "$issue_title" --body "" --assignee "@me")
+    set -l issue_url (gh issue create --title "$issue_title" --body "" --assignee "@me")
 
     # Checkout the issue branch.
     gh issue develop "$issue_url" --checkout
 
     # Get the issue number from the URL.
-    set issue_number (echo "$issue_url" | grep -oE '[0-9]+$')
+    set -l issue_number (echo "$issue_url" | grep -oE '[0-9]+$')
 
     # Update remote with empty commit. Github won't create empty PR.
     git commit --allow-empty --allow-empty-message -m ""
     git push
 
     # Target branch for PR.
-    set target_branch (git default)
+    set -l target_branch (git default)
     if test -z "$target_branch"
         echo "Target branch is required"
         return 1

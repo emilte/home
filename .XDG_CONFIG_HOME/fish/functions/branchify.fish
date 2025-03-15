@@ -17,11 +17,9 @@ function branchify --description 'alias branchify <some string>'
     set -l cleaned_branch_name (string replace -ar '\W' '-' -- $cleaned_branch_name)
 
     # Trim any leading or trailing underscores/dashes/whitespace.
-	# set -l cleaned_branch_name (string trim -c '-_' $cleaned_branch_name)
     set -l cleaned_branch_name (string trim -c '-_ ' -- "$cleaned_branch_name")
 
     # Convert to lowercase.
-    # set -l cleaned_branch_name (echo "$cleaned_branch_name" | tr '[:upper:]' '[:lower:]')
 	set -l cleaned_branch_name (string lower -- $cleaned_branch_name)
 
 
