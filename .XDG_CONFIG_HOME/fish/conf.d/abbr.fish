@@ -82,7 +82,8 @@ alias binary-ninja 'open -a "Binary Ninja"'
 alias idafree 'open -a "ida64"'
 alias brew_outdated_casks 'brew outdated --greedy'
 alias brew_search 'open "https://brew.sh"'
-alias brew '; sudo echo || perm; brew update && brew upgrade && brew cleanup'
+alias brew_up 'sudo echo || perm; brew update && brew upgrade && brew cleanup'
+
 
 # Mac:
 # https://ss64.com/osx/pmset.html
