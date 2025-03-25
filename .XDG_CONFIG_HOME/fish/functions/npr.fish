@@ -6,10 +6,22 @@ function npr --description 'New PR on GitHub.'
         return 1
     end
 
+    if _is_git_dirty
+        echo Repo is dirty
+        return 1
+    end
+
     # Capture all args.
     set -l issue_title "$argv"
     if test -z "$issue_title"
         echo "Issue title is required"
+        return 1
+    end
+
+    # Target branch for PR.
+    set -l target_branch (git default)
+    if test -z "$target_branch"
+        echo "Target branch is required"
         return 1
     end
 
@@ -28,15 +40,8 @@ function npr --description 'New PR on GitHub.'
     git commit --allow-empty --allow-empty-message -m ""
     git push
 
-    # Target branch for PR.
-    set -l target_branch (git default)
-    if test -z "$target_branch"
-        echo "Target branch is required"
-        return 1
-    end
-
     # Create a pull request.
-    gh pr create --title "$issue_title" --assignee "@me" --body "" --base "$target_branch" --body "Closes #$issue_number"
+    gh pr create --draft --title "$issue_title" --assignee "@me" --body "" --base "$target_branch" --body "Closes #$issue_number"
 
     # Open the PR in the browser.
     gh pr view --web

@@ -60,6 +60,8 @@ alias dcbua 'dcbu app'
 alias dcra 	'dc restart app'
 alias dcbb 	'dcb backend'
 alias dcub 	'dcu backend'
+alias dce 	'dc exec'
+alias dcr 	'dc run'
 alias dcbub 'dcbu backend'
 alias dspa 	'docker system prune -af --volumes' # Completely clean docker caches.
 

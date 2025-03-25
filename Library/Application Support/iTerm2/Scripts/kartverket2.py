@@ -22,7 +22,7 @@ async def main(connection):
     # Left
     left_pane = await new_tab(
         window=window,
-        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-scorecard-frontend && yarn install \n yarn dev \n",
+        cmd="\n cd $REPOS/kartverket/frontend && yarn install \n yarn dev \n",
         hexa=header_color,
         title="Frontend",
     )
@@ -31,7 +31,7 @@ async def main(connection):
     _right_pane = await new_pane(
         session=left_pane,
         vertical=True,
-        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-scorecard-frontend \n",
+        cmd="\n cd $REPOS/kartverket/frontend \n",
     )
 
     ################
@@ -41,7 +41,7 @@ async def main(connection):
     # Left
     left_pane = await new_tab(
         window=window,
-        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-crypto-service && colima start \n dcu \n",
+        cmd="\n cd $REPOS/kartverket/crypto && colima start \n dcu \n",
         hexa=header_color,
         title="Crypto",
     )
@@ -50,7 +50,7 @@ async def main(connection):
     _right_pane = await new_pane(
         session=left_pane,
         vertical=True,
-        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-crypto-service \n",
+        cmd="\n cd $REPOS/kartverket/crypto \n",
     )
 
     ###############
@@ -60,7 +60,7 @@ async def main(connection):
     # Left
     left_pane = await new_tab(
         window=window,
-        cmd="\n sleep 4 && cd $REPOS/kartverket/backstage-plugin-risk-scorecard-backend && colima start \n dcu appm4 \n",
+        cmd="\n sleep 4 && cd $REPOS/kartverket/backend && colima start \n dcu appm4 \n",
         hexa=header_color,
         title="Backend",
     )
@@ -69,7 +69,7 @@ async def main(connection):
     _right_pane = await new_pane(
         session=left_pane,
         vertical=True,
-        cmd="\n cd $REPOS/kartverket/backstage-plugin-risk-scorecard-backend \n",
+        cmd="\n cd $REPOS/kartverket/backend \n",
     )
 
 
