@@ -11,7 +11,7 @@ function gub --description 'git-update-branch' -a branch
 	# This would hide changes that we had in the original branch.
 
 	git co $branch
-	git prm 
-	git fpush 
-	git co -
+	and git prm
+	and git fpush 
+	and git co -
 end
