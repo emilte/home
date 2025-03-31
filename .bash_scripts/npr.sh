@@ -23,7 +23,7 @@ issue_number=$(echo "$issue_url" | grep -oE '[0-9]+$')
 
 # Update remote with empty commit. Github won't create empty PR.
 git commit --allow-empty --allow-empty-message -m ""
-git push 
+git push
 
 # Target branch for PR.
 target_branch=$(git default)

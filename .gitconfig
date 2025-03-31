@@ -36,18 +36,18 @@
 	fix = commit --fixup # <commit> # Add fixup commit to another commit.
 	olog = log --oneline # Less verbose log.
 	ologg = olog -g # Include reflog.
-	# pr = !git pull && git pm && git rebase
 	squash = rebase -i --autosquash # <branch> # Autosquashes fixup commits.
 	amend = commit --amend --verbose # Amend staged changes to last commit.
 	freset = !git reset --hard origin/$(git current) # Hard reset current branch.
 	mr = !glab mr view --web # Open current merge request on gitlab in browser.
+	pr = !gh pr view --web # Open current merge request on gitlab in browser.
 
 	repo = ! open $(git remote-url-http) # Open repository in browser.
 
 	# https://stackoverflow.com/a/3528483/12616507
-	undo = reset --soft --keep HEAD^ # Move HEAD back one commit, keep changes in staged.
+	down = reset --soft --keep HEAD^ # Move HEAD down one commit , keep changes in staged.
 	# undo = reset --soft --keep HEAD~1 # Move HEAD back one commit, keep changes in staged.
-	# redo = reset --mixed --keep HEAD@{1} # Move HEAD forward one commit.
+	undo = reset --mixed --keep HEAD@{1} # Undo last action.
 
 
 # https://www.youtube.com/watch?v=aolI_Rz0ZqY&ab_channel=GitButler

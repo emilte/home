@@ -11,7 +11,7 @@
 # Classics:
 alias la 'ls -lAh' # ls (but everything).
 alias grep 'grep --color=auto' # Add colors to grep.
-alias mkdir 'mkdir -pv'
+alias mkdir 'mkdir -pv' # -p create intermediate dirs (no error if exists), -v verbose.
 alias mv 'mv -iv' # Confirmation of overwrite and create missing intermediate dirs.
 alias cp 'cp -i' # Confirmation of overwrite.
 alias ln 'ln -i' # Confirmation of overwrite.
