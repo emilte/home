@@ -12,6 +12,7 @@
 	m = !git co "$(git default)" && git pull
 	co = switch
 	s = status
+	p = pull
 	is-diff = diff --quiet
 	is-repo = !git rev-parse --is-inside-work-tree >/dev/null 2>&1
 	current = rev-parse --abbrev-ref HEAD # Get name of current branch.
@@ -21,6 +22,10 @@
 	remote-url-http = ! url=$(git remote-url) && url=${url/://} && url=${url/*@/https://} && echo $url # Replaces colon from string
 	is-glab = ![[ "$(git remote-url)" == "git@gitlab"* ]]
 	is-gh = ![[ "$(git remote-url)" == "git@github"* ]]
+	st = stash
+	sa = stash apply
+
+	ub = !git prm && git fpush # Update branch with latest changes from default branch with rebase.
 
 	# Updates local default branch with latest changes from remote, no checkout needed.
 	# If default branch, run git pull, otherwise run custom pull. (Custom pull didn't work on the default branch.)

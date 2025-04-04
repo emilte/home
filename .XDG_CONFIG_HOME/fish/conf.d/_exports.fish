@@ -7,6 +7,8 @@ set -gx CPPFLAGS "-I/usr/local/opt/zlib/include"
 set -gx PKG_CONFIG_PATH "/usr/local/opt/zlib/lib/pkgconfig"
 # set -gx HOMEBREW_CACHE "$HOME/Projects/Caches/Homebrew" # Moved from "$HOME/Library/Caches/Homebrew".
 
+# https://docs.docker.com/build/buildkit/#getting-started
+set -gx DOCKER_BUILDKIT 1
 
 # XDG
 set -gx PROJECTS_HOME "$HOME/Projects" # Excluded by BDLDaemon (BitDefender) and Microsoft Defender.
@@ -34,6 +36,7 @@ set -gx PIPENV_CACHE_DIR "$XDG_CACHE_HOME/pipenv" # Moved from "~/Library/Caches
 
 # lima/colima
 set -gx LIMA_HOME "$XDG_CONFIG_HOME/.lima" # Moved from "~/.lima" https://lima-vm.io/docs/dev/internals/#lima-home-directory-lima_home
+set -gx COLIMA_HOME "$XDG_CONFIG_HOME/.colima"
 
 # pyenv
 set -gx PYENV_ROOT "$HOME/.pyenv"

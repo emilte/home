@@ -22,6 +22,7 @@ abbr ... 'cd ../..'
 abbr cls 'clear'
 abbr projects 'echo $PROJECTS_HOME'
 abbr repos 'cd $REPOS'
+abbr m 'git m'
 
 # Other:
 alias meme 'open "https://imgflip.com/memetemplates"'
