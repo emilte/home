@@ -36,14 +36,15 @@
 	
 	prm = !git pm && git rebase $(git default)
 	pmm = !git pm && git merge $(git default)
-	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
+	fpush = !git push --force-with-lease @{upstream} # Force push with lease.
 	af = !git amend && git fpush # Shortcut.
+	aaf = !git add . && git af # Shortcut.
 	fix = commit --fixup # <commit> # Add fixup commit to another commit.
 	olog = log --oneline # Less verbose log.
 	ologg = olog -g # Include reflog.
 	squash = rebase -i --autosquash # <branch> # Autosquashes fixup commits.
 	amend = commit --amend --verbose # Amend staged changes to last commit.
-	freset = !git reset --hard origin/$(git current) # Hard reset current branch.
+	freset = !git reset --hard @{upstream} # Hard reset current branch.
 	mr = !glab mr view --web # Open current merge request on gitlab in browser.
 	pr = !gh pr view --web # Open current merge request on gitlab in browser.
 

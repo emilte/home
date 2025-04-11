@@ -7,6 +7,7 @@
 
 # alias is just a wrapper for functions, and possibly slower.
 # Rewrite to lazy-loaded function files or abbr.
+abbr yr 'yarn run'
 
 # Classics:
 alias la 'ls -lAh' # ls (but everything).
