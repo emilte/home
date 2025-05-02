@@ -37,7 +37,7 @@ function npr --description 'New PR on GitHub.'
     set -l issue_number (echo "$issue_url" | grep -oE '[0-9]+$')
 
     # Update remote with empty commit. Github won't create empty PR.
-    git commit --allow-empty --allow-empty-message -m ""
+    git commit --allow-empty --allow-empty-message -m "$issue_title"
     git push
 
     # Create a pull request.

@@ -15,35 +15,80 @@ async def main(connection):
     if window is None:
         return
 
-    ###############
-    # Aneo design #
-    ###############
+    ################
+    #   Frontend   #
+    ################
 
-    # Top Left
-    top_left_pane = await new_tab(
+    # Left
+    left_pane = await new_tab(
         window=window,
         cmd="\n cd $REPOS/kartverket/frontend && yarn install \n yarn dev \n",
         hexa=header_color,
-        title="Kartverket",
+        title="Frontend",
     )
 
-    # Top Right
-    top_right_pane = await new_pane(
-        session=top_left_pane,
+    # Right
+    _right_pane = await new_pane(
+        session=left_pane,
         vertical=True,
-        cmd="\n cd $REPOS/kartverket/backend && colima start \n dcu appm4 \n",
+        cmd="\n cd $REPOS/kartverket/frontend \n",
     )
 
-    # Bottom Left
-    await new_pane(
-        session=top_left_pane,
+    ################
+    #    Crypto    #
+    ################
+
+    # Left
+    left_pane = await new_tab(
+        window=window,
         cmd="\n cd $REPOS/kartverket/crypto && colima start \n dcu \n",
+        hexa=header_color,
+        title="Crypto",
     )
 
-    # Bottom Right
-    await new_pane(
-        session=top_right_pane,
-        cmd="\n cd $REPOS/kartverket/ \n code kartverket.code-workspace \n",
+    # Right
+    _right_pane = await new_pane(
+        session=left_pane,
+        vertical=True,
+        cmd="\n cd $REPOS/kartverket/crypto \n",
+    )
+
+    ###############
+    #   Backend   #
+    ###############
+
+    # Left
+    left_pane = await new_tab(
+        window=window,
+        cmd="\n sleep 4 && cd $REPOS/kartverket/backend && colima start \n dcua \n",
+        hexa=header_color,
+        title="Backend",
+    )
+
+    # Right
+    _right_pane = await new_pane(
+        session=left_pane,
+        vertical=True,
+        cmd="\n cd $REPOS/kartverket/backend \n",
+    )
+
+    ######################
+    #   kartverket.dev   #
+    ######################
+
+    # Left
+    left_pane = await new_tab(
+        window=window,
+        cmd="\n cd $REPOS/kartverket/kartverket.dev \n",
+        hexa=header_color,
+        title="kartverket.dev",
+    )
+
+    # Right
+    _right_pane = await new_pane(
+        session=left_pane,
+        vertical=True,
+        cmd="\n cd $REPOS/kartverket/kartverket.dev \n",
     )
 
 

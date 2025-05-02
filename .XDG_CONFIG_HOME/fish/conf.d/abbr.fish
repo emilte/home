@@ -1,11 +1,12 @@
 #!/bin/env bash
 
-# All entries should refrain from using dash.
 
-# Wrap all commands in single quotes ''.
-# It prevents variable expansion.
+# NOTE:
+# 1. All entries should refrain from using dash.
+# 2. Nested abbr doesn't work.
+# 3. Wrap all commands in single quotes ''. It prevents variable expansion.
 
-# alias is just a wrapper for functions, and possibly slower.
+
 # Rewrite to lazy-loaded function files or abbr.
 abbr yr 'yarn run'
 
@@ -24,12 +25,14 @@ abbr cls 'clear'
 abbr projects 'echo $PROJECTS_HOME'
 abbr repos 'cd $REPOS'
 abbr m 'git m'
+abbr p 'git pull'
 
 # Other:
 alias meme 'open "https://imgflip.com/memetemplates"'
 alias gn 'sleep 5000 && sn'  # Good night, sleep well.
 alias home 'code ~'
-alias notes 'code $REPOS/notes'
+abbr h 'home'
+abbr notes 'code $REPOS/notes'
 alias django 'python -m pipenv run python manage.py'
 alias makemigrations 'python -m pipenv run python manage.py makemigrations'
 alias intellij 'open -a "IntelliJ IDEA"'
@@ -44,7 +47,6 @@ alias speedtest 'cat ~/speedtest.py | python -' # Old: alias speedtest 'curl htt
 alias safemail 'cd $REPOS/chrome-extension-safemail && code .'
 alias reset_alttab 'defaults delete com.lwouis.alt-tab-macos' # https://github.com/lwouis/alt-tab-macos/issues/3653
 abbr downloads 'code $HOME/Downloads'
-abbr h 'home'
 abbr supercaffeinate 'caffeinate -dimsu' # When you want the Mac screen to remain on.
 abbr iterm_scripts 'code ~/Library/Application\ Support/iTerm2/Scripts'
 # abbr code 'open -b com.microsoft.VSCode' # Open VSCode.

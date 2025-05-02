@@ -36,7 +36,7 @@
 	
 	prm = !git pm && git rebase $(git default)
 	pmm = !git pm && git merge $(git default)
-	fpush = !git push --force-with-lease @{upstream} # Force push with lease.
+	fpush = !git push --force-with-lease $(git current) # Force push with lease.
 	af = !git amend && git fpush # Shortcut.
 	aaf = !git add . && git af # Shortcut.
 	fix = commit --fixup # <commit> # Add fixup commit to another commit.
@@ -54,7 +54,6 @@
 	down = reset --soft --keep HEAD^ # Move HEAD down one commit , keep changes in staged.
 	# undo = reset --soft --keep HEAD~1 # Move HEAD back one commit, keep changes in staged.
 	undo = reset --mixed --keep HEAD@{1} # Undo last action.
-
 
 # https://www.youtube.com/watch?v=aolI_Rz0ZqY&ab_channel=GitButler
 [maintenance]
