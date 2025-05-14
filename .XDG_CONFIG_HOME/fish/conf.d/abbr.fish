@@ -32,6 +32,8 @@ alias meme 'open "https://imgflip.com/memetemplates"'
 alias gn 'sleep 5000 && sn'  # Good night, sleep well.
 alias home 'code ~'
 abbr h 'home'
+abbr c. 'code .'
+abbr i. 'intellij .'
 abbr notes 'code $REPOS/notes'
 alias django 'python -m pipenv run python manage.py'
 alias makemigrations 'python -m pipenv run python manage.py makemigrations'

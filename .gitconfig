@@ -23,9 +23,10 @@
 	is-glab = ![[ "$(git remote-url)" == "git@gitlab"* ]]
 	is-gh = ![[ "$(git remote-url)" == "git@github"* ]]
 	st = stash
-	sa = stash apply
+	sta = st apply
 
 	ub = !git prm && git fpush # Update branch with latest changes from default branch with rebase.
+	ubm = !git pmm && git push # Update branch (merge) with latest changes from default branch with rebase.
 
 	# Updates local default branch with latest changes from remote, no checkout needed.
 	# If default branch, run git pull, otherwise run custom pull. (Custom pull didn't work on the default branch.)
@@ -36,7 +37,7 @@
 	
 	prm = !git pm && git rebase $(git default)
 	pmm = !git pm && git merge $(git default)
-	fpush = !git push --force-with-lease $(git current) # Force push with lease.
+	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
 	af = !git amend && git fpush # Shortcut.
 	aaf = !git add . && git af # Shortcut.
 	fix = commit --fixup # <commit> # Add fixup commit to another commit.

@@ -7,8 +7,14 @@ function npr --description 'New PR on GitHub.'
     end
 
     if _is_git_dirty
-        echo Repo is dirty
-        return 1
+        read -P "Repo is dirty. Stash and continue? [y/N] " -l stash_changes
+
+        if string match -iq "y" "$stash_changes"
+            echo "Stashing changes..."
+            git stash
+        else
+            return 1
+        end
     end
 
     # Capture all args.
@@ -17,12 +23,17 @@ function npr --description 'New PR on GitHub.'
         echo "Issue title is required"
         return 1
     end
-
+    
     # Target branch for PR.
     set -l target_branch (git default)
     if test -z "$target_branch"
         echo "Target branch is required"
         return 1
+    end
+
+    # Ensure issue_title ends with a dot.
+    if not string match -q '*.' "$issue_title"
+        set issue_title "$issue_title."
     end
 
     # Create issue.
@@ -42,6 +53,14 @@ function npr --description 'New PR on GitHub.'
 
     # Create a pull request.
     gh pr create --draft --title "$issue_title" --assignee "@me" --body "" --base "$target_branch" --body "Closes #$issue_number"
+
+    # Ask to apply stash.
+    if string match -iq "y" "$stash_changes"
+        read -P "Apply stash again? [y/N] " -l stash_apply
+        if string match -iq "y" "$stash_apply"
+            git stash apply
+        end
+    end
 
     # Open the PR in the browser.
     gh pr view --web
