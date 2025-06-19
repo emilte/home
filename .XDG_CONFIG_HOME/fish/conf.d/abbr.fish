@@ -27,12 +27,18 @@ abbr repos 'cd $REPOS'
 abbr m 'git m'
 abbr p 'git pull'
 
+abbr ur 'uv run'
+
 # Other:
 alias meme 'open "https://imgflip.com/memetemplates"'
 alias gn 'sleep 5000 && sn'  # Good night, sleep well.
 alias home 'code ~'
 abbr h 'home'
 abbr c. 'code .'
+alias priv-cli '/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI'
+alias privs 'priv-cli -s &| grep -q "User emilte has administrator privileges"' # Status
+alias priva 'priv-cli -a' # Add privileges.
+alias privr 'priv-cli -r' # Remove privileges.
 abbr i. 'intellij .'
 abbr notes 'code $REPOS/notes'
 alias django 'python -m pipenv run python manage.py'
@@ -63,11 +69,12 @@ alias dcb 	'dc build'
 alias dcu 	'dc up --remove-orphans'
 alias dcua 	'dcu app'
 alias dcbua 'dcbu app'
-alias dcra 	'dc restart app'
 alias dcbb 	'dcb backend'
 alias dcub 	'dcu backend'
 alias dce 	'dc exec'
+alias dcea 	'dc exec app'
 alias dcr 	'dc run'
+alias dcra 	'dc run app'
 alias dcbub 'dcbu backend'
 alias dspa 	'docker system prune -af --volumes' # Completely clean docker caches.
 
@@ -90,7 +97,7 @@ alias binary-ninja 'open -a "Binary Ninja"'
 alias idafree 'open -a "ida64"'
 alias brew_outdated_casks 'brew outdated --greedy'
 alias brew_search 'open "https://brew.sh"'
-alias brew_up 'sudo echo || perm; brew update && brew upgrade && brew cleanup'
+alias brew_up 'privs || priva; brew update && brew upgrade && brew cleanup'
 
 
 # Mac:
@@ -167,6 +174,14 @@ alias adb '$ANDROID_HOME/platform-tools/adb'
 # abbr board="open 'https://app.asana.com/0/1208540119714729/1208549035714041'"
 # abbr asana="board"
 # abbr anup="pipenv run pipenv:update; pnpm -w run update"
+
+alias reload 'fish'
+
+
+# NINA:
+alias nina='cd $REPOS/genlab_bestilling && . aliases.sh'
+alias nina-start='nina && uv sync && dcbua'
+
 
 
 #########################################

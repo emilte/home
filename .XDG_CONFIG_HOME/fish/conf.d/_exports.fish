@@ -1,3 +1,5 @@
+# Naming this file with a leading underscore allows it to be loaded before other files in the conf.d directory.
+
 # Sets environment vars, e.g. HOMEBREW_PREFIX.
 eval (/opt/homebrew/bin/brew shellenv)
 
@@ -42,3 +44,6 @@ set -gx COLIMA_HOME "$XDG_CONFIG_HOME/.colima"
 set -gx PYENV_ROOT "$HOME/.pyenv"
 
 set -gx ITERM2_SCRIPTS $HOME/Library/Application\ Support/iTerm2/Scripts
+
+# Tell uv to always attempt to load .env file.
+set -gx UV_ENV_FILE ".env"

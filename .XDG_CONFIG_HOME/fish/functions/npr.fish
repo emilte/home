@@ -6,12 +6,15 @@ function npr --description 'New PR on GitHub.'
         return 1
     end
 
+    set -l did_stash 0
     if _is_git_dirty
-        read -P "Repo is dirty. Stash and continue? [y/N] " -l stash_changes
+        read -P "Repo is dirty. Stash and continue? [Y/n] " -l stash_changes
+        echo $stash_changes
 
-        if string match -iq "y" "$stash_changes"
+        if not string match -iq "n" "$stash_changes"
             echo "Stashing changes..."
             git stash
+            set did_stash 1
         else
             return 1
         end
@@ -25,7 +28,11 @@ function npr --description 'New PR on GitHub.'
     end
     
     # Target branch for PR.
-    set -l target_branch (git default)
+    if set -q X_NPR_TARGET_BRANCH
+        set target_branch $X_NPR_TARGET_BRANCH
+    else
+        set target_branch (git default)
+    end
     if test -z "$target_branch"
         echo "Target branch is required"
         return 1
@@ -55,7 +62,7 @@ function npr --description 'New PR on GitHub.'
     gh pr create --draft --title "$issue_title" --assignee "@me" --body "" --base "$target_branch" --body "Closes #$issue_number"
 
     # Ask to apply stash.
-    if string match -iq "y" "$stash_changes"
+    if test $did_stash -eq 1
         read -P "Apply stash again? [y/N] " -l stash_apply
         if string match -iq "y" "$stash_apply"
             git stash apply
