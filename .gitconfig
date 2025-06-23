@@ -26,17 +26,18 @@
 	sta = st apply
 
 	ub = !git prm && git fpush # Update branch with latest changes from default branch with rebase.
-	ubm = !git pmm && git push # Update branch (merge) with latest changes from default branch with rebase.
+	ubm = !git pmm && git push # Update branch (merge) with latest changes from default branch with merge.
 
 	# Updates local default branch with latest changes from remote, no checkout needed.
 	# If default branch, run git pull, otherwise run custom pull. (Custom pull didn't work on the default branch.)
 	# TEST && ( THEN_EXPRESSIONS ) || (ELSE_EXPRESSIONS ) # https://www.baeldung.com/linux/one-line-if-else-condition
 	# https://stackoverflow.com/a/53667801/12616507
-	pm = "!git fetch --all && git is-default && git pull || { BRANCH=$(git default); echo \"Pulling origin/$BRANCH into $BRANCH ...\"; git fetch origin $BRANCH:$BRANCH; echo \"Branch $BRANCH is now up to date.\"; }"
-	# (old alias) pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
+	# pm = "!git fetch origin  && git is-default && git pull || { BRANCH=$(git default); echo \"Pulling origin/$BRANCH into $BRANCH ...\"; git fetch origin $BRANCH:$BRANCH; echo \"Branch $BRANCH is now up to date.\"; }"
+	pm = "!git is-default && git pull || { BRANCH=$(git default); echo \"Pulling origin/$BRANCH into $BRANCH ...\"; git fetch origin $BRANCH:$BRANCH; echo \"Branch $BRANCH is now up to date.\"; }"
 	
-	prm = !git pm && git rebase $(git default)
-	pmm = !git pm && git merge $(git default)
+	# (old alias) pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
+	prm = !git pm && git rebase origin/$(git default)
+	pmm = !git pm && git merge origin/$(git default)
 	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
 	af = !git amend && git fpush # Shortcut.
 	aaf = !git add -A && git af # Shortcut.

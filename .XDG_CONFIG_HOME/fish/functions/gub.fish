@@ -5,10 +5,23 @@ function gub --description 'git-update-branch' -a branch
 
 	# Do not want to stash here, because rebase might fail.
 	# This would hide changes that we had in the original branch.
+	
+	function _check_branch_unsync
+		if git status -sb | grep behind
+			echo "Your branch is behind"
+			read -l -P "Continue anyway? [y/N] " confirm
+			
+			if not string match -iq "y" "$confirm"
+				echo "Aborted."
+				return 1
+			end
+		end
+	end
 
 	if test -n "$branch"
-		git co $branch && git ub && git co -
+		# If branch is provided, switch to it, rebase, and switch back.
+		git co $branch && _check_branch_unsync && git ub && git co -
 	else
-		git ub
+		_check_branch_unsync && git ub
 	end
 end
