@@ -7,7 +7,7 @@ function gub --description 'git-update-branch' -a branch
 	# This would hide changes that we had in the original branch.
 	
 	function _check_branch_unsync
-		if git status -sb | grep behind
+		if git is-behind
 			echo "Your branch is behind"
 			read -l -P "Continue anyway? [y/N] " confirm
 			

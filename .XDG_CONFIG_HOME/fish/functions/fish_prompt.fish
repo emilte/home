@@ -52,7 +52,7 @@ function fish_prompt
                 echo git
                 return 0
             end
-            return 1
+            return 1 # Not a repo
         end
     end
 
@@ -61,6 +61,7 @@ function fish_prompt
     set -l red (set_color -o red)
     set -l green (set_color -o green)
     set -l blue (set_color -o blue)
+    set -l gray (set_color brblack)
     set -l normal (set_color normal)
 
     set -l arrow_color "$green"
@@ -80,7 +81,8 @@ function fish_prompt
     if not is-home
         if set -l repo_type (_repo_type)
             set -l repo_branch $red(_repo_branch_name $repo_type)
-            set repo_info "$cyan $repo_type:($repo_branch$cyan)"
+            set -l ab $gray$(git ab)
+            set repo_info "$cyan $repo_type:($repo_branch $ab $cyan)"
 
             if _is_repo_dirty $repo_type
                 set -l dirty "$yellow ✗"

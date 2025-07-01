@@ -12,11 +12,22 @@
 	m = !git co "$(git default)" && git pull
 	co = switch
 	s = status
+	f = fetch
 	p = pull
 	is-diff = diff --quiet
 	is-repo = !git rev-parse --is-inside-work-tree >/dev/null 2>&1
-	current = rev-parse --abbrev-ref HEAD # Get name of current branch.
-	default = !git remote show origin | awk '/HEAD branch/ {print $NF}' # Get name of default branch.
+	# (old) current = rev-parse --abbrev-ref HEAD # Get name of current branch.
+	current = branch --show-current # Get name of current branch.
+	current-upstream = rev-parse --abbrev-ref @{push} # Get name of current branch.
+
+	fetch-bg = !true # Fetch current branch in background.
+	# fetch-bg = !git fetch origin $(git current) &>/dev/null & # Fetch current branch in background.
+
+	ab = !git fetch-bg && git rev-list --left-right --count $(git current-upstream)...$(git current) | awk '{print $1 \"⬇ \" $2 \"⬆\"}' # ahead-behind with arrows
+	
+	# (old) default = !"git symbolic-ref refs/remotes/origin/HEAD | sed 's#.*/##'" # Get name of default branch.
+	default = !git rev-parse --abbrev-ref origin/HEAD | sed 's|^origin/||' # Get name of default branch.
+
 	is-default = ![ "$(git current)" = "$(git default)" ] # Determine if current branch is the default branch.
 	remote-url = config --get remote.origin.url # Get remote origin url.
 	remote-url-http = ! url=$(git remote-url) && url=${url/://} && url=${url/*@/https://} && echo $url # Replaces colon from string
@@ -36,6 +47,8 @@
 	pm = "!git is-default && git pull || { BRANCH=$(git default); echo \"Pulling origin/$BRANCH into $BRANCH ...\"; git fetch origin $BRANCH:$BRANCH; echo \"Branch $BRANCH is now up to date.\"; }"
 	
 	# (old alias) pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
+	is-behind = !git status -sb | grep behind
+	fomo25 = !git fetch origin summer25 && git rebase origin/summer25
 	prm = !git pm && git rebase origin/$(git default)
 	pmm = !git pm && git merge origin/$(git default)
 	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
@@ -48,8 +61,8 @@
 	squash = rebase -i --autosquash # <branch> # Autosquashes fixup commits.
 	amend = commit --amend --verbose # Amend staged changes to last commit.
 	freset = !git reset --hard @{upstream} # Hard reset current branch.
-	mr = !glab mr view --web # Open current merge request on gitlab in browser.
-	pr = !gh pr view --web # Open current merge request on gitlab in browser.
+	mr = !glab mr view --web # Open current merge request on GitLab in browser.
+	pr = !gh pr view --web # Open current merge request on GitHub in browser.
 
 	repo = ! open $(git remote-url-http) # Open repository in browser.
 

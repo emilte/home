@@ -28,6 +28,7 @@ abbr m 'git m'
 abbr p 'git pull'
 
 abbr ur 'uv run'
+abbr f 'git f'
 
 # Other:
 alias meme 'open "https://imgflip.com/memetemplates"'
@@ -53,6 +54,7 @@ alias screenshots 'code ~/Pictures/screenshots' # Cmd + Shift + 5 -> Options
 alias br 'br --dates --hidden --git-ignored' # broot.
 alias speedtest 'cat ~/speedtest.py | python -' # Old: alias speedtest 'curl https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
 alias safemail 'cd $REPOS/chrome-extension-safemail && code .'
+alias secret 'cd $REPOS/secret && code .'
 alias reset_alttab 'defaults delete com.lwouis.alt-tab-macos' # https://github.com/lwouis/alt-tab-macos/issues/3653
 abbr downloads 'code $HOME/Downloads'
 abbr supercaffeinate 'caffeinate -dimsu' # When you want the Mac screen to remain on.
@@ -113,7 +115,6 @@ alias mute 'osascript -e "set volume output muted true"'
 alias volume0 "osascript -e 'set Volume 0'" # Set volume to 0 on Mac.
 alias bluetooth-off 'blueutil -p 0'
 alias perm 'open -a Privileges'
-alias permcli '/Applications/Privileges.app/Contents/Resources/PrivilegesCLI'
 
 
 # Java:
