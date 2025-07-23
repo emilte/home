@@ -181,7 +181,7 @@ alias reload 'fish'
 
 # NINA:
 alias nina='cd $REPOS/genlab_bestilling && . aliases.sh'
-alias nina-start='nina && uv sync && dcbua'
+alias nina-start='nina && uv sync && dc down -v && dcbua'
 
 
 

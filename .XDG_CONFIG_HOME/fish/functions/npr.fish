@@ -59,7 +59,7 @@ function npr --description 'New PR on GitHub.'
     git push
 
     # Create a pull request.
-    gh pr create --draft --title "$issue_title" --assignee "@me" --body "" --base "$target_branch" --body "Closes #$issue_number"
+    gh pr create --draft --title "$issue_title" --assignee "@me" --base "$target_branch" --body "Closes #$issue_number"
 
     # Ask to apply stash.
     if test $did_stash -eq 1

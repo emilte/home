@@ -48,7 +48,7 @@
 	
 	# (old alias) pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
 	is-behind = !git status -sb | grep behind
-	fomo25 = !git fetch origin summer25 && git rebase origin/summer25
+	fomo25 = !git fetch origin summer25-week-30 && git rebase origin/summer25-week-30
 	prm = !git pm && git rebase origin/$(git default)
 	pmm = !git pm && git merge origin/$(git default)
 	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
