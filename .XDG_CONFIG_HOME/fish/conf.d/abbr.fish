@@ -10,6 +10,9 @@
 # Rewrite to lazy-loaded function files or abbr.
 abbr yr 'yarn run'
 
+alias load-aliases="[ -f aliases.sh ] && . aliases.sh"
+
+
 # Classics:
 alias la 'ls -lAh' # ls (but everything).
 alias grep 'grep --color=auto' # Add colors to grep.
@@ -39,6 +42,7 @@ abbr c. 'code .'
 alias priv-cli '/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI'
 alias privs 'priv-cli -s &| grep -q "User emilte has administrator privileges"' # Status
 alias priva 'priv-cli -a' # Add privileges.
+alias cpriva 'for i in (seq 5); priva; sleep 500; end;' # Continuously add privileges. # Expires after 30 minutes.
 alias privr 'priv-cli -r' # Remove privileges.
 abbr i. 'intellij .'
 abbr notes 'code $REPOS/notes'
@@ -75,7 +79,7 @@ alias dcbb 	'dcb backend'
 alias dcub 	'dcu backend'
 alias dce 	'dc exec'
 alias dcea 	'dc exec app'
-alias dcr 	'dc run'
+alias dcr 	'dc run --remove-orphans'
 alias dcra 	'dc run app'
 alias dcbub 'dcbu backend'
 alias dspa 	'docker system prune -af --volumes' # Completely clean docker caches.
