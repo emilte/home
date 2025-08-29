@@ -33,6 +33,8 @@ abbr p 'git pull'
 abbr ur 'uv run'
 abbr f 'git f'
 
+abbr sb 'supabase'
+
 # Other:
 alias meme 'open "https://imgflip.com/memetemplates"'
 alias gn 'sleep 5000 && sn'  # Good night, sleep well.
