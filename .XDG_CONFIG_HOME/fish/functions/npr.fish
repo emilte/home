@@ -70,6 +70,6 @@ function npr --description 'New PR on GitHub.'
     end
 
     # Open the PR in the browser.
-    gh pr view --web
+    # gh pr view --web
 
 end
