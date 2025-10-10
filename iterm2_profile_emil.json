@@ -31,10 +31,13 @@
   "Blend" : 0.13999999999999999,
   "Show Mark Indicators" : true,
   "Mouse Reporting" : true,
+  "Cursor Boost" : 0,
   "Ansi 4 Color" : {
-    "Green Component" : 0,
     "Red Component" : 0,
-    "Blue Component" : 0.73333334922790527
+    "Color Space" : "P3",
+    "Blue Component" : 0.99999994039535522,
+    "Alpha Component" : 1,
+    "Green Component" : 0.64728051424026489
   },
   "Non-ASCII Anti Aliased" : true,
   "Sync Title" : false,
@@ -139,6 +142,7 @@
       "algorithm" : 0
     }
   },
+  "Brighten Bold Text" : true,
   "Flashing Bell" : false,
   "Cursor Guide Color" : {
     "Red Component" : 0.70214027166366577,
@@ -172,6 +176,7 @@
     "Red Component" : 1,
     "Blue Component" : 1
   },
+  "Use Cursor Guide" : false,
   "Unlimited Scrollback" : false,
   "Custom Command" : "No",
   "AWDS Tab Option" : "Recycle",
@@ -445,9 +450,11 @@
   "Use Bold Font" : true,
   "Silence Bell" : false,
   "Ansi 12 Color" : {
-    "Green Component" : 0.3333333432674408,
-    "Red Component" : 0.3333333432674408,
-    "Blue Component" : 1
+    "Red Component" : 0.47058823529411764,
+    "Color Space" : "P3",
+    "Blue Component" : 1,
+    "Alpha Component" : 1,
+    "Green Component" : 0.74509803921568629
   },
   "Window Type" : 0,
   "Use Bright Bold" : true,
@@ -471,6 +478,13 @@
   "Name" : "iterm2_profile_emil",
   "Blinking Cursor" : true,
   "Guid" : "4B85B862-2AF7-4DD9-AC94-8256CFE75280",
+  "Match Background Color" : {
+    "Red Component" : 0.99697142839431763,
+    "Color Space" : "P3",
+    "Blue Component" : 0.32116127014160156,
+    "Alpha Component" : 1,
+    "Green Component" : 0.98600882291793823
+  },
   "Idle Code" : 0,
   "Ansi 10 Color" : {
     "Green Component" : 1,
@@ -483,11 +497,11 @@
     "Blue Component" : 0.3333333432674408
   },
   "Badge Color" : {
-    "Red Component" : 1,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0,
+    "Red Component" : 0.91916501522064209,
+    "Color Space" : "P3",
+    "Blue Component" : 0.10692672431468964,
     "Alpha Component" : 0.5,
-    "Green Component" : 0.14910027384757996
+    "Green Component" : 0.18959084153175354
   },
   "Smart Cursor Color" : true,
   "Ambiguous Double Width" : false,
@@ -503,6 +517,7 @@
   "Blur" : false,
   "Normal Font" : "Monaco 12",
   "Vertical Spacing" : 1,
+  "Use Underline Color" : false,
   "Session Close Undo Timeout" : 10,
   "Ansi 7 Color" : {
     "Green Component" : 0.73333334922790527,
@@ -516,6 +531,9 @@
   "Command" : "",
   "Terminal Type" : "xterm-256color",
   "Horizontal Spacing" : 1,
+  "Option Key Sends" : 0,
+  "Blink Allowed" : false,
+  "Minimum Contrast" : 0,
   "Tab Color" : {
     "Red Component" : 0.99518102407455444,
     "Color Space" : "sRGB",
@@ -523,8 +541,6 @@
     "Alpha Component" : 1,
     "Green Component" : 0.16033408045768738
   },
-  "Option Key Sends" : 0,
-  "Blink Allowed" : false,
   "Ansi 15 Color" : {
     "Green Component" : 1,
     "Red Component" : 1,
@@ -532,11 +548,13 @@
   },
   "Open Toolbelt" : false,
   "Ansi 6 Color" : {
-    "Green Component" : 0.73333334922790527,
-    "Red Component" : 0,
-    "Blue Component" : 0.73333334922790527
+    "Red Component" : 0.33817013628915504,
+    "Color Space" : "P3",
+    "Blue Component" : 0.78370335283616321,
+    "Alpha Component" : 1,
+    "Green Component" : 0.75901449446323732
   },
-  "Transparency" : 0,
+  "Faint Text Alpha" : 0.50497023809523811,
   "Initial Text" : "",
   "Background Color" : {
     "Red Component" : 0.036296665668487549,
@@ -545,6 +563,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.036296665668487549
   },
+  "Transparency" : 0,
   "Screen" : -1,
   "AWDS Window Option" : "No",
   "Initial Use Transparency" : true,
@@ -553,19 +572,24 @@
   ],
   "Non Ascii Font" : "Monaco 12",
   "Ansi 13 Color" : {
-    "Green Component" : 0.3333333432674408,
-    "Red Component" : 1,
-    "Blue Component" : 1
+    "Red Component" : 0.94232624769210815,
+    "Color Space" : "P3",
+    "Blue Component" : 0.97424155473709106,
+    "Alpha Component" : 1,
+    "Green Component" : 0.49679642915725708
   },
   "Columns" : 1250,
   "Show Timestamps" : 0,
   "Use Tab Color" : false,
   "Visual Bell" : true,
+  "Use Selected Text Color" : true,
   "Custom Directory" : "Recycle",
   "Ansi 5 Color" : {
-    "Green Component" : 0,
-    "Red Component" : 0.73333334922790527,
-    "Blue Component" : 0.73333334922790527
+    "Red Component" : 0.91916501522064209,
+    "Color Space" : "P3",
+    "Blue Component" : 0.75136981303923145,
+    "Alpha Component" : 1,
+    "Green Component" : 0.057345879325074324
   },
   "Set Local Environment Vars" : 2
 }
