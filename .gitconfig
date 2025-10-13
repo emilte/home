@@ -8,6 +8,13 @@
 	autocrlf = input
 [init]
 	defaultBranch = master
+[push]
+	autoSetupRemote = true
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+
 [alias]
 	m = !git co "$(git default)" && git pull
 	co = switch
