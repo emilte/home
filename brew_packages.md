@@ -39,6 +39,7 @@ localtunnel
 ncdu
 nmap
 node
+mise
 openssl
 openvpn
 pipenv
@@ -71,8 +72,8 @@ Archive
 - watchman
 - zackelia/formulae/bclm
 - zenity
--mysql-client
--nghttp2
+- mysql-client
+- nghttp2
 
 # Casks
 
@@ -97,6 +98,7 @@ spotify
 discord
 zoom
 proton-drive
+google-chrome
 
 Archive:
 - 1clipboard
@@ -112,4 +114,4 @@ Archive:
 - slack-cli
 - spline
 - warp
--microsoft-teams@classic
+- microsoft-teams@classic
