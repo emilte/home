@@ -10,6 +10,12 @@ Open iterm settings -> General -> Settings -> Set external settings to homefolde
 defaults read com.googlecode.iterm2
 ```
 
+# Download Rosetta 2
+
+This is needed to run Iterm2 python scripts.
+```
+softwareupdate --install-rosetta
+```
 
 # MacOS
 https://macos-defaults.com/finder/_fxsortfoldersfirst.html#set-to-true
