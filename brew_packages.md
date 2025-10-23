@@ -3,6 +3,7 @@
 # Brew
 
 bash
+docker-buildx
 bash-completion
 binwalk
 biome

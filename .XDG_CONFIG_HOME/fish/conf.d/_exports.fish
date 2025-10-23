@@ -4,9 +4,9 @@
 eval (/opt/homebrew/bin/brew shellenv)
 
 # Recommended by brew.
-set -gx LDFLAGS "-L/usr/local/opt/zlib/lib"
-set -gx CPPFLAGS "-I/usr/local/opt/zlib/include"
-set -gx PKG_CONFIG_PATH "/usr/local/opt/zlib/lib/pkgconfig"
+set -gx LDFLAGS -L/usr/local/opt/zlib/lib
+set -gx CPPFLAGS -I/usr/local/opt/zlib/include
+set -gx PKG_CONFIG_PATH /usr/local/opt/zlib/lib/pkgconfig
 # set -gx HOMEBREW_CACHE "$HOME/Projects/Caches/Homebrew" # Moved from "$HOME/Library/Caches/Homebrew".
 
 # https://docs.docker.com/build/buildkit/#getting-started
