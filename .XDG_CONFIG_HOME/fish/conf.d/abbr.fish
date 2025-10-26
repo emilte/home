@@ -4,6 +4,7 @@
 # 1. All entries should refrain from using dash.
 # 2. Nested abbr doesn't work.
 # 3. Wrap all commands in single quotes ''. It prevents variable expansion.
+# 4. abbr cannot be overwritten by alias because of expansion.ß
 
 # Rewrite to lazy-loaded function files or abbr.
 abbr yr 'yarn run'
@@ -26,26 +27,25 @@ abbr projects 'cd $PROJECTS_HOME'
 abbr repos 'cd $REPOS'
 abbr m 'git m'
 abbr p 'git pull'
-
 abbr ur 'uv run'
 abbr f 'git f'
 
 abbr sb supabase
 
-alias reload="source ~/.bash_aliases"
+alias reload fish
 
 # Other:
 alias meme 'open "https://imgflip.com/memetemplates"'
 alias gn 'sleep 5000 && sn' # Good night, sleep well.
 alias home 'code ~'
 abbr h home
-abbr c. 'code .'
+alias c. 'code .'
 alias priv-cli '/Applications/Privileges.app/Contents/MacOS/PrivilegesCLI'
 alias privs 'priv-cli -s &| grep -q "User emilte has administrator privileges"' # Status
 alias priva 'priv-cli -a' # Add privileges.
 alias cpriva 'for i in (seq 5); priva; sleep 500; end;' # Continuously add privileges. # Expires after 30 minutes.
 alias privr 'priv-cli -r' # Remove privileges.
-abbr i. 'intellij .'
+alias i. 'intellij .'
 abbr notes 'code $REPOS/notes'
 alias django 'python -m pipenv run python manage.py'
 alias makemigrations 'python -m pipenv run python manage.py makemigrations'
@@ -65,7 +65,8 @@ abbr downloads 'code $HOME/Downloads'
 abbr supercaffeinate 'caffeinate -dimsu' # When you want the Mac screen to remain on.
 abbr iterm_scripts 'code ~/Library/Application\ Support/iTerm2/Scripts'
 # abbr code 'open -b com.microsoft.VSCode' # Open VSCode.
-# alias chrome 'open -a "Google Chrome"'
+alias chrome 'open -a "Google Chrome"'
+alias b. chrome
 # alias chrome 'open /Applications/Google\ Chrome.app' # --args --new-window --disable-dark-mode'
 
 # Docker:
@@ -176,11 +177,15 @@ alias adb '$ANDROID_HOME/platform-tools/adb'
 # abbr asana="board"
 # abbr anup="pipenv run pipenv:update; pnpm -w run update"
 
-alias reload fish
-
 # NINA:
-alias nina='cd $REPOS/genlab_bestilling && . aliases.sh'
-alias nina-start='nina && uv sync && dc down -v && dcbua'
+# alias nina='cd $REPOS/genlab_bestilling && . aliases.sh'
+# alias nina-start='nina && uv sync && dc down -v && dcbua'
+
+# Arkivverket:
+set -gx AV_ROOT "$REPOS/database-transformasjon"
+alias av 'cd "$AV_ROOT" && load-aliases'
+alias av-start='av && dcbu'
+alias av-frontend-start='av && sleep 1 && frontend-start'
 
 #########################################
 #             Random scrap
