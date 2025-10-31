@@ -40,8 +40,8 @@
 	remote-url-http = ! url=$(git remote-url) && url=${url/://} && url=${url/*@/https://} && echo $url # Replaces colon from string
 	is-glab = ![[ "$(git remote-url)" == "git@gitlab"* ]]
 	is-gh = ![[ "$(git remote-url)" == "git@github"* ]]
-	st = stash
-	sta = st apply
+	st = stash --include-untracked
+	sta = stash apply
 
 	ub = !git prm && git fpush # Update branch with latest changes from default branch with rebase.
 	ubm = !git pmm && git push # Update branch (merge) with latest changes from default branch with merge.

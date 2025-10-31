@@ -11,9 +11,9 @@ function npr-arkivverket --description 'New PR on GitHub.'
         read -P "Repo is dirty. Stash and continue? [Y/n] " -l stash_changes
         echo $stash_changes
 
-        if not string match -iq "n" "$stash_changes"
+        if not string match -iq n "$stash_changes"
             echo "Stashing changes..."
-            git stash
+            git stash --include-untracked
             set did_stash 1
         else
             return 1
@@ -26,7 +26,7 @@ function npr-arkivverket --description 'New PR on GitHub.'
         echo "Issue title is required"
         return 1
     end
-    
+
     # Target branch for PR.
     if set -q X_NPR_TARGET_BRANCH
         set target_branch $X_NPR_TARGET_BRANCH
@@ -45,6 +45,9 @@ function npr-arkivverket --description 'New PR on GitHub.'
     if not string match -q '*.' "$issue_title"
         set issue_title "$issue_title."
     end
+
+    set -l jira_ticket (string match -r '^VDS-[0-9]+' "$issue_title")
+    set -l pr_body "https://arkivverket.atlassian.net/browse/$jira_ticket"
 
     # Create issue.
     # Returns the URL of the created issue.
@@ -65,12 +68,12 @@ function npr-arkivverket --description 'New PR on GitHub.'
     git push || return 1
 
     # Create a pull request.
-    gh pr create --draft --title "$issue_title" --assignee "@me" --base "$target_branch" --body "" || return 1
+    gh pr create --draft --title "$issue_title" --assignee "@me" --base "$target_branch" --body "$pr_body" || return 1
 
     # Ask to apply stash.
     if test $did_stash -eq 1
         read -P "Apply stash again? [y/N] " -l stash_apply
-        if string match -iq "y" "$stash_apply"
+        if string match -iq y "$stash_apply"
             git stash apply
         end
     end
