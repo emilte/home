@@ -32,6 +32,8 @@ abbr f 'git f'
 
 abbr sb supabase
 
+alias reload fish
+
 # Other:
 alias meme 'open "https://imgflip.com/memetemplates"'
 alias gn 'sleep 5000 && sn' # Good night, sleep well.
@@ -95,7 +97,7 @@ alias rekenett 'cd $REPOS/rekenett'
 alias is_samf4 '[ (git remote-url) = git@github.com:Samfundet/Samfundet4.git ]'
 
 # Bekk
-alias skjer 'open "https://skjer.bekk.no/events?Oslo=0&trondheim=1&kommende=1&internt=1&filter=0&eksternt=1"'
+alias skjer 'open "https://skjer.bekk.no/arrangementer"'
 
 # Brew:
 alias binary-ninja 'open -a "Binary Ninja"'
