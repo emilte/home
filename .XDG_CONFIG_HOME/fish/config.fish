@@ -33,3 +33,10 @@ if status is-interactive
     test -e "$HOME/.iterm2_shell_integration.fish" && source "$HOME/.iterm2_shell_integration.fish"
 
 end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+# Added by Antigravity
+fish_add_path /Users/emilte/.antigravity/antigravity/bin

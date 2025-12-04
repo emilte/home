@@ -30,6 +30,9 @@ abbr p 'git pull'
 abbr ur 'uv run'
 abbr f 'git f'
 
+set -gx SELVIO_ROOT $REPOS/selvio
+alias selvio 'cd $SELVIO_ROOT && load-aliases'
+
 abbr sb supabase
 
 alias reload fish
