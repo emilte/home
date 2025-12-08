@@ -73,3 +73,5 @@
 !.XDG_CONFIG_HOME/fish/conf.d/**
 .XDG_CONFIG_HOME/fish/conf.d/abbr_secret.fish
 !.XDG_CONFIG_HOME/fish/config.fish
+!.XDG_CONFIG_HOME/mise/
+!.XDG_CONFIG_HOME/mise/**
