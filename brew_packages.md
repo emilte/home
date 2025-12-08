@@ -38,6 +38,7 @@ libpq
 lima
 localtunnel
 ncdu
+shellcheck
 nmap
 node
 mise

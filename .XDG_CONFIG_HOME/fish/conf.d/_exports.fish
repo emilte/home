@@ -47,3 +47,5 @@ set -gx ITERM2_SCRIPTS $HOME/Library/Application\ Support/iTerm2/Scripts
 
 # Tell uv to always attempt to load .env file.
 set -gx UV_ENV_FILE ".env"
+
+set -gx DOCKER_CONTEXT orbstack

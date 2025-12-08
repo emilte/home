@@ -25,6 +25,7 @@ defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
 defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Finder
 defaults write com.apple.trackpad.scaling -float 3.0
 defaults write com.apple.swipescrolldirection -bool false
+defaults write -g ApplePressAndHoldEnabled -bool false # https://www.macworld.com/article/351347/how-to-activate-key-repetition-through-the-macos-terminal.html
 ```
 
 Install from brew_packages.md

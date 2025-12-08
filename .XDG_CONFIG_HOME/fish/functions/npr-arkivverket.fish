@@ -39,15 +39,34 @@ function npr-arkivverket --description 'New PR on GitHub.'
     end
 
     set -l random_number (random 1000 9999)
-    set -l branchname (branchify "$issue_title")-$random_number
+
+    set -l jira_ticket (string match -r 'VDS-[0-9]+$' "$issue_title")
+    # If no match, search at start of string.
+    if test -z "$jira_ticket"
+        set jira_ticket (string match -r '^VDS-[0-9]+' "$issue_title")
+    end
+
+    # set -l branchname_raw (branchify "$issue_title")
+    set -l issue_title_short (string sub -l 35 -- "$issue_title")
+    set -l branchname (branchify "$jira_ticket-$issue_title_short-$random_number")
 
     # Ensure issue_title ends with a dot.
     if not string match -q '*.' "$issue_title"
         set issue_title "$issue_title."
     end
 
-    set -l jira_ticket (string match -r '^VDS-[0-9]+' "$issue_title")
-    set -l pr_body "https://arkivverket.atlassian.net/browse/$jira_ticket"
+    set -l pr_body ""
+    if test -n "$jira_ticket"
+        set pr_body "https://arkivverket.atlassian.net/browse/$jira_ticket"
+    end
+
+    # DEBUG:
+    # echo $branchname_raw
+    # echo $branchname
+    # echo $issue_title
+    # echo $jira_ticket
+    # echo $pr_body
+    # return 0
 
     # Create issue.
     # Returns the URL of the created issue.

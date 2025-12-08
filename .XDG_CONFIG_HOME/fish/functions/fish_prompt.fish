@@ -75,7 +75,8 @@ function fish_prompt
         set arrow "$arrow_color# "
     end
 
-    set -l cwd $blue(pwd)
+    # https://fishshell.com/docs/current/cmds/prompt_pwd.html
+    set -l cwd $blue(prompt_pwd -D 2)
 
     set -l repo_info
     if not is-home
