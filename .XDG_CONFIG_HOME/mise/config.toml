@@ -7,3 +7,7 @@ idiomatic_version_file_enable_tools = ["python", "node"]
 [hooks.enter]
 shell = "fish"
 script = "load-aliases"
+
+[tasks.init]
+description = "Initialize in a local repo."
+run = "cp $XDG_CONFIG_HOME/mise/mise.toml.dist ./mise.toml && mise trust && cp $XDG_CONFIG_HOME/mise/aliases.private.sh.dist ./aliases.private.sh"

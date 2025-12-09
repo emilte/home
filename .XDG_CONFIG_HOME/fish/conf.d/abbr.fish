@@ -9,7 +9,7 @@
 # Rewrite to lazy-loaded function files or abbr.
 abbr yr 'yarn run'
 
-alias load-aliases="[ -f aliases.sh ] && . aliases.sh"
+alias load-aliases="[ -f aliases.private.sh ] && . aliases.private.sh"
 
 # Classics:
 alias la 'ls -lAh' # ls (but everything).
@@ -24,11 +24,13 @@ abbr .. 'cd ..'
 abbr ... 'cd ../..'
 abbr cls clear
 abbr projects 'cd $PROJECTS_HOME'
-abbr repos 'cd $REPOS'
+alias repos 'cd $REPOS'
 abbr m 'git m'
 abbr p 'git pull'
 abbr ur 'uv run'
 abbr f 'git f'
+
+alias gc="repos && git clone"
 
 set -gx SELVIO_ROOT $REPOS/selvio
 alias selvio 'cd $SELVIO_ROOT && load-aliases'
