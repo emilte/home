@@ -9,7 +9,8 @@
 # Rewrite to lazy-loaded function files or abbr.
 abbr yr 'yarn run'
 
-alias load-aliases="[ -f aliases.private.sh ] && . aliases.private.sh"
+alias _load-aliases="try-source aliases.private || try-source aliases.private.fish || try-source aliases.private.sh || try-source aliases || try-source aliases.fish || try-source aliases.sh" # Attempts to load private aliases, then public ones.
+alias load-aliases="_load-aliases" # Overridable.
 
 # Classics:
 alias la 'ls -lAh' # ls (but everything).
