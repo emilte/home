@@ -55,18 +55,7 @@ function npr --description 'New PR on GitHub.'
     # echo $branchname_raw
     # echo $branchname
     # echo $issue_title
-    # return 0
-
-    # Create issue.
-    # Returns the URL of the created issue.
-    # Example: https://github.com/emilte/cage-elo/issues/1
-    # set -l issue_url (gh issue create --title "$issue_title" --body "" --assignee "@me")
-
-    # Checkout the issue branch.
-    # gh issue develop "$issue_url" --checkout --base $target_branch
-
-    # Get the issue number from the URL.
-    # set -l issue_number (echo "$issue_url" | grep -oE '[0-9]+$')
+    # return 1
 
     git pm
     git checkout -b $branchname $target_branch || return 1
