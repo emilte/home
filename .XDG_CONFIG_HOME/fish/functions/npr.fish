@@ -1,4 +1,4 @@
-function npr-arkivverket --description 'New PR on GitHub.'
+function npr --description 'New PR on GitHub.'
 
     # Abort if not a github repo.
     if not git is-gh
