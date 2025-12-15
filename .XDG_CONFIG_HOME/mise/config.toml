@@ -10,4 +10,4 @@ script = "load-aliases"
 
 [tasks.init]
 description = "Initialize in a local repo."
-run = "cp $XDG_CONFIG_HOME/mise/mise.toml.dist ./mise.toml && mise trust && cp $XDG_CONFIG_HOME/mise/aliases.private.sh.dist ./aliases.private.sh"
+run = "cp $XDG_CONFIG_HOME/mise/mise.toml.dist ./mise.toml && mise trust && cp $XDG_CONFIG_HOME/mise/aliases.private.dist ./aliases.private"
