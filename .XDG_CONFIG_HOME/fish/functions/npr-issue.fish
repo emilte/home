@@ -1,8 +1,8 @@
-function npr-arkivverket --description 'New PR on GitHub.'
+function npr-issue --description 'New PR on GitHub.'
 
     # Abort if not a github repo.
     if not git is-gh
-        echo "npr-arkivverket only works in a github repo"
+        echo "npr only works in a github repo"
         return 1
     end
 
@@ -22,8 +22,6 @@ function npr-arkivverket --description 'New PR on GitHub.'
 
     # Capture all args.
     set -l issue_title "$argv"
-
-    # Abort if no issue title.
     if test -z "$issue_title"
         echo "Issue title is required"
         return 1
@@ -40,43 +38,29 @@ function npr-arkivverket --description 'New PR on GitHub.'
         return 1
     end
 
-    set -l random_number (random 1000 9999)
-
-    # set -l branchname_raw (branchify "$issue_title")
-    set -l issue_title_short (string sub -l 35 -- "$issue_title")
-    set -l branchname (branchify "$issue_title_short-$random_number")
-
     # Ensure issue_title ends with a dot.
-    if not string match -q '*.^' "$issue_title"
+    if not string match -q '*.' "$issue_title"
         set issue_title "$issue_title."
     end
-
-    # DEBUG:
-    # echo $branchname_raw
-    # echo $branchname
-    # echo $issue_title
-    # return 0
 
     # Create issue.
     # Returns the URL of the created issue.
     # Example: https://github.com/emilte/cage-elo/issues/1
-    # set -l issue_url (gh issue create --title "$issue_title" --body "" --assignee "@me")
+    # Issues my be disabled on some repos.
+    set -l issue_url (gh issue create --title "$issue_title" --body "" --assignee "@me") || return 1
 
     # Checkout the issue branch.
-    # gh issue develop "$issue_url" --checkout --base $target_branch
+    gh issue develop "$issue_url" --checkout --base $target_branch
 
     # Get the issue number from the URL.
-    # set -l issue_number (echo "$issue_url" | grep -oE '[0-9]+$')
+    set -l issue_number (echo "$issue_url" | grep -oE '[0-9]+$')
 
-    git pm
-    git checkout -b $branchname $target_branch || return 1
-
-    # Update remote with empty commit. Github usually won't create empty PR.
-    git commit --allow-empty --allow-empty-message -m "$issue_title" || return 1
-    git push || return 1
+    # Update remote with empty commit. Github won't create empty PR.
+    git commit --allow-empty --allow-empty-message -m "$issue_title"
+    git push
 
     # Create a pull request.
-    gh pr create --draft --title "$issue_title" --assignee "@me" --base "$target_branch" --body "" || return 1
+    gh pr create --draft --title "$issue_title" --assignee "@me" --base "$target_branch" --body "Closes #$issue_number"
 
     # Ask to apply stash.
     if test $did_stash -eq 1

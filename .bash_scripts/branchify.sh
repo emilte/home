@@ -26,4 +26,3 @@ cleaned_branch_name=$(echo "$cleaned_branch_name" | sed 's/^[-_[:space:]]*//;s/[
 cleaned_branch_name=$(echo "$cleaned_branch_name" | tr '[:upper:]' '[:lower:]')
 
 echo "$cleaned_branch_name"
-
