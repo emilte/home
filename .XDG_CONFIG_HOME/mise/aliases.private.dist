@@ -1,3 +1,9 @@
 #!/usr/bin/env fish"
 
-echo Reloading private aliases...
+set -gx root (pwd)
+set -gx name (basename $root)
+
+echo "Reloading private aliases ($name)"
+
+alias root "cd $root"
+alias ws "code $root"

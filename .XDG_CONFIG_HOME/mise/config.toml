@@ -10,4 +10,19 @@ script = "load-aliases"
 
 [tasks.init]
 description = "Initialize in a local repo."
-run = "cp $XDG_CONFIG_HOME/mise/mise.toml.dist ./mise.toml && mise trust && cp $XDG_CONFIG_HOME/mise/aliases.private.dist ./aliases.private"
+run = """
+cp "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml" && \
+mise trust && \
+cp "$MISE_TASK_DIR/aliases.private.dist" "$MISE_ORIGINAL_CWD/aliases.private"
+"""
+
+[tasks.debug]
+description = "Print task variables."
+run = """
+echo MISE_ORIGINAL_CWD = $MISE_ORIGINAL_CWD
+echo MISE_CONFIG_ROOT = $MISE_CONFIG_ROOT
+echo MISE_PROJECT_ROOT = $MISE_PROJECT_ROOT
+echo MISE_TASK_NAME = $MISE_TASK_NAME
+echo MISE_TASK_DIR = $MISE_TASK_DIR
+echo MISE_TASK_FILE = $MISE_TASK_FILE
+"""

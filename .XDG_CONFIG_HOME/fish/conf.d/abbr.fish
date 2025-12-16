@@ -38,8 +38,6 @@ alias selvio 'cd $SELVIO_ROOT && load-aliases'
 
 abbr sb supabase
 
-alias reload fish
-
 # Other:
 alias meme 'open "https://imgflip.com/memetemplates"'
 alias gn 'sleep 5000 && sn' # Good night, sleep well.
