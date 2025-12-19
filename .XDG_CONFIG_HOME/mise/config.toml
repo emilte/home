@@ -11,8 +11,8 @@ script = "load-aliases"
 [tasks.init]
 description = "Initialize in a local repo."
 run = """
-cp "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml" && \
 mise trust && \
+cp "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml" && \
 cp "$MISE_TASK_DIR/aliases.private.dist" "$MISE_ORIGINAL_CWD/aliases.private"
 """
 

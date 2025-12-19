@@ -70,8 +70,11 @@ abbr supercaffeinate 'caffeinate -dimsu' # When you want the Mac screen to remai
 abbr iterm_scripts 'code ~/Library/Application\ Support/iTerm2/Scripts'
 # abbr code 'open -b com.microsoft.VSCode' # Open VSCode.
 alias chrome 'open -a "Google Chrome"'
+alias ol 'open -a "Microsoft Outlook"'
+alias mo 'open -a "Microsoft Outlook"'
 alias b. chrome
 # alias chrome 'open /Applications/Google\ Chrome.app' # --args --new-window --disable-dark-mode'
+alias b chrome
 
 # Docker:
 alias d docker
