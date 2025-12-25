@@ -5,3 +5,9 @@ idiomatic_version_file_enable_tools = ["python", "node"]
 [hooks.enter]
 shell = "fish"
 script = "load-aliases"
+
+[env]
+# https://mise.jdx.dev/environments/
+
+[shell_alias]
+# https://mise.jdx.dev/shell-aliases.html

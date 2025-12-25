@@ -45,7 +45,7 @@
 	<key>Default Bookmark Guid</key>
 	<string>4B85B862-2AF7-4DD9-AC94-8256CFE75280</string>
 	<key>Default Browser Profile Guid</key>
-	<string>4B85B862-2AF7-4DD9-AC94-8256CFE75280</string>
+	<string>8454A3F3-ECF1-4765-93BD-E75FFD7FA4F8</string>
 	<key>DimBackgroundWindows</key>
 	<false/>
 	<key>DimInactiveSplitPanes</key>
@@ -4223,6 +4223,8 @@
 	<false/>
 	<key>WindowNumber</key>
 	<true/>
+	<key>com.apple.WebPrivacy.ResourceMonitorURLsVersion</key>
+	<string>qrsAAAGXnXBrwGxMO6s=</string>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewPreferredModeKey</key>

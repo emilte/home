@@ -3,6 +3,7 @@ experimental = true
 idiomatic_version_file_enable_tools = ["python", "node"]
 
 [env]
+# https://mise.jdx.dev/environments/
 
 [hooks.enter]
 shell = "fish"
@@ -11,8 +12,8 @@ script = "load-aliases"
 [tasks.init]
 description = "Initialize in a local repo."
 run = """
-mise trust && \
-cp "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml" && \
+cp "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"
+mise trust
 cp "$MISE_TASK_DIR/aliases.private.dist" "$MISE_ORIGINAL_CWD/aliases.private"
 """
 
