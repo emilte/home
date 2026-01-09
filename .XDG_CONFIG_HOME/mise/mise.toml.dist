@@ -11,3 +11,6 @@ script = "load-aliases"
 
 [shell_alias]
 # https://mise.jdx.dev/shell-aliases.html
+debug = "echo '{{ config_root }}'"
+ws = "code {{config_root}}"
+root = "cd {{config_root}}"
