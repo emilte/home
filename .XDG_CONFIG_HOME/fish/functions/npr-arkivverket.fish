@@ -22,6 +22,8 @@ function npr-arkivverket --description 'New PR on GitHub.'
 
     # Capture all args.
     set -l issue_title "$argv"
+
+    # Abort if no issue title.
     if test -z "$issue_title"
         echo "Issue title is required"
         return 1
@@ -91,8 +93,8 @@ function npr-arkivverket --description 'New PR on GitHub.'
 
     # Ask to apply stash.
     if test $did_stash -eq 1
-        read -P "Apply stash again? [y/N] " -l stash_apply
-        if string match -iq y "$stash_apply"
+        read -P "Apply stash again? [Y/n] " -l stash_apply
+        if string match -iq n "$stash_apply"
             git stash apply
         end
     end

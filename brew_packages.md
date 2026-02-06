@@ -117,3 +117,8 @@ Archive:
 - spline
 - warp
 - microsoft-teams@classic
+
+
+Vault:
+brew tap hashicorp/tap
+brew install hashicorp/tap/vault

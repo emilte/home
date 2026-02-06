@@ -93,7 +93,7 @@ alias dcbub 'dcbu backend'
 alias dspa 'docker system prune -af --volumes' # Completely clean docker caches.
 
 # git:
-alias pr 'gh pr view --web' # This overrides `print files` command.
+alias pr 'prc; gh pr view --web' # This overrides `print files` command.
 alias mr 'glab mr view --web' # Open current MR in GitLab.
 alias repo 'open $(git remote-url-http)' # Open repository in browser.
 

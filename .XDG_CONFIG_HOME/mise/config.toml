@@ -27,3 +27,8 @@ echo MISE_TASK_NAME = $MISE_TASK_NAME
 echo MISE_TASK_DIR = $MISE_TASK_DIR
 echo MISE_TASK_FILE = $MISE_TASK_FILE
 """
+
+[tools]
+node = "latest"
+pnpm = "latest"
+watchexec = "latest"

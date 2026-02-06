@@ -44,6 +44,7 @@
 	is-default = ![ "$(git current)" = "$(git default)" ] # Determine if current branch is the default branch.
 	remote-url = config --get remote.origin.url # Get remote origin url.
 	remote-url-http = ! url=$(git remote-url) && url=${url/://} && url=${url/*@/https://} && echo $url # Replaces colon from string
+	set-remote = remote set-url origin # Set remote origin url.
 	is-glab = ![[ "$(git remote-url)" == "git@gitlab"* ]]
 	is-gh = ![[ "$(git remote-url)" == "git@github"* ]]
 	st = stash --include-untracked
