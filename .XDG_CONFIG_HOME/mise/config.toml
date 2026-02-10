@@ -1,6 +1,9 @@
 [settings]
 experimental = true
-idiomatic_version_file_enable_tools = ["python", "node"]
+idiomatic_version_file_enable_tools = [
+    "python",
+    "node",
+]
 
 [env]
 # https://mise.jdx.dev/environments/
@@ -32,3 +35,4 @@ echo MISE_TASK_FILE = $MISE_TASK_FILE
 node = "latest"
 pnpm = "latest"
 watchexec = "latest"
+uv = "latest"
