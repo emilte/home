@@ -1,6 +1,8 @@
 # Stuff to do when sleeping.
-# Aliases no supported.
+# Aliases not supported.
 
 # osascript -e 'tell application "Spotify" to quit'
 # osascript -e "set Volume 0"
 osascript -e 'set volume output muted true'
+
+networksetup -setairportpower en0 off

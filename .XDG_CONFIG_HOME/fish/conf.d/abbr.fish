@@ -76,6 +76,9 @@ alias b. chrome
 # alias chrome 'open /Applications/Google\ Chrome.app' # --args --new-window --disable-dark-mode'
 alias b chrome
 
+alias wifi-off 'networksetup -setairportpower en0 off'
+alias wifi-on 'networksetup -setairportpower en0 on'
+
 # Docker:
 alias d docker
 alias dc docker-compose
@@ -88,6 +91,7 @@ alias dcub 'dcu backend'
 alias dce 'dc exec'
 alias dcea 'dc exec app'
 alias dcr 'dc run --remove-orphans'
+alias dcrs 'dc restart'
 alias dcra 'dc run app'
 alias dcbub 'dcbu backend'
 alias dspa 'docker system prune -af --volumes' # Completely clean docker caches.
@@ -113,9 +117,15 @@ alias brew_outdated_casks 'brew outdated --greedy'
 alias brew_search 'open "https://brew.sh"'
 alias brew_up 'privs || priva; brew update && brew upgrade && brew cleanup'
 
+alias shrug "echo -ne '`¯\\_(ツ)_/¯`' | pbcopy; echo 'Copied to clipboard: ¯\\_(ツ)_/¯'"
+
+# Music Decoy
+alias music-decoy-kill "killall 'Music Decoy'"
+alias music-decoy-reset "defaults delete com.lowtechguys.MusicDecoy mediaAppPath"
+
 # Mac:
 # https://ss64.com/osx/pmset.html
-alias sn 'bluetooth-off; pmset sleepnow' # Send machine to sleep.
+alias sn 'wifi-off; bluetooth-off; pmset sleepnow' # Send machine to sleep.
 alias xacceptlicense 'sudo xcodebuild -license accept'
 alias cpu-temperature 'sudo powermetrics --samplers smc || exit |grep -i "CPU die temperature"' # Monitor CPU temperature.
 alias pmset-config 'code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist'

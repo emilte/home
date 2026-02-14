@@ -1,4 +1,7 @@
 # Stuff to do when waking up.
-# Aliases no supported.
+# Aliases not supported.
 
 # sleep 60 && pmset sleepnow # prank someone
+
+networksetup -setairportpower en0 on
+

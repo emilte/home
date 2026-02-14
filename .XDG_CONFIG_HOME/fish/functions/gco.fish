@@ -5,6 +5,11 @@ function gco -a branch
         set -f branch (string trim $branch)
     end
 
+    if test -z "$branch"
+        echo "No branch selected."
+        return 1
+    end
+
     git co $branch
 
 end

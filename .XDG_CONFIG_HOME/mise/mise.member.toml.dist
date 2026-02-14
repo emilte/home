@@ -1,0 +1,31 @@
+[settings]
+experimental = true
+idiomatic_version_file_enable_tools = ["python", "node"]
+
+[hooks.enter]
+shell = "fish"
+script = "load-aliases"
+
+[env]
+# https://mise.jdx.dev/environments/
+
+
+[tasks]
+sync = "echo Not implemented; false"
+lint = "echo Not implemented; false"
+lock = "echo Not implemented; false"
+up = "echo Not implemented; false"
+outdated = "echo Not implemented; false"
+qa = "echo Not implemented; false"
+types = "echo Not implemented; false"
+# End [tasks]
+
+
+[shell_alias]
+sync = "mise run sync"
+lint = "mise run lint"
+lock = "mise run lock"
+up = "mise run up"
+outdated = "mise run outdated"
+types = "uv run poe types"
+# End: [shell_alias]

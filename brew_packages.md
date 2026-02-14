@@ -101,6 +101,7 @@ discord
 zoom
 proton-drive
 google-chrome
+music-decoy # https://lowtechguys.com/musicdecoy/
 
 Archive:
 - 1clipboard

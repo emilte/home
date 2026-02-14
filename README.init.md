@@ -26,6 +26,8 @@ defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true" && killall Fi
 defaults write com.apple.trackpad.scaling -float 3.0
 defaults write com.apple.swipescrolldirection -bool false
 defaults write -g ApplePressAndHoldEnabled -bool false # https://www.macworld.com/article/351347/how-to-activate-key-repetition-through-the-macos-terminal.html
+defaults write com.lowtechguys.MusicDecoy mediaAppPath /Applications/Spotify.app # https://lowtechguys.com/musicdecoy/
+
 ```
 
 Install from brew_packages.md
