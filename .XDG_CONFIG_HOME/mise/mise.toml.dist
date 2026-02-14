@@ -1,16 +1,10 @@
-[settings]
-experimental = true
-idiomatic_version_file_enable_tools = ["python", "node"]
+experimental_monorepo_root = true
 
-[hooks.enter]
-shell = "fish"
-script = "load-aliases"
+[monorepo] # https://mise.jdx.dev/tasks/monorepo.html
+config_roots = []
 
-[env]
-# https://mise.jdx.dev/environments/
 
-[shell_alias]
-# https://mise.jdx.dev/shell-aliases.html
+[shell_alias] # https://mise.jdx.dev/shell-aliases.html
 debug = "echo '{{ config_root }}'"
 ws = "code {{config_root}}"
 "w." = "ws"
@@ -20,3 +14,4 @@ sync = "mise run --continue-on-error //...:sync"
 lock = "mise run --continue-on-error //...:lock"
 outdated = "mise run --continue-on-error //...:outdated"
 lint = "mise run --continue-on-error //...:lint"
+# End [shell_alias]

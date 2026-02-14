@@ -33,6 +33,8 @@ abbr f 'git f'
 
 alias npr-arkivverket='npr' # Deprecated, use npr instead. This was previously a separate function with Arkivverket-specific logic, but the logic has now been merged into npr.
 
+alias todo 'code $REPOS/notes/arkivverket/todo' # Open todo list in VSCode.
+
 alias gc="repos && git clone"
 
 set -gx SELVIO_ROOT $REPOS/selvio
@@ -71,15 +73,17 @@ abbr downloads 'code $HOME/Downloads'
 abbr supercaffeinate 'caffeinate -dimsu' # When you want the Mac screen to remain on.
 abbr iterm_scripts 'code ~/Library/Application\ Support/iTerm2/Scripts'
 # abbr code 'open -b com.microsoft.VSCode' # Open VSCode.
-alias chrome 'open -a "Google Chrome"'
 alias ol 'open -a "Microsoft Outlook"'
 alias mo 'open -a "Microsoft Outlook"'
+alias chrome 'open -a "Google Chrome"'
 alias b. chrome
-# alias chrome 'open /Applications/Google\ Chrome.app' # --args --new-window --disable-dark-mode'
 alias b chrome
 
-alias wifi-off 'networksetup -setairportpower en0 off'
-alias wifi-on 'networksetup -setairportpower en0 on'
+alias poetry-lock="poetry lock --regenerate"
+alias poetry-sync="poetry install --frozen-lockfile"
+
+alias wifi-off='networksetup -setairportpower en0 off'
+alias wifi-on='networksetup -setairportpower en0 on'
 
 # Docker:
 alias d docker

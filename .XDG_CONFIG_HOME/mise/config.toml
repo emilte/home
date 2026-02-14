@@ -1,12 +1,13 @@
 [settings]
 experimental = true
 env_shell_expand = true # Becomes default soon # https://mise.jdx.dev/environments/#shell-style-variable-expansion
-idiomatic_version_file_enable_tools = [
+idiomatic_version_file_enable_tools = [ # https://mise.jdx.dev/configuration.html#idiomatic-version-files
     "python",
     "node",
+    "yarn",
 ]
 
-[env]
+# [env]
 # https://mise.jdx.dev/environments/
 
 [hooks.enter]
@@ -14,15 +15,8 @@ shell = "fish"
 script = "load-aliases"
 
 [tasks]
+init = 'cp "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
 init-member = 'cp "$MISE_TASK_DIR/mise.member.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
-
-[tasks.init]
-description = "Initialize in a local repo."
-run = """
-mise trust
-cp "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"
-mise trust
-"""
 
 [tasks.debug]
 description = "Print task variables."
@@ -40,3 +34,4 @@ node = "latest"
 pnpm = "latest"
 watchexec = "latest"
 uv = "latest"
+yarn = "latest"
