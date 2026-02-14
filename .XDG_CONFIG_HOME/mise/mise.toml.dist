@@ -13,6 +13,7 @@ script = "load-aliases"
 # https://mise.jdx.dev/shell-aliases.html
 debug = "echo '{{ config_root }}'"
 ws = "code {{config_root}}"
+"w." = "ws"
 root = "cd {{config_root}}"
 up = "mise run --continue-on-error //...:up"
 sync = "mise run --continue-on-error //...:sync"

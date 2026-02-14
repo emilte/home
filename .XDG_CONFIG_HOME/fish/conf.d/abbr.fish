@@ -31,6 +31,8 @@ abbr p 'git pull'
 abbr ur 'uv run'
 abbr f 'git f'
 
+alias npr-arkivverket='npr' # Deprecated, use npr instead. This was previously a separate function with Arkivverket-specific logic, but the logic has now been merged into npr.
+
 alias gc="repos && git clone"
 
 set -gx SELVIO_ROOT $REPOS/selvio

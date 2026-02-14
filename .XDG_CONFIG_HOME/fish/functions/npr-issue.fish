@@ -22,6 +22,8 @@ function npr-issue --description 'New PR on GitHub.'
 
     # Capture all args.
     set -l issue_title "$argv"
+
+    # Abort if no issue title.
     if test -z "$issue_title"
         echo "Issue title is required"
         return 1

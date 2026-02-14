@@ -1,5 +1,6 @@
 [settings]
 experimental = true
+env_shell_expand = true # Becomes default soon # https://mise.jdx.dev/environments/#shell-style-variable-expansion
 idiomatic_version_file_enable_tools = [
     "python",
     "node",

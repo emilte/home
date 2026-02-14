@@ -40,13 +40,13 @@ function npr-arkivverket --description 'New PR on GitHub.'
         return 1
     end
 
-    set -l random_number (random 1000 9999)
-
     set -l jira_ticket (string match -r 'VDS-[0-9]+$' "$issue_title")
     # If no match, search at start of string.
     if test -z "$jira_ticket"
         set jira_ticket (string match -r '^VDS-[0-9]+' "$issue_title")
     end
+
+    set -l random_number (random 1000 9999)
 
     # set -l branchname_raw (branchify "$issue_title")
     set -l issue_title_short (string sub -l 35 -- "$issue_title")

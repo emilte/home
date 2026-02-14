@@ -40,6 +40,12 @@ function npr --description 'New PR on GitHub.'
         return 1
     end
 
+    set -l jira_ticket (string match -r 'VDS-[0-9]+$' "$issue_title")
+    # If no match, search at start of string.
+    if test -z "$jira_ticket"
+        set jira_ticket (string match -r '^VDS-[0-9]+' "$issue_title")
+    end
+
     set -l random_number (random 1000 9999)
 
     # set -l branchname_raw (branchify "$issue_title")
@@ -49,6 +55,11 @@ function npr --description 'New PR on GitHub.'
     # Ensure issue_title ends with a dot.
     if not string match -q '*.^' "$issue_title"
         set issue_title "$issue_title."
+    end
+
+    set -l pr_body ""
+    if test -n "$jira_ticket"
+        set pr_body "https://arkivverket.atlassian.net/browse/$jira_ticket"
     end
 
     # DEBUG:
@@ -65,7 +76,7 @@ function npr --description 'New PR on GitHub.'
     git push || return 1
 
     # Create a pull request.
-    gh pr create --draft --title "$issue_title" --assignee "@me" --base "$target_branch" --body "" || return 1
+    gh pr create --draft --title "$issue_title" --assignee "@me" --base "$target_branch" --body "$pr_body" || return 1
 
     # Ask to apply stash.
     if test $did_stash -eq 1
