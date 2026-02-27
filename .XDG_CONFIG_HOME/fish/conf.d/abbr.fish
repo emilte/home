@@ -79,8 +79,10 @@ alias chrome 'open -a "Google Chrome"'
 alias b. chrome
 alias b chrome
 
+alias poetry-outdated="poetry show --outdated"
 alias poetry-lock="poetry lock --regenerate"
 alias poetry-sync="poetry install --frozen-lockfile"
+alias poetry-up="poetry update --sync"
 
 alias wifi-off='networksetup -setairportpower en0 off'
 alias wifi-on='networksetup -setairportpower en0 on'
@@ -209,6 +211,7 @@ set -gx AV_ROOT "$REPOS/database-transformasjon"
 alias av 'cd "$AV_ROOT" && load-aliases'
 alias av-start='av && dcbu'
 alias av-frontend-start='av && sleep 1 && frontend-start'
+alias bildetransformasjon='cd "$REPOS/bildetransformasjon"'
 
 #########################################
 #             Random scrap

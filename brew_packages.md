@@ -40,7 +40,6 @@ localtunnel
 ncdu
 shellcheck
 nmap
-node
 mise
 openssl
 openvpn
@@ -50,7 +49,6 @@ pyenv
 readline
 sleepwatcher
 sqlite
-uv
 wget
 wifi-password
 xz

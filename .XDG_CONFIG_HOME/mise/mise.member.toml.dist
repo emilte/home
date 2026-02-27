@@ -1,12 +1,13 @@
 
 [tasks]
-sync = "echo Not implemented; false"
+sync = "echo Not implemented; false" # "uv sync" # "poetry install --frozen-lockfile"
 lint = "echo Not implemented; false"
-lock = "echo Not implemented; false"
-up = "echo Not implemented; false"
-outdated = "echo Not implemented; false"
+lock = "echo Not implemented; false" # "rm -f uv.lock && uv lock" # "poetry lock --regenerate"
+up = "echo Not implemented; false" # "mise up; uv sync -U" # "poetry update --sync"
+outdated = "echo Not implemented; false" # "uv tree --outdated --depth 1 | grep '(latest:' || true " # "poetry show --outdated"
 qa = "echo Not implemented; false"
 types = "echo Not implemented; false"
+rm-deps = "echo Not implemented; false" # "rm -rf .venv" # "rm -rf node_modules"
 # End [tasks]
 
 

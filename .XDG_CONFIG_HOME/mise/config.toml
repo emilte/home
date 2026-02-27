@@ -10,9 +10,9 @@ idiomatic_version_file_enable_tools = [ # https://mise.jdx.dev/configuration.htm
 # [env]
 # https://mise.jdx.dev/environments/
 
-[hooks.enter]
-shell = "fish"
-script = "load-aliases"
+# [hooks.enter]
+# shell = "fish"
+# script = "load-aliases"
 
 [tasks]
 init = 'cp "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
@@ -28,6 +28,8 @@ echo MISE_TASK_NAME = $MISE_TASK_NAME
 echo MISE_TASK_DIR = $MISE_TASK_DIR
 echo MISE_TASK_FILE = $MISE_TASK_FILE
 """
+# End [tasks]
+
 
 [tools]
 node = "latest"
@@ -35,3 +37,22 @@ pnpm = "latest"
 watchexec = "latest"
 uv = "latest"
 yarn = "latest"
+python = "latest"
+poetry = "latest"
+
+
+[shell_alias]
+# uv
+uv-sync = "uv sync --no-install-project"
+uv-lock = "rm -f uv.lock && uv lock"
+uv-up = "mise up; uv sync -U --no-install-project"
+uv-outdated = "uv tree --outdated --depth 1 | grep '(latest:' || true " 
+uv-rm-deps = "rm -rf .venv"
+
+# poetry
+poetry-outdated = "poetry show --outdated"
+poetry-lock="poetry lock --regenerate"
+poetry-sync="poetry install --frozen-lockfile"
+poetry-up="poetry update --sync"
+poetry-rm-deps = "rm -rf .venv"
+# End [shell_alias]

@@ -51,3 +51,5 @@ set -gx UV_ENV_FILE ".env"
 set -gx DOCKER_CONTEXT orbstack
 
 # set -gx MISE_EXPERIMENTAL 1
+
+set -gx POETRY_VIRTUALENVS_IN_PROJECT true

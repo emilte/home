@@ -40,17 +40,21 @@ function npr --description 'New PR on GitHub.'
         return 1
     end
 
-    set -l jira_ticket (string match -r 'VDS-[0-9]+$' "$issue_title")
-    # If no match, search at start of string.
-    if test -z "$jira_ticket"
-        set jira_ticket (string match -r '^VDS-[0-9]+' "$issue_title")
-    end
-
     set -l random_number (random 1000 9999)
 
     # set -l branchname_raw (branchify "$issue_title")
     set -l issue_title_short (string sub -l 35 -- "$issue_title")
     set -l branchname (branchify "$issue_title_short-$random_number")
+
+    set -l jira_ticket (string match -r 'VDS-[0-9]+$' "$issue_title")
+    # If no match, search at start of string.
+    if test -z "$jira_ticket"
+        set jira_ticket (string match -r '^VDS-[0-9]+' "$issue_title")
+    end
+    if test -n "$jira_ticket"
+        # If jira_ticket exists, prepend it to branchname.
+        set branchname "$jira_ticket-$branchname"
+    end
 
     # Ensure issue_title ends with a dot.
     if not string match -q '*.^' "$issue_title"
