@@ -1,5 +1,5 @@
 
-[tasks]
+[tasks] # https://mise.jdx.dev/tasks/
 sync = "echo Not implemented; false" # "uv sync" # "poetry install --frozen-lockfile"
 lint = "echo Not implemented; false"
 lock = "echo Not implemented; false" # "rm -f uv.lock && uv lock" # "poetry lock --regenerate"
@@ -10,8 +10,11 @@ types = "echo Not implemented; false"
 rm-deps = "echo Not implemented; false" # "rm -rf .venv" # "rm -rf node_modules"
 # End [tasks]
 
+[env] # https://mise.jdx.dev/environments/
+_.path = [".venv/bin"] # https://mise.jdx.dev/environments/#env-path
+# End: [env]
 
-[shell_alias]
+[shell_alias] # https://mise.jdx.dev/shell-aliases.html
 sync = "mise run sync"
 lint = "mise run lint"
 lock = "mise run lock"

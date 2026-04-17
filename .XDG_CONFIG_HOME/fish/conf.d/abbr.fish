@@ -4,7 +4,7 @@
 # 1. All entries should refrain from using dash.
 # 2. Nested abbr doesn't work.
 # 3. Wrap all commands in single quotes ''. It prevents variable expansion.
-# 4. abbr cannot be overwritten by alias because of expansion.ß
+# 4. abbr cannot be overwritten by alias because of expansion.
 
 # Rewrite to lazy-loaded function files or abbr.
 abbr yr 'yarn run'
@@ -99,7 +99,8 @@ alias dcub 'dcu backend'
 alias dce 'dc exec'
 alias dcea 'dc exec app'
 alias dcr 'dc run --remove-orphans'
-alias dcrs 'dc restart'
+alias dcball 'dc --profile="*" build' # Build all images.
+# alias dcrs 'dc restart' dcrs.fish
 alias dcra 'dc run app'
 alias dcbub 'dcbu backend'
 alias dspa 'docker system prune -af --volumes' # Completely clean docker caches.
@@ -119,7 +120,7 @@ alias is_samf4 '[ (git remote-url) = git@github.com:Samfundet/Samfundet4.git ]'
 alias skjer 'open "https://skjer.bekk.no/arrangementer"'
 
 # Brew:
-alias binary-ninja 'open -a "Binary Ninja"'
+alias binary_ninja 'open -a "Binary Ninja"'
 alias idafree 'open -a "ida64"'
 alias brew_outdated_casks 'brew outdated --greedy'
 alias brew_search 'open "https://brew.sh"'
@@ -133,16 +134,16 @@ alias music-decoy-reset "defaults delete com.lowtechguys.MusicDecoy mediaAppPath
 
 # Mac:
 # https://ss64.com/osx/pmset.html
-alias sn 'wifi-off; bluetooth-off; pmset sleepnow' # Send machine to sleep.
+alias sn 'wifi-off; bluetooth_off; pmset sleepnow' # Send machine to sleep.
 alias xacceptlicense 'sudo xcodebuild -license accept'
-alias cpu-temperature 'sudo powermetrics --samplers smc || exit |grep -i "CPU die temperature"' # Monitor CPU temperature.
-alias pmset-config 'code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist'
-alias pmset-list 'code /Library/Preferences/SystemConfiguration/com.apple.AutoWake.plist' # Show pmset wake list.
+alias cpu_temperature 'sudo powermetrics --samplers smc || exit |grep -i "CPU die temperature"' # Monitor CPU temperature.
+alias pmset_config 'code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist'
+alias pmset_list 'code /Library/Preferences/SystemConfiguration/com.apple.AutoWake.plist' # Show pmset wake list.
 alias lid 'ioreg -r -k AppleClamshellState -d 4 | grep AppleClamshellState | head -1' # Show lid state.
-alias sync-clock 'sudo sntp -Ss time.apple.com'
+alias sync_clock 'sudo sntp -Ss time.apple.com'
 alias mute 'osascript -e "set volume output muted true"'
 alias volume0 "osascript -e 'set Volume 0'" # Set volume to 0 on Mac.
-alias bluetooth-off 'blueutil -p 0'
+alias bluetooth_off 'blueutil -p 0'
 alias perm 'open -a Privileges'
 
 # Java:
@@ -211,7 +212,6 @@ set -gx AV_ROOT "$REPOS/database-transformasjon"
 alias av 'cd "$AV_ROOT" && load-aliases'
 alias av-start='av && dcbu'
 alias av-frontend-start='av && sleep 1 && frontend-start'
-alias bildetransformasjon='cd "$REPOS/bildetransformasjon"'
 
 #########################################
 #             Random scrap

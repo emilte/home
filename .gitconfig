@@ -80,9 +80,9 @@
 	repo = ! open $(git remote-url-http) # Open repository in browser.
 
 	# https://stackoverflow.com/a/3528483/12616507
-	down = reset --soft --keep HEAD^ # Move HEAD down one commit , keep changes in staged.
-	# undo = reset --soft --keep HEAD~1 # Move HEAD back one commit, keep changes in staged.
+	down = reset --soft HEAD^ # Move HEAD down one commit , keep changes in staged.
 	undo = reset --mixed --keep HEAD@{1} # Undo last action.
+	discard = restore . # Discard all local changes, including untracked files.
 
 # https://www.youtube.com/watch?v=aolI_Rz0ZqY&ab_channel=GitButler
 [maintenance]
