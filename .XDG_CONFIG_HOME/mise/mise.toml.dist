@@ -3,6 +3,12 @@ experimental_monorepo_root = true
 [monorepo] # https://mise.jdx.dev/tasks/monorepo.html
 config_roots = []
 
+[hooks.enter]
+shell = "fish"
+script = "tabcolorx (pwdcolor)"
+[hooks.leave]
+shell = "fish"
+script = "tabcolorx"
 
 [shell_alias] # https://mise.jdx.dev/shell-aliases.html
 debug = "echo '{{ config_root }}'"

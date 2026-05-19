@@ -9,12 +9,6 @@ idiomatic_version_file_enable_tools = [ # https://mise.jdx.dev/configuration.htm
 python.uv_venv_auto = "create|source" # https://mise.jdx.dev/lang/python.html#automatic-virtualenv-activation
 status.show_env = true
 
-
-# [hooks.enter]
-# shell = "fish"
-# script = "load-aliases"
-
-
 [tasks]
 init = 'cp -i "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
 init-member = 'cp -i "$MISE_TASK_DIR/mise.member.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
@@ -51,7 +45,7 @@ rm-deps = "rm -rf .venv"
 uv-sync = "uv sync --no-install-project"
 uv-lock = "rm -f uv.lock && uv lock"
 uv-up = "mise up; uv sync -U --no-install-project"
-uv-outdated = "uv tree --outdated --depth 1 | grep '(latest:' || true " 
+uv-outdated = "uv tree --outdated --depth 1 | grep '(latest:' || true "
 
 
 # poetry

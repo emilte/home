@@ -79,6 +79,9 @@ alias chrome 'open -a "Google Chrome"'
 alias b. chrome
 alias b chrome
 
+alias split-horizontally 'osascript -e \'tell application "System Events" to key code 2 using command down\' '
+alias split-vertical 'osascript -e \'tell application "System Events" to key code 2 using {command down, shift down}\' '
+
 alias poetry-outdated="poetry show --outdated"
 alias poetry-lock="poetry lock --regenerate"
 alias poetry-sync="poetry install --frozen-lockfile"
@@ -136,7 +139,7 @@ alias music-decoy-reset "defaults delete com.lowtechguys.MusicDecoy mediaAppPath
 # https://ss64.com/osx/pmset.html
 alias sn 'wifi-off; bluetooth_off; pmset sleepnow' # Send machine to sleep.
 alias xacceptlicense 'sudo xcodebuild -license accept'
-alias cpu_temperature 'sudo powermetrics --samplers smc || exit |grep -i "CPU die temperature"' # Monitor CPU temperature.
+alias cpu_temperature 'sudo powermetrics --samplers smc || exit | grep -i "CPU die temperature"' # Monitor CPU temperature.
 alias pmset_config 'code /Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist'
 alias pmset_list 'code /Library/Preferences/SystemConfiguration/com.apple.AutoWake.plist' # Show pmset wake list.
 alias lid 'ioreg -r -k AppleClamshellState -d 4 | grep AppleClamshellState | head -1' # Show lid state.
@@ -206,12 +209,6 @@ alias adb '$ANDROID_HOME/platform-tools/adb'
 # NINA:
 # alias nina='cd $REPOS/genlab_bestilling && . aliases.sh'
 # alias nina-start='nina && uv sync && dc down -v && dcbua'
-
-# Arkivverket:
-set -gx AV_ROOT "$REPOS/database-transformasjon"
-alias av 'cd "$AV_ROOT" && load-aliases'
-alias av-start='av && dcbu'
-alias av-frontend-start='av && sleep 1 && frontend-start'
 
 #########################################
 #             Random scrap

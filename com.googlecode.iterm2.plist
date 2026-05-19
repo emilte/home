@@ -410,13 +410,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.036296665668487549</real>
+				<real>0.04116293302095865</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.036296665668487549</real>
+				<real>5.6538638129691747e-05</real>
 				<key>Red Component</key>
-				<real>0.036296665668487549</real>
+				<real>0.041484375000000018</real>
 			</dict>
 			<key>Background Image Mode</key>
 			<integer>2</integer>
@@ -465,7 +465,7 @@
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
-			<real>0.0</real>
+			<real>0.01</real>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1231,6 +1231,8 @@
 					</dict>
 				</array>
 			</dict>
+			<key>Subtitle</key>
+			<string></string>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tab Color</key>
@@ -1251,7 +1253,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Title Components</key>
-			<integer>512</integer>
+			<integer>1</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
@@ -4185,6 +4187,8 @@
 	<true/>
 	<key>ShowPaneTitles</key>
 	<true/>
+	<key>ShowPaneTitlesEvenIfOnlyOnePane</key>
+	<false/>
 	<key>SmartPlacement</key>
 	<false/>
 	<key>Snippets</key>
@@ -4192,19 +4196,21 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.099999999999999575</real>
+	<real>0.099999999999999992</real>
+	<key>StatusBarPosition</key>
+	<integer>0</integer>
 	<key>StretchTabsToFillBar</key>
-	<false/>
+	<true/>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>TabsHaveCloseButton</key>
-	<true/>
+	<false/>
 	<key>TerminalMargin</key>
 	<integer>2</integer>
 	<key>TerminalVMargin</key>
-	<integer>0</integer>
+	<integer>3</integer>
 	<key>TimeBetweenTips</key>
 	<real>86400</real>
 	<key>ToolbeltTools</key>
