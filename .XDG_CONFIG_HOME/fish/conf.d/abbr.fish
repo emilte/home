@@ -37,9 +37,6 @@ alias todo 'code $REPOS/notes/arkivverket/todo' # Open todo list in VSCode.
 
 alias gc="repos && git clone"
 
-set -gx SELVIO_ROOT $REPOS/selvio
-alias selvio 'cd $SELVIO_ROOT && load-aliases'
-
 abbr sb supabase
 
 # Other:
