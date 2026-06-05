@@ -20,4 +20,5 @@ sync = "mise run --continue-on-error //...:sync"
 lock = "mise run --continue-on-error //...:lock"
 outdated = "mise run --continue-on-error //...:outdated"
 lint = "mise run --continue-on-error //...:lint"
+qa = "mise run --continue-on-error //...:qa"
 # End [shell_alias]

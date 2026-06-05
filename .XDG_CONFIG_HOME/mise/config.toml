@@ -11,7 +11,9 @@ status.show_env = true
 
 [tasks]
 init = 'cp -i "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
-init-member = 'cp -i "$MISE_TASK_DIR/mise.member.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
+init-member-uv = 'cp -i "$MISE_TASK_DIR/mise.member-uv.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
+init-member-poetry = 'cp -i "$MISE_TASK_DIR/mise.member-poetry.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
+init-member-pnpm = 'cp -i "$MISE_TASK_DIR/mise.member-pnpm.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
 
 [tasks.debug]
 description = "Print task variables."
@@ -25,6 +27,15 @@ echo MISE_TASK_FILE = $MISE_TASK_FILE
 """
 # End [tasks]
 
+
+[shell_alias]
+rm-deps = "rm -rf .venv"
+"bump:patch" = "uv version --bump patch"
+"bump:minor" = "uv version --bump minor"
+"bump:major" = "uv version --bump major"
+# End [shell_alias]
+
+
 [tools]
 node = "latest"
 pnpm = "latest"
@@ -35,37 +46,28 @@ python = "latest"
 poetry = "latest"
 
 
-[shell_alias]
-rm-deps = "rm -rf .venv"
-"bump:patch" = "uv version --bump patch"
-"bump:minor" = "uv version --bump minor"
-"bump:major" = "uv version --bump major"
 
-# uv
-uv-sync = "uv sync --no-install-project"
-uv-lock = "rm -f uv.lock && uv lock"
-uv-up = "mise up; uv sync -U --no-install-project"
-uv-outdated = "uv tree --outdated --depth 1 | grep '(latest:' || true "
+[task_templates."uv:sync"]
+run = "uv sync"
 
+[task_templates."uv:lock"]
+run = "rm -f uv.lock && uv lock"
 
-# poetry
-# poetry-outdated = "poetry show --outdated"
-# poetry-lock="poetry lock --regenerate"
-# poetry-sync="poetry install --frozen-lockfile"
-# poetry-up="poetry update --sync"
-# poetry-rm-deps = "rm -rf .venv"
-# End [shell_alias]
+[task_templates."uv:up"]
+run = "mise up; uv python upgrade; uv sync -U"
 
-# [task_templates] # https://mise.jdx.dev/tasks/templates.html
-# "uv:sync".run = "uv sync"
-# "uv-sync ".run = "uv sync --no-install-project"
-# "uv-lock ".run = "rm -f uv.lock && uv lock"
-# "uv-up ".run = "mise up; uv sync -U --no-install-project"
-# "uv-outdated ".run = "uv tree --outdated --depth 1 | grep '(latest:' || true " 
-# "uv-rm-deps ".run = "rm -rf .venv"
-# ""init" ".run = "cp -i \"$MISE_TASK_DIR/mise.toml.dist\" \"$MISE_ORIGINAL_CWD/mise.toml\""
-# "poetry-outdated ".run = "poetry show --outdated"
-# "poetry-lock".run ="poetry lock --regenerate"
-# "poetry-sync".run ="poetry install --frozen-lockfile"
-# "poetry-up".run ="poetry update --sync"
-# "poetry-rm-deps ".run = "rm -rf .venv"
+[task_templates."uv:outdated"]
+run = "uv tree --outdated --depth 1 | grep '(latest:' || true" # t6
+
+[task_templates."poetry:sync"]
+run = "poetry sync"
+
+[task_templates."poetry:lock"]
+run = "poetry lock --regenerate"
+
+[task_templates."poetry:up"]
+run = "mise up; poetry update --sync"
+
+[task_templates."poetry:outdated"]
+run = "poetry show --outdated"
+

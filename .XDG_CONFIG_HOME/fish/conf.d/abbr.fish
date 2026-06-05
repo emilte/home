@@ -56,7 +56,7 @@ alias django 'python -m pipenv run python manage.py'
 alias makemigrations 'python -m pipenv run python manage.py makemigrations'
 alias intellij 'open -a "IntelliJ IDEA"'
 alias migrate 'python -m pipenv run python manage.py migrate'
-alias reload fish # reload; 			source $FISH_CONFIG_FILE' # Reload shell environment.
+alias reload 'exec fish' # reload; 			source $FISH_CONFIG_FILE' # Reload shell environment.
 alias restart 'sudo shutdown -r now' # Reboot machine.
 alias dw 'cd $REPOS/spotify && pipenv run python discover_weekly.py && cd -' # Generate playlists for discover weekly in Spotify.
 alias ncdu_home 'ncdu ~ --exclude Projects --exclude Library --exclude .vscode' # Scan home dir.
@@ -81,7 +81,7 @@ alias split-vertical 'osascript -e \'tell application "System Events" to key cod
 
 alias poetry-outdated="poetry show --outdated"
 alias poetry-lock="poetry lock --regenerate"
-alias poetry-sync="poetry install --frozen-lockfile"
+alias poetry-sync="poetry sync"
 alias poetry-up="poetry update --sync"
 
 alias wifi-off='networksetup -setairportpower en0 off'
@@ -99,7 +99,9 @@ alias dcub 'dcu backend'
 alias dce 'dc exec'
 alias dcea 'dc exec app'
 alias dcr 'dc run --remove-orphans'
-alias dcball 'dc --profile="*" build' # Build all images.
+alias dcb:all 'dc --profile="*" build' # Build all images.
+alias dcu:all 'dc --profile="*" up' # Build all images.
+alias dcbu:all 'dc --profile="*" up --build' # Build all images.
 # alias dcrs 'dc restart' dcrs.fish
 alias dcra 'dc run app'
 alias dcbub 'dcbu backend'

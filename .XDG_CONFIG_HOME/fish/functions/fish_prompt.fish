@@ -92,5 +92,8 @@ function fish_prompt
         end
     end
 
-    echo -n -s $arrow ' ' $cwd $repo_info $normal \n ' '$SHLVL'$ '
+    set -l lvl $gray$SHLVL
+    set -l space ' '
+
+    echo -n -s $arrow $space $cwd $repo_info $space \n $normal ' $ '
 end

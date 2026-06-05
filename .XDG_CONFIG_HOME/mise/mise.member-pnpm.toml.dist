@@ -1,0 +1,18 @@
+
+[tasks] # https://mise.jdx.dev/tasks/
+sync = "pnpm run ci"
+up = "pnpm run up"
+outdated = "pnpm run outdated"
+lint = "pnpm run lint"
+qa = "pnpm run lint"
+rm-deps = "rm -rf node_modules"
+# End [tasks]
+
+
+[shell_alias] # https://mise.jdx.dev/shell-aliases.html
+sync = "mise run sync"
+up = "mise run up"
+outdated = "mise run outdated"
+lint = "mise run lint"
+qa = "mise run qa"
+# End: [shell_alias]

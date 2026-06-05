@@ -1,0 +1,31 @@
+
+[tasks] # https://mise.jdx.dev/tasks/
+lint = "echo Not implemented; false"
+qa = "echo Not implemented; false"
+types = "echo Not implemented; false"
+rm-deps = "rm -rf .venv"
+
+[tasks.sync]
+extends = "poetry:sync"
+
+[tasks.up]
+extends = "poetry:up"
+
+[tasks.lock]
+extends = "poetry:lock"
+
+[tasks.outdated]
+extends = "poetry:outdated"
+####################### End [tasks] #######################
+
+
+[shell_alias] # https://mise.jdx.dev/shell-aliases.html
+lint = "mise run lint"
+qa = "mise run qa"
+types = "mise run types"
+
+sync = "mise run sync"
+up = "mise run up"
+lock = "mise run lock"
+outdated = "mise run outdated"
+# End: [shell_alias]
