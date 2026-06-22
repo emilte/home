@@ -9,13 +9,13 @@ idiomatic_version_file_enable_tools = [ # https://mise.jdx.dev/configuration.htm
 python.uv_venv_auto = "create|source" # https://mise.jdx.dev/lang/python.html#automatic-virtualenv-activation
 status.show_env = true
 
-[tasks]
+[tasks] # https://mise.jdx.dev/tasks/
 init = 'cp -i "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
 init-member-uv = 'cp -i "$MISE_TASK_DIR/mise.member-uv.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
 init-member-poetry = 'cp -i "$MISE_TASK_DIR/mise.member-poetry.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
 init-member-pnpm = 'cp -i "$MISE_TASK_DIR/mise.member-pnpm.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
 
-[tasks.debug]
+[tasks.debug] 
 description = "Print task variables."
 run = """
 echo MISE_ORIGINAL_CWD = $MISE_ORIGINAL_CWD
@@ -33,6 +33,18 @@ rm-deps = "rm -rf .venv"
 "bump:patch" = "uv version --bump patch"
 "bump:minor" = "uv version --bump minor"
 "bump:major" = "uv version --bump major"
+debug = "mise run debug"
+root = "cd {{config_root}}"
+ws = "code {{config_root}}/private.code-workspace"
+"w." = "ws"
+frontend = "cd {{config_root}}/frontend"
+up = "mise run --continue-on-error //...:up"
+sync = "mise run --continue-on-error //...:sync"
+lock = "mise run --continue-on-error //...:lock"
+outdated = "mise run --continue-on-error //...:outdated"
+qa = "mise run --continue-on-error //...:qa"
+lint = "mise run --continue-on-error //...:lint"
+format = "mise run --continue-on-error //...:format"
 # End [shell_alias]
 
 
@@ -44,7 +56,6 @@ uv = "latest"
 yarn = "latest"
 python = "latest"
 poetry = "latest"
-
 
 
 [task_templates."uv:sync"]

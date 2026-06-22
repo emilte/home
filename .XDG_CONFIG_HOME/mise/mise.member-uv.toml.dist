@@ -3,7 +3,6 @@
 lint = "echo Not implemented; false"
 qa = "echo Not implemented; false"
 types = "echo Not implemented; false"
-rm-deps = "rm -rf .venv"
 
 [tasks.sync]
 extends = "uv:sync"
