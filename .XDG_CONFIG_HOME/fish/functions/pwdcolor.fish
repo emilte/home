@@ -7,6 +7,11 @@ function pwdcolor -a path --description 'Print a color code based on the hash of
     end
 
     set -l hash (printf '%s' "$path" | sha1)
-    string sub -s 1 -l 6 "$hash"
+    # printf '%s' "$path" | sha1
+    set -l out ""
+    for i in 1 5 7
+        set out "$out"(string sub -s $i -l 1 -- "$hash")
+    end
+    echo "$out"
 
 end

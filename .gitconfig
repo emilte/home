@@ -43,7 +43,7 @@
 
 	is-default = ![ "$(git current)" = "$(git default)" ] # Determine if current branch is the default branch.
 	remote-url = config --get remote.origin.url # Get remote origin url.
-	remote-url-http = ! url=$(git remote-url) && url=${url/://} && url=${url/*@/https://} && echo $url # Replaces colon from string
+	remote-url-http = ! url=$(git remote-url) && url=${url/://} && url=${url/*@/https://} && url=${url%.git} && echo $url # Replaces colon from string, removes trailing .git
 	set-remote = remote set-url origin # Set remote origin url.
 	is-glab = ![[ "$(git remote-url)" == "git@gitlab"* ]]
 	is-gh = ![[ "$(git remote-url)" == "git@github"* ]]
@@ -62,9 +62,10 @@
 	
 	# (old alias) pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
 	is-behind = !git status -sb | grep behind
-	prm = !git pm && git rebase origin/$(git default)
+	prm = !git pm && git rebase --allow-empty-message origin/$(git default)
 	pmm = !git pm && git merge origin/$(git default)
 	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
+	acp = !git add -A && git commit --allow-empty-message -m '' && git push # Add all, commit and push in one command.
 	af = !git amend && git fpush # Shortcut.
 	aaf = !git add -A && git af # Shortcut.
 	myprune = !git fetch --prune && git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d # Prune deleted branches.
@@ -72,7 +73,7 @@
 	olog = log --oneline # Less verbose log.
 	ologg = olog -g # Include reflog.
 	squash = rebase -i --autosquash # <branch> # Autosquashes fixup commits.
-	amend = commit --amend --verbose # Amend staged changes to last commit.
+	amend = commit --amend --verbose --allow-empty-message # Amend staged changes to last commit.
 	freset = !git reset --hard @{upstream} # Hard reset current branch.
 	mr = !glab mr view --web # Open current merge request on GitLab in browser.
 	pr = !gh pr view --web # Open current merge request on GitHub in browser.

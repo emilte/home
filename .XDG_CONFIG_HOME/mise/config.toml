@@ -29,15 +29,13 @@ echo MISE_TASK_FILE = $MISE_TASK_FILE
 
 
 [shell_alias]
-rm-deps = "rm -rf .venv"
 "bump:patch" = "uv version --bump patch"
 "bump:minor" = "uv version --bump minor"
 "bump:major" = "uv version --bump major"
 debug = "mise run debug"
 root = "cd {{config_root}}"
-ws = "code {{config_root}}/private.code-workspace"
-"w." = "ws"
-frontend = "cd {{config_root}}/frontend"
+# ws = "code {{config_root}}/private.code-workspace"
+# "w." = "ws"
 up = "mise run --continue-on-error //...:up"
 sync = "mise run --continue-on-error //...:sync"
 lock = "mise run --continue-on-error //...:lock"
@@ -45,6 +43,7 @@ outdated = "mise run --continue-on-error //...:outdated"
 qa = "mise run --continue-on-error //...:qa"
 lint = "mise run --continue-on-error //...:lint"
 format = "mise run --continue-on-error //...:format"
+rm-deps = "mise run --continue-on-error //...:rm-deps"
 # End [shell_alias]
 
 

@@ -75,8 +75,9 @@ function npr --description 'New PR on GitHub.'
     git pm
     git checkout -b $branchname $target_branch || return 1
 
-    # Update remote with empty commit. Github usually won't create empty PR.
-    git commit --allow-empty --allow-empty-message -m "$issue_title" || return 1
+    # Update remote with empty commit. Github won't create PR without one.
+    git commit --allow-empty --allow-empty-message -m "" || return 1
+    # git commit --allow-empty --allow-empty-message -m "$issue_title" || return 1
     git push || return 1
 
     # Create a pull request.

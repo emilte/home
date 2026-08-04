@@ -1,4 +1,4 @@
-experimental_monorepo_root = true
+monorepo_root = true
 
 [monorepo] # https://mise.jdx.dev/tasks/monorepo.html
 config_roots = []

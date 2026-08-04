@@ -27,4 +27,8 @@ sync = "mise run sync"
 up = "mise run up"
 lock = "mise run lock"
 outdated = "mise run outdated"
-# End: [shell_alias]
+####################### End [shell_alias] #######################
+
+[tools]
+uv = "0.11"
+# End [tools]
