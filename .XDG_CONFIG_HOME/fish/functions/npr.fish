@@ -9,7 +9,11 @@ function npr --description 'New PR on GitHub.'
     set -l did_stash 0
     if _is_git_dirty
         read -P "Repo is dirty. Stash and continue? [Y/n] " -l stash_changes
-        echo $stash_changes
+        or return 130
+
+        if test -z "$stash_changes"
+            set stash_changes y
+        end
 
         if not string match -iq n "$stash_changes"
             echo "Stashing changes..."
@@ -30,21 +34,23 @@ function npr --description 'New PR on GitHub.'
     end
 
     # Target branch for PR.
+
+    set -l default_branch (git default)
     if set -q X_NPR_TARGET_BRANCH
-        set target_branch $X_NPR_TARGET_BRANCH
+        set target_branch (printf '%s\n%s\n' $default_branch $X_NPR_TARGET_BRANCH  | string match -v '' | sort -u | fzf --layout=reverse --no-input --prompt 'Target branch: ')
     else
-        set target_branch (git default)
+        set target_branch $default_branch
     end
     if test -z "$target_branch"
         echo "Target branch is required"
         return 1
     end
 
-    set -l random_number (random 1000 9999)
+    set -l npr_count (npr-count)
 
     # set -l branchname_raw (branchify "$issue_title")
     set -l issue_title_short (string sub -l 35 -- "$issue_title")
-    set -l branchname (branchify "$issue_title_short-$random_number")
+    set -l branchname (branchify "$issue_title_short-$npr_count")
 
     set -l jira_ticket (string match -r 'VDS-[0-9]+$' "$issue_title")
     # If no match, search at start of string.
@@ -73,6 +79,7 @@ function npr --description 'New PR on GitHub.'
     # return 1
 
     git pm
+    git sync $target_branch
     git checkout -b $branchname $target_branch || return 1
 
     # Update remote with empty commit. Github won't create PR without one.
@@ -86,6 +93,12 @@ function npr --description 'New PR on GitHub.'
     # Ask to apply stash.
     if test $did_stash -eq 1
         read -P "Apply stash again? [Y/n] " -l stash_apply
+        or return 130
+
+        if test -z "$stash_apply"
+            set stash_apply y
+        end
+
         if not string match -iq n "$stash_apply"
             git stash apply
         end

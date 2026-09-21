@@ -23,19 +23,27 @@ alias today 'date +"%d.%m.%Y"'
 alias now 'date +"%d.%m.%Y %H:%M:%S"'
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
-abbr cls clear
+alias cls clear
 abbr projects 'cd $PROJECTS_HOME'
 alias repos 'cd $REPOS'
-abbr m 'git m'
-abbr p 'git pull'
-abbr ur 'uv run'
-abbr f 'git f'
+alias m 'git m'
+alias p 'git pull'
+alias ur 'uv run'
+alias f 'git f'
+
+abbr nprd 'X_NPR_TARGET_BRANCH=(git default) npr'
+
+alias vault. 'copy-vault-token; open $VAULT_ADDR' # Open Vault in browser.
 
 alias npr-arkivverket='npr' # Deprecated, use npr instead. This was previously a separate function with Arkivverket-specific logic, but the logic has now been merged into npr.
 
 alias todo 'code $REPOS/notes/arkivverket/todo' # Open todo list in VSCode.
 
+abbr vault-renew-na 'fish -c "vault-renew-na_" &' # Must be abbr.
+
 alias gc="repos && git clone"
+
+alias unset 'set -e'
 
 abbr sb supabase
 

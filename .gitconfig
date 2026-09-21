@@ -50,6 +50,8 @@
 	st = stash --include-untracked
 	sta = stash apply
 
+	sync = "!f() { if [ \"$(git current)\" = \"$1\" ]; then git pull; else git fetch origin \"$1:$1\"; fi; }; f"
+
 	ub = !git prm && git fpush # Update branch with latest changes from default branch with rebase.
 	ubm = !git pmm && git push # Update branch (merge) with latest changes from default branch with merge.
 
@@ -59,16 +61,24 @@
 	# https://stackoverflow.com/a/53667801/12616507
 	# pm = "!git fetch origin  && git is-default && git pull || { BRANCH=$(git default); echo \"Pulling origin/$BRANCH into $BRANCH ...\"; git fetch origin $BRANCH:$BRANCH; echo \"Branch $BRANCH is now up to date.\"; }"
 	pm = "!git is-default && git pull || { BRANCH=$(git default); echo \"Pulling origin/$BRANCH into $BRANCH ...\"; git fetch origin $BRANCH:$BRANCH; echo \"Branch $BRANCH is now up to date.\"; }"
+	pt = "!git is-default && git pull || { BRANCH=$(git target); echo \"Pulling origin/$BRANCH into $BRANCH ...\"; git fetch origin $BRANCH:$BRANCH; echo \"Branch $BRANCH is now up to date.\"; }" # Update target branch with latest changes from remote.
+	# pm = "!git is-default && git pull || { BRANCH=$(git default); echo \"Pulling origin/$BRANCH into $BRANCH ...\"; git fetch origin $BRANCH:$BRANCH; echo \"Branch $BRANCH is now up to date.\"; }"
 	
 	# (old alias) pm = !"git stash | awk '/No local changes to save/' | grep . ; WAS_CLEAN=$? && git co $(git default) && git fetch --all && git pull && git co - && [ $WAS_CLEAN = 1 ] && git stash apply"
 	is-behind = !git status -sb | grep behind
-	prm = !git pm && git rebase --allow-empty-message origin/$(git default)
-	pmm = !git pm && git merge origin/$(git default)
+	prm = !git pm && git pt && git rebase --allow-empty-message origin/$(git target)
+	pmm = !git pm && git pt && git merge origin/$(git target)
+	rc = rebase --continue --allow-empty-message # Continue a rebase even with an empty commit message.
+	mc = merge --continue --allow-empty-message # Continue a merge even with an empty commit message.
+	gh-target = !gh pr view --json baseRefName -q .baseRefName
+	env-target = !echo $X_NPR_TARGET_BRANCH
+	target = gh-target
 	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
 	acp = !git add -A && git commit --allow-empty-message -m '' && git push # Add all, commit and push in one command.
 	af = !git amend && git fpush # Shortcut.
 	aaf = !git add -A && git af # Shortcut.
-	myprune = !git fetch --prune && git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d # Prune deleted branches.
+	myprune = !git fetch --prune && git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D # Prune deleted branches.
+	ideletebranches = !git branch | fzf --multi --marker=X --wrap --bind 'tab:toggle' | xargs git branch -D
 	fix = commit --fixup # <commit> # Add fixup commit to another commit.
 	olog = log --oneline # Less verbose log.
 	ologg = olog -g # Include reflog.
