@@ -68,13 +68,13 @@
 	is-behind = !git status -sb | grep behind
 	prm = !git pm && git pt && git rebase --allow-empty-message origin/$(git target)
 	pmm = !git pm && git pt && git merge origin/$(git target)
-	rc = rebase --continue --allow-empty-message # Continue a rebase even with an empty commit message.
-	mc = merge --continue --allow-empty-message # Continue a merge even with an empty commit message.
+	rc = rebase --continue # Continue a rebase even with an empty commit message.
+	mc = merge --continue # Continue a merge even with an empty commit message.
 	gh-target = !gh pr view --json baseRefName -q .baseRefName
 	env-target = !echo $X_NPR_TARGET_BRANCH
 	target = gh-target
 	fpush = !git push --force-with-lease origin $(git current) # Force push with lease.
-	acp = !git add -A && git commit --allow-empty-message -m '' && git push # Add all, commit and push in one command.
+	acp = !git add -A && git commit --allow-empty-message -m '​' && git push # Add all, commit and push in one command. (intended invisible char because rebase conflict resolution requires message)
 	af = !git amend && git fpush # Shortcut.
 	aaf = !git add -A && git af # Shortcut.
 	myprune = !git fetch --prune && git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D # Prune deleted branches.
