@@ -10,6 +10,8 @@ function gco -a branch
         return 1
     end
 
+    git f
+
     git co $branch
 
 end

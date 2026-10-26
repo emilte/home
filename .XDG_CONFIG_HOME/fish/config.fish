@@ -38,3 +38,10 @@ source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 
 # uv
 fish_add_path "/Users/ext-emitel/.XDG_DATA_HOME/../bin"
+
+# pnpm
+set -gx PNPM_HOME '/Users/ext-emitel/.XDG_DATA_HOME/pnpm'
+if test "$PATH[1]" != "$PNPM_HOME/bin"
+  set -gx PATH "$PNPM_HOME/bin" $PATH
+end
+# pnpm end

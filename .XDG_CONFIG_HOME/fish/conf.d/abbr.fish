@@ -61,7 +61,7 @@ alias privr 'priv-cli -r' # Remove privileges.
 alias i. 'intellij .'
 abbr notes 'code $REPOS/notes'
 alias django 'python -m pipenv run python manage.py'
-alias makemigrations 'python -m pipenv run python manage.py makemigrations'
+alias "acr." 'open $DA_ACR'
 alias intellij 'open -a "IntelliJ IDEA"'
 alias migrate 'python -m pipenv run python manage.py migrate'
 alias reload 'exec fish' # reload; 			source $FISH_CONFIG_FILE' # Reload shell environment.

@@ -9,13 +9,15 @@ idiomatic_version_file_enable_tools = [ # https://mise.jdx.dev/configuration.htm
 python.uv_venv_auto = "create|source" # https://mise.jdx.dev/lang/python.html#automatic-virtualenv-activation
 status.show_env = true
 
+node.corepack = true
+
 [tasks] # https://mise.jdx.dev/tasks/
 init = 'cp -i "$MISE_TASK_DIR/mise.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
 init-member-uv = 'cp -i "$MISE_TASK_DIR/mise.member-uv.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
 init-member-poetry = 'cp -i "$MISE_TASK_DIR/mise.member-poetry.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
 init-member-pnpm = 'cp -i "$MISE_TASK_DIR/mise.member-pnpm.toml.dist" "$MISE_ORIGINAL_CWD/mise.toml"'
 
-[tasks.debug] 
+[tasks.debug]
 description = "Print task variables."
 run = """
 echo MISE_ORIGINAL_CWD = $MISE_ORIGINAL_CWD
@@ -64,7 +66,16 @@ run = "uv sync"
 run = "rm -f uv.lock && uv lock"
 
 [task_templates."uv:up"]
-run = "mise up; uv python upgrade; uv sync -U"
+run = "uv python upgrade; uv sync -U"
+
+[task_templates."uv:fup"]
+description = """
+Upgrade dependencies while excluding newer versions of the specified package.
+[tasks.fup]
+extends = "uv:fup"
+"""
+usage = 'arg "<packages>" var=#true'
+run = "uv lock --upgrade $(printf -- '--exclude-newer-package %s=false ' ${usage_packages})"
 
 [task_templates."uv:outdated"]
 run = "uv tree --outdated --depth 1 | grep '(latest:' || true" # t6
